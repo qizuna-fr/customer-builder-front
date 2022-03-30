@@ -30,3 +30,9 @@ export const axiosCall = async (url, headerContent, errorResponse = "Non trouvé
     })
 }
 
+export const redirect = (targetURL) => {
+    let newURL = document.createElement('a');
+    newURL.href = targetURL;
+    document.body.appendChild(newURL);
+    newURL.click();
+}

@@ -15,13 +15,13 @@ export const WithoutName = () => {
       }, []);
 
     return (
-        <>
+        <div id = "idEssai">
             <h1>Essais de composant</h1>
             {users.map((item, index) => (
                 <li key={index} value={item.nom} >
                     {item.name}
                 </li>)
             )}
-        </>
+        </div>
     )
 }

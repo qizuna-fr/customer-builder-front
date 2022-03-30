@@ -1,0 +1,28 @@
+.slide{
+    height: 100px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .accueil{
+    height: 500px;
+    background-color: mediumaquamarine;
+  }
+  .pageOne{
+      height: 500px;
+      background-color: cadetblue;
+  }
+
+  .pageTow{
+      height: 500px;
+      background-color: darksalmon;
+  }
+  .pageThree{
+      height: 500px;
+      background-color: darkolivegreen;
+  }
+  .pageFour{
+      height: 500px;
+      background-color: indianred;
+  }
+
