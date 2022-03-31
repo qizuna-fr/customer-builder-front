@@ -3,9 +3,21 @@ import { PageTow } from './PageTow';
 import { Accueil } from '../pages/Accueil';
 import { PageOne } from './PageOne';
 import { PageThree } from './PageThree';
+import { Airtable } from '../pages/Airtable';
+import { TypeForm } from '../pages/TypeForm';
 
   export const Data = [
    
+    {
+      title: 'type_form',
+      url: '/type_form',
+      component : <TypeForm/>
+    },
+    {
+      title: 'airtable',
+      url: '/airtable',
+      component : <Airtable/>
+    },
     {
       title: 'accueil',
       url: '/accueil',

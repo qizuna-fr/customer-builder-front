@@ -33,8 +33,11 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import './theme/variables.css';
 import Page from './pages/Page';
 import { AnimatedSwitch } from './pages/AnimatedSwitch';
+import { useState, useEffect } from "react"
+import {axiosCall} from './utilities/utilities'
 
 setupIonicReact();
+
 
 
 
