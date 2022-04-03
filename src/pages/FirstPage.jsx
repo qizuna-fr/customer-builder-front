@@ -1,30 +1,26 @@
-import { IonButton, IonInput, IonLabel } from "@ionic/react"
 import './Home.css'
-import {forwardRef, useRef } from "react";
-import { redirect } from "../utilities/utilities";
-import { Link } from "react-router-dom";
-import { AnimatedSwitch } from "./AnimatedSwitch";
-
+import { redirect, setURLPage, setDepartement } from "../utilities/utilities";
 
 export const FirstPage = () => {
 
-    const pageOne = useRef(null);
-    const pageTow = useRef(null);
-    const pageThree = useRef(null);
-   
     const scrollToNext = () => {
-    redirect(`${window.location.protocol}//${window.location.host}/second_page`)
+    setURLPage('second_page')
+    redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
+   
+    }
+
+    let departementContent = (value) => {
+        console.log(value);
+        setDepartement(value)
     }
 
     return (
-    <div >
-        <div ref={pageOne} className="pageOne" id="1">
-        <IonLabel> Let's start with your first name !</IonLabel>
-        <IonInput placeholder="Type your first name here..."/>
-        {/* <IonButton onClick={() => scrollToNext()}>OK </IonButton> */}
-        <AnimatedSwitch />
-        <Link to="/second_page">Next</Link>
-        </div>
-    </div>
+    <div className="container">
+        <h4>Commençons par le nom de la commune !</h4>
+        <p><input type = "text" placeholder="Tapez ici le nom de la commune..." onInput={(e) => departementContent(e.target.value)}></input></p>
+        
+        <button id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
+        <hr /><hr /><hr /><hr />
+    </div> 
     )
 }

@@ -1,19 +1,28 @@
+import ColorPicker from '../components/ColorPicker'
 import './Home.css'
-import {IonInput, IonLabel } from "@ionic/react"
-import {forwardRef, useRef } from "react";
-import { Link } from "react-router-dom";
-import { AnimatedSwitch } from './AnimatedSwitch';
+import { redirect, setURLPage } from "../utilities/utilities";
 
 export const ThirdPage = () => {
-    const pageTow = useRef(null);
+    
+    const scrollToNext = () => {
+        setURLPage('fourth_page')
+        redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
+    }
+    
+    const scrollToPrevious = () => {
+        setURLPage('second_page')
+        redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
+    }
+
     return (
-        <div >
-            <div ref={pageTow} className="pageTow" id="2">
-            <IonLabel> What email address can we reach you at !</IonLabel>
-            <IonInput placeholder="Type your email here..."/>
-            <AnimatedSwitch />
-            <Link to="/second_page">Previous</Link>  <Link >Finish</Link>
+        <div className="container">
+            <h4> Maitenant choisissez la couleur que vous souhaitez utiliser pour votre application !</h4>
+            <ColorPicker/> 
+            <div className="buttonright">
+                <button id="nextBtn" type="button" onClick={() => scrollToNext()} >Suivant</button>
             </div>
+            <button id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
+            <hr /><hr /><hr /><hr />
         </div>
         )
 }

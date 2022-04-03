@@ -7,20 +7,15 @@ const Page = (props) => {
 
   const { name } = useParams()
  
-  // const [role, setRole] = useState(getRole())
   const data = Data.find(page => page.url.substring(1) === name)
 
   const content = () => {
-    
     return data.component
   }
 
- 
-
   return (
     <IonPage>
-      <Home>coucou</Home>
-      
+      {/* <Home></Home> */}
       <IonContent>
         {content()}
       </IonContent>

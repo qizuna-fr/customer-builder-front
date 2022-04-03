@@ -4,25 +4,191 @@
     scroll-behavior: smooth;
   }
 
-  .accueil{
-    height: 500px;
-    background-color: mediumaquamarine;
-  }
-  .pageOne{
-      height: 500px;
-      background-color: cadetblue;
-  }
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  
+}
 
-  .pageTow{
-      height: 500px;
-      background-color: darksalmon;
-  }
-  .pageThree{
-      height: 500px;
-      background-color: darkolivegreen;
-  }
-  .pageFour{
-      height: 500px;
-      background-color: indianred;
-  }
+/* .buttonright {
+  overflow:auto;
+  float:right;
+  padding: 10px 20px;
+} */
+
+/* .buttonleft {
+  overflow:auto;
+  float:left;
+  padding: 10px 20px;
+} */
+  
+.containerAccueil {
+  text-align: center;
+  padding: 16px;
+  border: 1px solid #136ce0;
+  border-radius: 0.50rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.containerColor {
+  margin: 0 auto;
+	padding: 1px;
+  display: flex;
+
+}
+
+.container {
+	margin: 0 auto;
+	padding: 16px;
+	justify-content: center;
+  padding: 16px;
+  border: 1px solid #136ce0;
+  border-radius: 0.50rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+img.logo {
+  width: 40%;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+  
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+  
+.fade-exit {
+  opacity: 1;
+}
+  
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+  
+div.transition-group {
+  position: relative;
+}
+  
+section.route-section {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slide-enter,
+.slide-exit {
+  transition: transform 1000ms ease-out;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0%);
+}
+
+.slide-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
+}
+
+.accueil{
+  height: 500px;
+  background-color: mediumaquamarine;
+}
+
+input[type=text], input[type=password], input[type=submit], input[type=file] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* button {
+  background-color: cadetblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+} */
+
+button {
+	margin: 8px 0;
+	background-color: rgb(47, 101, 181);
+	color: white;
+	padding: 9px 20px;
+	border: none;
+	cursor: pointer;
+	/* width: 30%; */
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+  overflow:auto;
+  float:right;
+}
+
+#nextBtn {
+  overflow:auto;
+  float:right;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+  
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+  
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+  
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+  
+.container {
+  padding: 16px;
+}
+  
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+  
+  /* Change styles for span and cancel button on extra small screens */
+
+span.psw {
+  display: block;
+  float: none;
+}
+
+.cancelbtn {
+  width: 100%;
+}
 

@@ -36,3 +36,43 @@ export const redirect = (targetURL) => {
     document.body.appendChild(newURL);
     newURL.click();
 }
+
+export const getURLPage = () => {
+    return sessionStorage.getItem('url')
+}
+
+export const setURLPage = (url) => {
+    sessionStorage.setItem('url', url);
+}
+
+export const getDepartement = () => {
+    return sessionStorage.getItem('departement')
+}
+
+export const setDepartement = (departement) => {
+    sessionStorage.setItem('departement', departement);
+}
+
+export const getFile = () => {
+    return sessionStorage.getItem('file')
+}
+
+export const setFile = (file) => {
+    sessionStorage.setItem('file', file);
+}
+
+export const getColor = () => {
+    return sessionStorage.getItem('color')
+}
+
+export const setColor = (color) => {
+    sessionStorage.setItem('color', color);
+}
+
+export const getFontApp = () => {
+    return sessionStorage.getItem('font')
+}
+
+export const setFontApp = (font) => {
+    sessionStorage.setItem('font', font);
+}

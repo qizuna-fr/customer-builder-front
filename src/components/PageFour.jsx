@@ -1,6 +1,6 @@
-import { AnimatedSwitch } from "../pages/AnimatedSwitch"
+import { AnimatedSwitch } from "../pages/AnimatedSwitch";
 
-export const PageTow = () => {
+export const PageFour = () => {
     return (
         <>
             <AnimatedSwitch></AnimatedSwitch>

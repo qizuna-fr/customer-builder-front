@@ -1,10 +1,10 @@
-import { FirstPage } from "../pages/FirstPage"
+
+import { AnimatedSwitch } from "../pages/AnimatedSwitch";
 
 export const PageOne = () => {
-
     return (
         <>
-            <FirstPage></FirstPage>
+            <AnimatedSwitch></AnimatedSwitch>
         </>
     )
 }
