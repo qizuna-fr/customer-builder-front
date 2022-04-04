@@ -1,14 +1,32 @@
 import { IonButton, IonItem, IonLabel } from "@ionic/react"
-import {  getColor, getDepartement, getFile, getFontApp } from "../utilities/utilities"
+import {  getColor, getDepartement, getFile, getFontApp, redirect } from "../utilities/utilities"
 import './Home.css'
-import axios from 'axios';
 
 export const LastPage = () => {
   
+  let exist = 0
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
+
   let contentAirtable = async () => {
-    var Airtable = require('airtable');
-    var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-    
+
+    base('Projects').select({
+      // Selecting the first 3 records in Grid view:
+      filterByFormula: `departement = "${getDepartement()}"`
+  }).eachPage(function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+          console.log('Retrieved', record.get('Departement'));
+          exist = 1
+          console.log(exist);
+      });
+      fetchNextPage();
+  
+  }, function done(err) {
+      if (err) { console.error(err); return; }
+  });
+  
+  if (exist == 0)
+  {
     base('Projects').create([
       {
         "fields": {
@@ -27,21 +45,11 @@ export const LastPage = () => {
         console.log(record.getId());
       });
     });
-  //   await axios.put("https://api.airtable.com/v0/app9QhNsv5170O8Iw/Projects?api_key=keyWdc5YHi3Jwi34f", 
-  //   {
-  //     fields: {
-  //       departement: getDepartement(),
-  //       logo : getFile(),
-  //       color : getColor(),
-  //       font : getFontApp(),
-  //     }
-  // }
-  // , {
-  // headers: {
-  //   'Accept': 'application/json'
-  // }
-  // })
   }
+  else console.log("Existe déjà ! ");
+  }
+
+    
 
     return (
 
