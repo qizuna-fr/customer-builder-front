@@ -1,0 +1,7 @@
+{
+  "name": "qizuna_builder_frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

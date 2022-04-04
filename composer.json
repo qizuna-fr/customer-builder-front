@@ -1,0 +1,15 @@
+{
+    "name": "acs/customer-builder-front",
+    "autoload": {
+        "psr-4": {
+            "Acs\\CustomerBuilderFront\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "meriam",
+            "email": "meriam.mahjoub@gmail.com"
+        }
+    ],
+    "require": {}
+}
