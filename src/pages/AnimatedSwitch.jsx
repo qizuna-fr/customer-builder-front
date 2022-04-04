@@ -1,14 +1,12 @@
-import {
-    Route,
-    Switch
-  } from "react-router-dom";
-  import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { SecondPage } from "./SecondPage";
-import './Home.css'
-import { FirstPage } from "./FirstPage";
-import { ThirdPage } from "./ThirdPage";
-import { FourthPage } from "./FourthPage";
+import {Route,  Switch } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { SecondPage } from "../components/SecondPage";
+import { FirstPage } from "../components/FirstPage";
+import { ThirdPage } from "../components/ThirdPage";
+import { FourthPage } from "../components/FourthPage";
 import { LastPage } from "./LastPage";
+
+import '../assets/css/Style.css'
 
 export const AnimatedSwitch = ({url}) => {
   const content = (url) => {
@@ -29,23 +27,3 @@ export const AnimatedSwitch = ({url}) => {
   </TransitionGroup>
   )
   }
-
-// export const AnimatedSwitch = ({ location }) => {
-//   console.log(location);
-// return (
-//     <TransitionGroup className="transition-group">
-//       <CSSTransition
-//         key={location.key}
-//         timeout={{ enter: 300, exit: 300 }}
-//         classNames="fade"
-//       >
-//         <section className="route-section">
-//           <Switch location={location}>
-//             <Route path="/first_page" component={FirstPage} />
-//             <Route path="/second_page" component={SecondPage} />
-//           </Switch>
-//         </section>
-//       </CSSTransition>
-//     </TransitionGroup>
-// );
-// }

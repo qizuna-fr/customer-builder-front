@@ -1,5 +1,6 @@
-import './Home.css'
-import { redirect, setURLPage, setDepartement } from "../utilities/utilities";
+import { redirect, setURLPage, setDepartement } from "../pages/utilities";
+
+import '../assets/css/Style.css'
 
 export const FirstPage = () => {
 

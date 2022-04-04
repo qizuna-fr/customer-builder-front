@@ -1,7 +1,8 @@
-import './Home.css'
-import { redirect, setFontApp, setURLPage } from "../utilities/utilities";
+import { redirect, setFontApp, setURLPage } from "../pages/utilities";
 import { useState } from 'react';
 import FontPicker from "font-picker-react";
+
+import '../assets/css/Style.css'
 
 export const FourthPage = () => {
     

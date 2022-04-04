@@ -1,10 +1,10 @@
+import { redirect, setURLPage } from "../pages/utilities"
 
-import { redirect, setURLPage } from "../utilities/utilities"
-import './Home.css'
+import '../assets/css/Style.css'
 
 export const Accueil = () => {
 
-    const logo = require('./qizuna.png');
+    const logo = require('../assets/icon/qizuna.png');
 
     const scrollToNext = () => {
         setURLPage('first_page')

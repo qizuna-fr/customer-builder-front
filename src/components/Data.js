@@ -1,29 +1,16 @@
-
-import { PageTow } from './PageTow';
-import { Accueil } from '../pages/Accueil';
-import { PageOne } from './PageOne';
-import { PageThree } from './PageThree';
-import { Airtable } from '../pages/Airtable';
-import { TypeForm } from '../pages/TypeForm';
+import { Accueil } from './Accueil';
 import { TransitionPages } from './TransitionPages';
-import { PageFour } from './PageFour';
-import { PageEnd } from './PageEnd';
+import { FirstPage } from './FirstPage';
+import { SecondPage } from './SecondPage';
+import { ThirdPage } from './ThirdPage';
+import { FourthPage } from './FourthPage';
+import { LastPage } from '../pages/LastPage';
 
   export const Data = [
     {
       title: 'animated-switch',
       url: '/animated-switch',
       component : <TransitionPages/>
-    },
-    {
-      title: 'type_form',
-      url: '/type_form',
-      component : <TypeForm/>
-    },
-    {
-      title: 'airtable',
-      url: '/airtable',
-      component : <Airtable/>
     },
     {
       title: 'accueil',
@@ -33,26 +20,26 @@ import { PageEnd } from './PageEnd';
     {
       title: 'firstPage',
       url: '/first_page',
-      component : <PageOne/>
+      component : <FirstPage/>
     },
     {
       title: 'secondPage',
       url: '/second_page',
-      component : <PageTow/>
+      component : <SecondPage/>
     },
     {
       title: 'third_page',
       url: '/third_page',
-      component : <PageThree/>
+      component : <ThirdPage/>
     },
     {
       title: 'fourthPage',
       url: '/fourth_page',
-      component : <PageFour/>
+      component : <FourthPage/>
     },
     {
       title: 'lastPage',
       url: '/last_page',
-      component : <PageEnd/>
+      component : <LastPage/>
     },
 ]

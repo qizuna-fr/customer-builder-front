@@ -1,6 +1,7 @@
-import './Home.css'
-import { redirect, setURLPage } from "../utilities/utilities";
+import { redirect, setURLPage } from "../pages/utilities";
 import { UploadFile } from '../components/UploadFile';
+
+import '../assets/css/Style.css'
 
 export const SecondPage = () => {
 

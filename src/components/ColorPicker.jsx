@@ -16,7 +16,7 @@ import {
   SwatchesPicker,
   TwitterPicker
 } from "react-color";
-import { setColor } from '../utilities/utilities';
+import { setColor } from '../pages/utilities';
 
 
 class ColorPicker extends React.Component {
