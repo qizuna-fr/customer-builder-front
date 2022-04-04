@@ -1,19 +1,19 @@
 import {Route,  Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { SecondPage } from "../components/SecondPage";
-import { FirstPage } from "../components/FirstPage";
-import { ThirdPage } from "../components/ThirdPage";
-import { FourthPage } from "../components/FourthPage";
+import { PageOne } from "./PageOne";
+import { PageTwo } from "./PageTwo";
+import { PageThree } from "./PageThree";
+import { PageFour } from "./PageFour";
 import { LastPage } from "./LastPage";
 
 import '../assets/css/Style.css'
 
 export const AnimatedSwitch = ({url}) => {
   const content = (url) => {
-    if (url == 'first_page') return <Route component={FirstPage} />
-    if (url == 'second_page') return <Route component={SecondPage} />
-    if (url == 'third_page') return <Route component={ThirdPage} />
-    if (url == 'fourth_page') return <Route component={FourthPage} />
+    if (url == 'first_page') return <Route component={PageOne} />
+    if (url == 'second_page') return <Route component={PageTwo} />
+    if (url == 'third_page') return <Route component={PageThree} />
+    if (url == 'fourth_page') return <Route component={PageFour} />
     if (url == 'last_page') return <Route component={LastPage} />
   }
 

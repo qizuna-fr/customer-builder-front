@@ -1,9 +1,9 @@
 import ColorPicker from '../components/ColorPicker'
-import { redirect, setURLPage } from "../pages/utilities"
+import { redirect, setURLPage } from "./utilities"
 
 import '../assets/css/Style.css'
 
-export const ThirdPage = () => {
+export const PageThree = () => {
     
     const scrollToNext = () => {
         setURLPage('fourth_page')

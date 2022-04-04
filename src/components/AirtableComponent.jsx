@@ -1,5 +1,5 @@
 import { IonButton, IonItem, IonLabel } from "@ionic/react"
-import {  getColor, getDepartement, getFile, getFontApp, redirect } from "../pages/utilities"
+import {  getColor, getInputContent, getFile, getFontApp } from "../pages/utilities"
 
 import '../assets/css/Style.css'
 
@@ -13,7 +13,7 @@ export const AirtableComponent = () => {
 
     base('Projects').select({
       // Selecting the first 3 records in Grid view:
-      filterByFormula: `departement = "${getDepartement()}"`
+      filterByFormula: `departement = "${getInputContent()}"`
   }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
           console.log('Retrieved', record.get('Departement'));
@@ -31,7 +31,7 @@ export const AirtableComponent = () => {
     base('Projects').create([
       {
         "fields": {
-          "Departement": getDepartement(),
+          "Departement": getInputContent(),
           "logo": getFile(),
           "color": getColor(),
           "front": getFontApp()

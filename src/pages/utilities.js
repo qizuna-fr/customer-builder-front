@@ -14,12 +14,12 @@ export const setURLPage = (url) => {
     sessionStorage.setItem('url', url);
 }
 
-export const getDepartement = () => {
-    return sessionStorage.getItem('departement')
+export const getInputContent = () => {
+    return sessionStorage.getItem('text')
 }
 
-export const setDepartement = (departement) => {
-    sessionStorage.setItem('departement', departement);
+export const setInputContent = (text) => {
+    sessionStorage.setItem('text', text);
 }
 
 export const getFile = () => {

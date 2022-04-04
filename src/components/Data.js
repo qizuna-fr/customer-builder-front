@@ -1,10 +1,10 @@
-import { Accueil } from './Accueil';
+import { Accueil } from '../pages/Accueil';
 import { TransitionPages } from './TransitionPages';
-import { FirstPage } from './FirstPage';
-import { SecondPage } from './SecondPage';
-import { ThirdPage } from './ThirdPage';
-import { FourthPage } from './FourthPage';
 import { LastPage } from '../pages/LastPage';
+import { PageOne } from '../pages/PageOne';
+import { PageTwo } from '../pages/PageTwo';
+import { PageThree } from '../pages/PageThree';
+import { PageFour } from '../pages/PageFour';
 
   export const Data = [
     {
@@ -20,22 +20,22 @@ import { LastPage } from '../pages/LastPage';
     {
       title: 'firstPage',
       url: '/first_page',
-      component : <FirstPage/>
+      component : <PageOne/>
     },
     {
       title: 'secondPage',
       url: '/second_page',
-      component : <SecondPage/>
+      component : <PageTwo/>
     },
     {
       title: 'third_page',
       url: '/third_page',
-      component : <ThirdPage/>
+      component : <PageThree/>
     },
     {
       title: 'fourthPage',
       url: '/fourth_page',
-      component : <FourthPage/>
+      component : <PageFour/>
     },
     {
       title: 'lastPage',

@@ -1,10 +1,10 @@
-import { redirect, setFontApp, setURLPage } from "../pages/utilities";
+import { redirect, setFontApp, setURLPage } from "./utilities";
 import { useState } from 'react';
 import FontPicker from "font-picker-react";
 
 import '../assets/css/Style.css'
 
-export const FourthPage = () => {
+export const PageFour = () => {
     
     const scrollToNext = () => {
         setFontApp(font)
@@ -18,8 +18,6 @@ export const FourthPage = () => {
     }
 
     const [font, setFont] = useState("Open Sans");
-
-    console.log(font);
 
 
     return (
