@@ -11,7 +11,7 @@ export const InputContent = ({textInput}) => {
     return (
     <div>
         <h4>Commençons par le nom de votre {textInput} !</h4>
-        <p><input type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
+        <p><input id="text" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
     </div> 
     )
 }
