@@ -1,6 +1,6 @@
-import { redirect, setURLPage, setDepartement, setInputContent } from "../pages/utilities";
+import { setInputContent } from "../pages/utilities"
 
-import '../assets/css/Style.css'
+// import "../assets/css/Style.css"
 
 export const InputContent = ({textInput}) => {
 
