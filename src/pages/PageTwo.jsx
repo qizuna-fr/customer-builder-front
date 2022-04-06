@@ -1,8 +1,9 @@
-import './Home.css'
-import { redirect, setURLPage } from "../utilities/utilities";
+import { redirect, setURLPage } from "./utilities";
 import { UploadFile } from '../components/UploadFile';
 
-export const SecondPage = () => {
+import '../assets/css/Style.css'
+
+export const PageTwo = () => {
 
   const scrollToNext = () => {
     setURLPage('third_page')

@@ -23,14 +23,10 @@ import {BrowserRouter} from "react-router-dom";
 /* Theme variables */
 import './theme/variables.css';
 import Page from './pages/Page';
-import { AnimatedSwitch } from './pages/AnimatedSwitch';
-import { getURLPage } from './utilities/utilities';
 
 setupIonicReact();
 
-let url = getURLPage()
-
-const App: React.FC = () => (
+const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>

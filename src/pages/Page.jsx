@@ -1,7 +1,6 @@
 import { IonContent, IonPage } from '@ionic/react';
 import {Data} from "../components/Data"
 import { useParams } from 'react-router';
-import { Home } from './Home';
 
 const Page = (props) => {
 
@@ -15,7 +14,7 @@ const Page = (props) => {
 
   return (
     <IonPage>
-      {/* <Home></Home> */}
+      {/* <Header></Header> */}
       <IonContent>
         {content()}
       </IonContent>

@@ -1,29 +1,16 @@
-
-import { PageTow } from './PageTow';
 import { Accueil } from '../pages/Accueil';
-import { PageOne } from './PageOne';
-import { PageThree } from './PageThree';
-import { Airtable } from '../pages/Airtable';
-import { TypeForm } from '../pages/TypeForm';
 import { TransitionPages } from './TransitionPages';
-import { PageFour } from './PageFour';
-import { PageEnd } from './PageEnd';
+import { LastPage } from '../pages/LastPage';
+import { PageOne } from '../pages/PageOne';
+import { PageTwo } from '../pages/PageTwo';
+import { PageThree } from '../pages/PageThree';
+import { PageFour } from '../pages/PageFour';
 
   export const Data = [
     {
       title: 'animated-switch',
       url: '/animated-switch',
       component : <TransitionPages/>
-    },
-    {
-      title: 'type_form',
-      url: '/type_form',
-      component : <TypeForm/>
-    },
-    {
-      title: 'airtable',
-      url: '/airtable',
-      component : <Airtable/>
     },
     {
       title: 'accueil',
@@ -38,7 +25,7 @@ import { PageEnd } from './PageEnd';
     {
       title: 'secondPage',
       url: '/second_page',
-      component : <PageTow/>
+      component : <PageTwo/>
     },
     {
       title: 'third_page',
@@ -53,6 +40,6 @@ import { PageEnd } from './PageEnd';
     {
       title: 'lastPage',
       url: '/last_page',
-      component : <PageEnd/>
+      component : <LastPage/>
     },
 ]

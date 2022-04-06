@@ -1,21 +1,19 @@
-import {
-    Route,
-    Switch
-  } from "react-router-dom";
-  import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { SecondPage } from "./SecondPage";
-import './Home.css'
-import { FirstPage } from "./FirstPage";
-import { ThirdPage } from "./ThirdPage";
-import { FourthPage } from "./FourthPage";
+import {Route,  Switch } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { PageOne } from "./PageOne";
+import { PageTwo } from "./PageTwo";
+import { PageThree } from "./PageThree";
+import { PageFour } from "./PageFour";
 import { LastPage } from "./LastPage";
+
+import '../assets/css/Style.css'
 
 export const AnimatedSwitch = ({url}) => {
   const content = (url) => {
-    if (url == 'first_page') return <Route component={FirstPage} />
-    if (url == 'second_page') return <Route component={SecondPage} />
-    if (url == 'third_page') return <Route component={ThirdPage} />
-    if (url == 'fourth_page') return <Route component={FourthPage} />
+    if (url == 'first_page') return <Route component={PageOne} />
+    if (url == 'second_page') return <Route component={PageTwo} />
+    if (url == 'third_page') return <Route component={PageThree} />
+    if (url == 'fourth_page') return <Route component={PageFour} />
     if (url == 'last_page') return <Route component={LastPage} />
   }
 
@@ -29,23 +27,3 @@ export const AnimatedSwitch = ({url}) => {
   </TransitionGroup>
   )
   }
-
-// export const AnimatedSwitch = ({ location }) => {
-//   console.log(location);
-// return (
-//     <TransitionGroup className="transition-group">
-//       <CSSTransition
-//         key={location.key}
-//         timeout={{ enter: 300, exit: 300 }}
-//         classNames="fade"
-//       >
-//         <section className="route-section">
-//           <Switch location={location}>
-//             <Route path="/first_page" component={FirstPage} />
-//             <Route path="/second_page" component={SecondPage} />
-//           </Switch>
-//         </section>
-//       </CSSTransition>
-//     </TransitionGroup>
-// );
-// }

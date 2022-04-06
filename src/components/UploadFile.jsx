@@ -1,7 +1,8 @@
-import '../pages/Home.css'
 import axios from "axios";
 import React from "react";
-import { setFile } from '../utilities/utilities';
+import { setFile } from '../pages/utilities'
+
+import '../assets/css/Style.css'
 
 export const UploadFile = () => {
 
