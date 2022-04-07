@@ -2,12 +2,11 @@
  * @jest-environment jsdom
 */  
 
-import { render , screen, fireEvent, getByTestId, cleanup  } from '@testing-library/react'
+import { render , screen, fireEvent, cleanup } from '@testing-library/react'
 import React from 'react'
 import '@testing-library/jest-dom'
 import { UploadFile } from "../UploadFile" 
-
-afterEach(cleanup)
+import 'regenerator-runtime/runtime';
 
 test('The input text field should be in the document', () => {
     render(<UploadFile />)
@@ -45,10 +44,20 @@ test('The input submit field should have a type text attribute', () => {
     expect(inputEl).toHaveAttribute("type", "submit");
 })
 
-test("The submitForm function is called in the form", () => {
-    render(<UploadFile />)
-    const submitForm = jest.fn();
-    const { getByTestId } = render(<UploadFile onSubmit={submitForm} />);
-    fireEvent.click(screen.getAllByTestId('form-upload')[0]);
-    expect(submitForm).toHaveBeenCalled();
-  });
+test("The form is submitted", () => {
+    const onSubmit = jest.fn();
+    const { getByTestId } = render(<UploadFile onSubmit={onSubmit} />);
+    fireEvent.submit(getByTestId('form-upload'));
+    expect(onSubmit).toHaveBeenCalled()
+})
+
+// test("The fileContent function is called on input text item ", () => {
+//     const onInput = jest.fn();
+//     const { getByTestId } = render(<UploadFile onInput={onInput} />);
+//     fireEvent.submit(getByTestId('text-input'));
+//     expect(onInput).toHaveBeenCalled()
+// })
+
+
+
+  
