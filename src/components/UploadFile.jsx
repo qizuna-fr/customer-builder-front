@@ -2,8 +2,6 @@ import axios from "axios";
 import React from "react";
 import { setFile } from '../pages/utilities'
 
-import '../assets/css/Style.css'
-
 export const UploadFile = () => {
 
   const [uploadFile, setUploadFile] = React.useState();
@@ -42,15 +40,16 @@ export const UploadFile = () => {
     
       return (
         <div >
-        <form onSubmit={submitForm}>
+        <form onSubmit={submitForm} data-testid="form">
             <input
               type="text"
+              data-testid="text-input"
               onChange={(e) => setFileName(e.target.value)}
               placeholder={"Nom du fichier..."}
               onInput={(e) => fileContent(e.target.value)}
             />
-            <input type="file" onChange={(e) => setUploadFile(e.target.files)} />
-            <input type="submit" /> 
+            <input type="file" onChange={(e) => setUploadFile(e.target.files)} data-testid="file-input"/>
+            <input type="submit" data-testid="submit-input" /> 
         </form>
             {uploadResponse}
         </div>

@@ -24,4 +24,4 @@ test('The input field displayed the correct value', () => {
   const input = screen.getByTestId("text-input");
   fireEvent.change(input, { target: { value: 'Mulhouse' } })
   expect(input.value).toBe('Mulhouse')
-});
+})
