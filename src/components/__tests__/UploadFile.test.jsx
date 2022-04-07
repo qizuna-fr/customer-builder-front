@@ -44,12 +44,12 @@ test('The input submit field should have a type text attribute', () => {
     expect(inputEl).toHaveAttribute("type", "submit");
 })
 
-test("The form is submitted", () => {
-    const onSubmit = jest.fn();
-    const { getByTestId } = render(<UploadFile onSubmit={onSubmit} />);
-    fireEvent.submit(getByTestId('form-upload'));
-    expect(onSubmit).toHaveBeenCalled()
-})
+// test("The form is submitted", () => {
+//     const onSubmit = jest.fn();
+//     const { getByTestId } = render(<UploadFile onSubmit={onSubmit} />);
+//     fireEvent.submit(getByTestId('form-upload'));
+//     expect(onSubmit).toHaveBeenCalled()
+// })
 
 // test("The fileContent function is called on input text item ", () => {
 //     const onInput = jest.fn();

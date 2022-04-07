@@ -1,7 +1,5 @@
-import { IonButton, IonItem, IonLabel } from "@ionic/react"
+import { IonButton} from "@ionic/react"
 import {  getColor, getInputContent, getFile, getFontApp } from "../pages/utilities"
-
-import '../assets/css/Style.css'
 
 export const AirtableComponent = () => {
   
@@ -54,7 +52,7 @@ export const AirtableComponent = () => {
 
     <div>
     <IonButton > Preview </IonButton>
-      <IonButton onClick={() => contentAirtable()}> Valider </IonButton>
+    <IonButton data-testid="ion-button" onClick={() => contentAirtable()}> Valider </IonButton>
     </div>
     )
 }

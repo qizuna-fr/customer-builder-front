@@ -1,7 +1,8 @@
-import { redirect, setURLPage, setDepartement } from "./utilities";
-
-import '../assets/css/Style.css'
+import { redirect, setURLPage } from "./utilities";
 import { InputContent } from "../components/InputContent";
+import React from 'react'
+
+// import '../assets/css/Style.css'
 
 export const PageOne = (textInput) => {
 
@@ -14,7 +15,7 @@ export const PageOne = (textInput) => {
     return (
     <div className="container">
     <InputContent textInput="departement"></InputContent>
-    <button id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
+    <button data-testid="button" id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
     <hr /><hr /><hr /><hr />
     </div> 
     )
