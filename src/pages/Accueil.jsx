@@ -7,8 +7,8 @@ export const Accueil = () => {
     const logo = require('../assets/icon/qizuna.png');
 
     const scrollToNext = () => {
-        setURLPage('first_page')
-        redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
+        setURLPage('page1')
+        redirect(`${window.location.protocol}//${window.location.host}/page1`)
         }
 
     return(

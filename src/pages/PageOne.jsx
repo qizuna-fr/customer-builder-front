@@ -4,9 +4,9 @@ import React from 'react'
 
 // import '../assets/css/Style.css'
 
-export const PageOne = (textInput) => {
+export const PageOne = (props) => {
 
-    const scrollToNext = () => {
+    const scrollToNext =() => {
     setURLPage('second_page')
     redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
    

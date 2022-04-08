@@ -15,31 +15,37 @@ import { PageFour } from '../pages/PageFour';
     {
       title: 'accueil',
       url: '/accueil',
+      slide : 'start',
       component : <Accueil/>
     },
     {
       title: 'firstPage',
-      url: '/first_page',
+      url: '/page1',
+      slide : 1,
       component : <PageOne/>
     },
     {
       title: 'secondPage',
-      url: '/second_page',
+      url: '/page2',
+      slide : 2,
       component : <PageTwo/>
     },
     {
       title: 'third_page',
-      url: '/third_page',
+      url: '/page3',
+      slide : 3,
       component : <PageThree/>
     },
     {
       title: 'fourthPage',
-      url: '/fourth_page',
+      url: '/page4',
+      slide : 4,
       component : <PageFour/>
     },
     {
       title: 'lastPage',
       url: '/last_page',
+      slide : 'end',
       component : <LastPage/>
     },
 ]

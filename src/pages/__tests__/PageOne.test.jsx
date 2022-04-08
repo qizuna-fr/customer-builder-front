@@ -15,7 +15,7 @@ test('The button Next should be in the document', () => {
 
 test("The scrollToNext function is called in onClick", () => {
     const scrollToNext = jest.fn();
-    const { getByTestId } = render(<PageOne onClick={scrollToNext} />);
-    fireEvent.submit(getByTestId('button'));
+    const { getByTestId } = render(<PageOne onClick={scrollToNext()} />);
+    fireEvent.click(getByTestId('button'));
     expect(scrollToNext).toHaveBeenCalled()
 })
