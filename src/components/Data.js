@@ -15,7 +15,7 @@ import { PageFour } from '../pages/PageFour';
     {
       title: 'accueil',
       url: '/accueil',
-      slide : 'start',
+      slide : 0,
       component : <Accueil/>
     },
     {
@@ -45,7 +45,7 @@ import { PageFour } from '../pages/PageFour';
     {
       title: 'lastPage',
       url: '/last_page',
-      slide : 'end',
+      slide : -1,
       component : <LastPage/>
     },
 ]

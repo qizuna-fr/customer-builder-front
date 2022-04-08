@@ -11,13 +11,15 @@ export const Slide = (props) => {
 
     let previous = props.slide-1
     const scrollToNext =() => {
-        setURLPage('page'+next)
-        redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+next)
+        if (next == -1) return redirect(window.location.protocol+'//'+window.location.host+'/'+'last-page')
+        // setURLPage('page'+next)
+        else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+next)
     }
 
     const scrollToPrevious = () => {
-        setURLPage('page'+props.slide)
-        redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+previous)
+        if (previous == 0) redirect(window.location.protocol+'//'+window.location.host+'/'+'accueil')
+        // setURLPage('page'+props.slide)
+        else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+previous)
     }
 
   return (
