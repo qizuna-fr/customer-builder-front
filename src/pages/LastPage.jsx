@@ -1,13 +1,13 @@
 import { IonButton, IonItem, IonLabel } from "@ionic/react"
 import {  getColor, getFile, getFontApp, getInputContent, redirect } from "./utilities"
+import { AirtableComponent } from "../components/AirtableComponent"
 
 import '../assets/css/Style.css'
-import { AirtableComponent } from "../components/AirtableComponent"
 
 export const LastPage = () => {
 
     return (
-    <div className="container">
+    <div>
         <h4> Résumé de vos choix ! </h4>
       <IonItem >
         <IonLabel >Departement : {getInputContent()}</IonLabel>
@@ -26,7 +26,7 @@ export const LastPage = () => {
         <IonButton > Modifier </IonButton>
       </IonItem>
       <p></p>
-      <AirtableComponent></AirtableComponent>
+      <AirtableComponent></AirtableComponent> 
     </div> 
     )
 }

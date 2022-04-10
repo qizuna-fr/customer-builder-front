@@ -1,5 +1,4 @@
 import { Accueil } from '../pages/Accueil';
-import { TransitionPages } from './TransitionPages';
 import { LastPage } from '../pages/LastPage';
 import { PageOne } from '../pages/PageOne';
 import { PageTwo } from '../pages/PageTwo';
@@ -7,11 +6,7 @@ import { PageThree } from '../pages/PageThree';
 import { PageFour } from '../pages/PageFour';
 
   export const Data = [
-    {
-      title: 'animated-switch',
-      url: '/animated-switch',
-      component : <TransitionPages/>
-    },
+    
     {
       title: 'accueil',
       url: '/accueil',
@@ -44,7 +39,7 @@ import { PageFour } from '../pages/PageFour';
     },
     {
       title: 'lastPage',
-      url: '/last_page',
+      url: '/last-page',
       slide : -1,
       component : <LastPage/>
     },

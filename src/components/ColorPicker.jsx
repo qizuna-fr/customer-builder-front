@@ -1,21 +1,5 @@
 import React, { useState } from 'react'
-import reactCSS from 'reactcss'
-
-import {
-  AlphaPicker,
-  BlockPicker,
-  ChromePicker,
-  CirclePicker,
-  CompactPicker,
-  GithubPicker,
-  HuePicker,
-  MaterialPicker,
-  PhotoshopPicker,
-  SketchPicker,
-  SliderPicker,
-  SwatchesPicker,
-  TwitterPicker
-} from "react-color";
+import {CompactPicker} from "react-color";
 import { setColor } from '../pages/utilities';
 
 export const ColorPicker = () => {
@@ -47,18 +31,17 @@ export const ColorPicker = () => {
     })
     console.log(state);
   };
- 
   let onChange = (color) => {
     setState({ 
       color: color.rgb,
       hex:color.hex
     })
-    setColor(state.hex)
-    console.log(state.hex);
+    setColor(state.color.hex)
+    console.log(state.color.hex);
   };
 
     return (
-      <div >
+      <div data-testid="color-picker" >
         <CompactPicker color={state.color} onChange={onChange} />
       </div>
     )
