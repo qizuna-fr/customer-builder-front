@@ -32,9 +32,15 @@ export const UploadFile = (props) => {
     setFile(e.target.files[0].name)
   };
 
+  let onChange = props.onChange
+  
+  if (onChange) {
+    onChange()
+  }
+
   return (
     // <form onSubmit={handleSubmit}>
-      <input type="file" onChange={handleOnChange} />
+      <input type="file" onChange={handleOnChange} data-testid="file-input" />
       // <button type="submit">Upload File</button>
     // </form>
   );
