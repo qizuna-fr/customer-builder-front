@@ -1,31 +1,29 @@
 import { IonContent, IonPage } from '@ionic/react';
 import {Data} from "../components/Data"
 import { useParams } from 'react-router';
-import {Slide} from '../slides/Slide'
+import {Slider} from '../slides/Slider'
 import { Accueil } from './Accueil';
 import { LastPage } from './LastPage';
 
 const Page = () => {
 
   const { name } = useParams()
- 
+ console.log(name);
   const data = Data.find(page => page.url.substring(1) === name)
 
   const content = () => {
-    console.log(name);
     if ((name == "accueil"))
     {
       return <Accueil/>
     }
     if ((name == "last-page"))
     {
-      console.log("last");
       return <LastPage/>
     }
     return (
       <>
       {data.component}
-      <Slide slide={data.slide}></Slide>
+      <Slider slide={data.slide}></Slider>
       </>
     )
   }

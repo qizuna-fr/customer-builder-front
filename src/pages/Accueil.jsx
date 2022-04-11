@@ -1,6 +1,6 @@
 import { redirect, setURLPage } from "./utilities"
 
-import '../assets/css/Style.css'
+// import '../assets/css/Style.css'
 
 export const Accueil = () => {
 

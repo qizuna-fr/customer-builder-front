@@ -1,19 +1,18 @@
+import { Route, Router } from "react-router";
 import {Data} from "../components/Data"
-import { redirect, setURLPage } from '../pages/utilities';
-import { PageTwo } from '../pages/PageTwo';
-import { Route } from "workbox-routing";
-import { PageOne } from "../pages/PageOne";
+import { LastPage } from "../pages/LastPage";
+import { redirect } from '../pages/utilities';
 
-export const Slide = (props) => {
+export const Slider = (props) => {
 
   let next = props.slide+1
   let end = Data.find(page => page.slide === next)
   let previous = props.slide-1
   
   const scrollToNext =() => {
-    if (end == undefined) return redirect(window.location.protocol+'//'+window.location.host+'/'+'last-page')
-    else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+next)
-  }
+  if (end == undefined) return redirect(window.location.protocol+'//'+window.location.host+'/'+'last-page')
+  else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+next)
+ }
 
   const scrollToPrevious = () => {
     if (previous == 0) redirect(window.location.protocol+'//'+window.location.host+'/'+'accueil')
