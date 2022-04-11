@@ -2,7 +2,7 @@
  * @jest-environment jsdom
 */  
 
-import { render , screen, fireEvent, act} from '@testing-library/react'
+import { render , screen, fireEvent,} from '@testing-library/react'
 import { InputContent } from "../InputContent" 
 import React from 'react'
 import '@testing-library/jest-dom'
@@ -32,15 +32,10 @@ test('The input field displayed the correct value', () => {
   expect(input.value).toBe('Mulhouse')
 })
 
-// test("The input field displayed the correct value", () => {
-//   const onInput = jest.fn()
-//   const changedName = "Colmar"
-//   const { getByTestId, rerender } = render(<InputContent onInput={onInput}/>)
-//   act(() => {
-//     fireEvent.change(getByTestId("text-input"), {
-//       target: { value: "Colmar" },
-//     })
-//   })
-//   rerender(<InputContent onInput={onInput} value={changedName}/>)
-//   expect(getByTestId("text-input").value).toBe("Colmar")
-// })
+test("The input field displayed the correct value", () => {
+  const onInput = jest.fn()
+  const changedName = "Colmar"
+  const { getByTestId, rerender } = render(<InputContent onInput={onInput}/>)
+  rerender(<InputContent onInput={onInput} value={changedName}/>)
+  expect(getByTestId("text-input").value).toBe("Colmar")
+})

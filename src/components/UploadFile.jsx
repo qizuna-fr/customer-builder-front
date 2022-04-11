@@ -1,48 +1,45 @@
+
+
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { setFile } from '../pages/utilities'
 
-export const UploadFile = (props) => {
+// import '../assets/css/Style.css'
 
-  const [fileName, setFileName] = useState(null);
+export const UploadFile = () => {
 
-  const UPLOAD_ENDPOINT =
-    "../assets/css/uploadedfiles";
+  const [uploadFile, setUploadFile] = React.useState();
+  const [uploadResponse, setUploadResponse] = React.useState();
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    let res = await uploadFile(fileName);
-    console.log(res.data);
-  };
-
-  const uploadFile = async file => {
-    const formData = new FormData();
-    formData.append("logo", file);
-
-    return await axios.post(UPLOAD_ENDPOINT, formData, {
-      headers: {
-        "content-type": "multipart/form-data"
-      }
-    });
-  };
-
-  const handleOnChange = e => {
-    console.log(e.target.files[0]);
-    setFileName(e.target.files[0]);
-    setFile(e.target.files[0].name)
-  };
-
-  let onChange = props.onChange
-  
-  if (onChange) {
-    onChange()
-  }
-
-  return (
-    // <form onSubmit={handleSubmit}>
-      <input type="file" onChange={handleOnChange} data-testid="file-input" />
-      // <button type="submit">Upload File</button>
-    // </form>
-  );
-
+    const submitForm = (event) => {
+        event.preventDefault();
+    
+        const dataArray = new FormData();
+        dataArray.append("uploadFile", uploadFile);
+    
+        axios
+          .post("/", dataArray, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          })
+          .then((response) => {
+            setUploadResponse(`File uploaded successfully
+            value - ${uploadFile}`);
+          })
+          .catch((error) => {
+            setUploadResponse(`Fichier téléchargé avec succès`);
+          });
+          setFile(uploadFile)
+    };
+    
+      return (
+        <div >
+        <form onSubmit={submitForm} data-testid="form">
+            <input type="file" onChange={(e) => setUploadFile(e.target.files)} data-testid="file-input"/>
+            <input type="submit" /> 
+        </form>
+            {uploadResponse}
+        </div>
+      );
 }

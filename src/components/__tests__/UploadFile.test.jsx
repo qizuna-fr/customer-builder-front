@@ -2,7 +2,7 @@
  * @jest-environment jsdom
 */  
 
-import { render , screen, fireEvent} from '@testing-library/react'
+import { render , screen } from '@testing-library/react'
 import React from 'react'
 import '@testing-library/jest-dom'
 import { UploadFile } from "../UploadFile" 
@@ -13,10 +13,14 @@ test('The input file field should be in the document', () => {
     const inputEl = screen.getByTestId("file-input");
     expect(inputEl).toBeInTheDocument();
 })
-  
-test("The input file field displayed the correct file", () => {
-    const onChange = jest.fn();
-    const { getByTestId } = render(<UploadFile onChange={onChange} />);
-    fireEvent.submit(getByTestId('file-input'));
-    expect(onChange).toHaveBeenCalled()
-})
+
+test('The upload file should pass', async () => {
+    const { getByTestId } = render(<UploadFile/>);
+    const file = new File(['dummy content'], 'hello.png');
+    const inputFile = getByTestId('file-input');
+    console.log(inputFile.files);
+    Object.defineProperty(inputFile, 'files', { value: [file] });
+    console.log(inputFile.files[0].name);
+    expect(inputFile.files[0].name).toBe("hello.png");
+
+});
