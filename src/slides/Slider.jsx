@@ -1,28 +1,40 @@
-import { Route, Router } from "react-router";
 import {Data} from "../components/Data"
-import { LastPage } from "../pages/LastPage";
 import { redirect } from '../pages/utilities';
+import React from 'react'
 
 export const Slider = (props) => {
 
-  let next = props.slide+1
-  let end = Data.find(page => page.slide === next)
-  let previous = props.slide-1
+  let nextSlide = props.slide+1
+  let end = Data.find(page => page.slide === nextSlide)
+  let previousSlide = props.slide-1
+  let url
   
   const scrollToNext =() => {
-  if (end == undefined) return redirect(window.location.protocol+'//'+window.location.host+'/'+'last-page')
-  else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+next)
+  if (end == undefined) {
+    url = '/'+'last-page'
+    return redirect(window.location.protocol+'//'+window.location.host+url)
+  }
+  else {
+    url = '/'+'page'+nextSlide
+    redirect(window.location.protocol+'//'+window.location.host+url)
+  }
  }
 
   const scrollToPrevious = () => {
-    if (previous == 0) redirect(window.location.protocol+'//'+window.location.host+'/'+'accueil')
-    else redirect(window.location.protocol+'//'+window.location.host+'/'+'page'+previous)
+    if (previousSlide == 0) {
+      url = '/'+'accueil'
+      redirect(window.location.protocol+'//'+window.location.host+url)
+    }
+    else {
+      url = '/'+'page'+previousSlide
+      redirect(window.location.protocol+'//'+window.location.host+url)
+    }
   }
 
   return (
-    <> 
-    <button data-testid="button" id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
-    <button id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
-    </> 
+    <div> 
+      <button data-testid="next-button" type="button" onClick={() => scrollToNext()} > Suivant </button>
+      <button data-testid="previous-button" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
+    </div> 
     )
-  }
+}

@@ -1,5 +1,5 @@
 import { IonButton, IonItem, IonLabel } from "@ionic/react"
-import {  getColor, getFile, getFontApp, getInputContent, redirect } from "./utilities"
+import {  getColor, getFile, getFontApp, getInputContent } from "./utilities"
 import { AirtableComponent } from "../components/AirtableComponent"
 
 import '../assets/css/Style.css'

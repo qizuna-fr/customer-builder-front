@@ -1,4 +1,4 @@
-import { redirect, setURLPage } from "./utilities"
+import { redirect } from "./utilities"
 
 // import '../assets/css/Style.css'
 
