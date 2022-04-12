@@ -23,20 +23,26 @@ import {BrowserRouter} from "react-router-dom";
 /* Theme variables */
 import './theme/variables.css';
 import Page from './pages/Page';
-import { AnimatedSwitch } from './pages/AnimatedSwitch';
-import { getURLPage } from './utilities/utilities';
+import { Pagescroll } from './slides/Pagescroll';
+import { Data } from './components/Data';
 
 setupIonicReact();
 
-let url = getURLPage()
+const data = Data.filter(page => page.scroll === 1)
 
-const App: React.FC = () => (
+const App = () => {
+
+return (
+  // <IonApp>
+  //   <Pagescroll data={data}></Pagescroll>
+  // </IonApp>
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/">
           <Redirect to="/accueil" />
         </Route>
+        
         <Route path="/:name" >
               <Page/>
             </Route>
@@ -45,6 +51,6 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
-
-export default App;
+)
+}
+export default App
