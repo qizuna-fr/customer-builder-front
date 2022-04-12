@@ -3,7 +3,15 @@ import React from 'react'
 
 // import "../assets/css/Style.css"
 
-export const InputContent = ({textInput}) => {
+export const InputContent = (props) => {
+
+    let textInput = props.textInput
+    let onInput = props.onInput
+    let value = props.value
+
+    if (onInput) {
+        onInput()
+      }
 
     let textContent = (value) => {
         setInputContent(value)
@@ -11,8 +19,8 @@ export const InputContent = ({textInput}) => {
 
     return (
     <div>
-        <h4>Commençons par le nom de votre {textInput} !</h4>
-        <p><input aria-label="Some Label"  data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
+        <h4>Saisissez votre {textInput} !</h4>
+        <p><input value={value} data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
     </div> 
     )
 }
