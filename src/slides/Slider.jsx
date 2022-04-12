@@ -33,8 +33,8 @@ export const Slider = (props) => {
 
   return (
     <div> 
-      <button data-testid="next-button" type="button" onClick={() => scrollToNext()} > Suivant </button>
-      <button data-testid="previous-button" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
+      <button data-testid="next-button" id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
+      <button data-testid="previous-button" id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
     </div> 
     )
 }

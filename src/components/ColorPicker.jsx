@@ -43,6 +43,7 @@ export const ColorPicker = () => {
     return (
       <div data-testid="color-picker" >
         <CompactPicker color={state.color} onChange={onChange} />
+        <input type="color" />
       </div>
     )
   }
