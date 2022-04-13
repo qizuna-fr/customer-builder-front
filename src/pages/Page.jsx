@@ -6,7 +6,8 @@ import { Accueil } from './Accueil';
 import { LastPage } from './LastPage';
 import IndicatorDots from '../slides/indicator-dots'
 import Buttons from '../slides/buttons'
-import Carousel from '../slides/Carousel';
+// import Carousel from '../slides/Carousel';
+import Carousel from 're-carousel'
 
 const Page = () => {
 
@@ -16,6 +17,7 @@ const Page = () => {
   const pages = Data.filter(page => page.scroll === 1)
 
   const content = () => {
+
     if ((name == "accueil"))
     {
       return <Accueil/>
@@ -27,24 +29,21 @@ const Page = () => {
     if ((name == "scroll"))
     {
       return (
-        <Carousel auto widgets={[IndicatorDots, Buttons]}>
+      <Carousel auto widgets={[IndicatorDots, Buttons]} >
             {pages.map((item, index) => (
-                <div  style={{height: '100%'}}>
+                <div key={index} style={{height: '100%'}}>
                     {item.component}
-                    <input type="button" value="suivant" style={{float:'right'}} />
-                    <input type="button" value="precedent" style={{float:'right'}} />
+                    <div >
+      {/* <button data-testid="next-button" id="nextBtn" type="button"  > Suivant </button>
+      <button data-testid="previous-button" id="prevBtn"  type="button"  >Precedent</button> */}
+    </div>
                 </div>
             )
             )}
         </Carousel>
-    )
+        
+        )
     }
-    // return (
-    //   <>
-    //   {data.component}
-    //   {/* <Slider slide={data.slide}></Slider> */}
-    //   </>
-    // )
   }
 
   return (
@@ -57,3 +56,4 @@ const Page = () => {
 };
 
 export default Page;
+

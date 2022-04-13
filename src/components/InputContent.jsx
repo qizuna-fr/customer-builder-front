@@ -1,4 +1,4 @@
-import { setInputContent } from "../pages/utilities"
+import { getInputContent, setInputContent } from "../pages/utilities"
 import React from 'react'
 
 // import "../assets/css/Style.css"

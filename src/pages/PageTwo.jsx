@@ -6,7 +6,7 @@ import '../assets/css/Style.css'
 export const PageTwo = () => {
 
   return (
-    <div>
+    <div className="containerscrol">
         <h4>Avez vous un logo pour votre application ? </h4>
         <UploadFile/>
     </div>

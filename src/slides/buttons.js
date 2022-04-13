@@ -6,7 +6,7 @@ const styles = {
     position: 'absolute',
     width: '100%',
     zIndex: '100',
-    bottom: '0',
+    bottom: '10em',
     textAlign: 'center'
   },
   btn: {
@@ -33,12 +33,16 @@ export default function Buttons (props) {
   const { index, total, loop, prevHandler, nextHandler } = props
   return (
     <div style={styles.wrapper}>
-      { (loop || index !== 0) && (
-        <div style={prevBtnStyle} onClick={prevHandler}>◀</div>
-      )}
-      { (loop || index !== total - 1) && (
-        <div style={nextBtnStyle} onClick={nextHandler}>▶</div>
-      )}
+    {/* { (loop || index !== 0) && (
+      <div style={prevBtnStyle} onKeyDown={prevHandler} onClick={prevHandler}>
+        ◀
+        </div>
+    )} */}
+    { (loop || index !== total - 1) && (
+      // <div style={nextBtnStyle} onClick={nextHandler}>▶
+      // </div>
+      <button  type="button" onClick={nextHandler}>OK</button>
+    )}
     </div>
   )
 }

@@ -56,7 +56,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       title: 'lastPage',
       url: '/last-page',
       slide : -1,
-      scroll : 0,
+      scroll : 1,
       component : <LastPage/>
     }
 ]

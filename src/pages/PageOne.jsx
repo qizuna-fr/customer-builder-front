@@ -1,13 +1,15 @@
 import { InputContent } from "../components/InputContent";
 import React from 'react'
+import { Slider } from "../slides/Slider";
 
 // import '../assets/css/Style.css'
 
 export const PageOne = () => {
 
     return (
-    <div >
+    <div className="containerscrol">
     <InputContent textInput="departement"></InputContent>
+    {/* <input type="button" value="Valider"></input> */}
     </div> 
     )
 }

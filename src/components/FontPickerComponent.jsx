@@ -9,7 +9,7 @@ export const FontPickerComponent = () => {
     const [font, setFont] = useState("Open Sans");
 
     return (
-        <div data-testid="font-picker">
+        <div data-testid="font-picker" >
         <FontPicker
             apiKey="AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU"
             activeFontFamily={font}

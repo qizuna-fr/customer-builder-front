@@ -9,6 +9,7 @@ export const Slider = (props) => {
   let previousSlide = props.slide-1
   let url
   
+  
   const scrollToNext =() => {
   if (end == undefined) {
     url = '/'+'last-page'
@@ -33,6 +34,7 @@ export const Slider = (props) => {
 
   return (
     <div> 
+      
       <button data-testid="next-button" id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
       <button data-testid="previous-button" id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
     </div> 

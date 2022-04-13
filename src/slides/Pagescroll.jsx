@@ -5,8 +5,6 @@ import Buttons from './buttons'
 export const Pagescroll = (props) => {
 
     return (
-        <div>
-
         <Carousel auto widgets={[IndicatorDots, Buttons]}>
             {props.data.map((item, index) => (
                 <div style={{height: '100%'}}>
@@ -15,7 +13,6 @@ export const Pagescroll = (props) => {
             )
             )}
         </Carousel>
-        </div>
         
     )
 }

@@ -5,7 +5,7 @@ import '../assets/css/Style.css'
 export const PageThree = () => {
 
     return (
-        <div >
+        <div className="containerscrol">
             <h4> Maitenant choisissez la couleur que vous souhaitez utiliser pour votre application !</h4>
             <ColorPicker/> 
         </div>

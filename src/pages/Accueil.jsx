@@ -1,3 +1,4 @@
+import Buttons from "../slides/buttons";
 import { redirect } from "./utilities"
 
 // import '../assets/css/Style.css'
@@ -11,7 +12,7 @@ export const Accueil = () => {
         }
 
     return(
-        <div className="containerAccueil">
+        <div className="containerscrol">
             <h1>Binvenue chez Qizuna !</h1>
             <div className='imgcontainer'><img src={logo} className='logo'/></div>
             <p>Créez votre application mobile, à votre image !</p>
