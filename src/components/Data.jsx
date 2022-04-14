@@ -49,6 +49,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       title: 'fourthPage',
       url: '/page4',
       slide : 4,
+      color : 'DarkSeaGreen',
       scroll : 1,
       component : <PageFour/>
     },

@@ -1,6 +1,7 @@
 import {Data} from "../components/Data"
 import { redirect } from '../pages/utilities';
 import React from 'react'
+import Carousel from "./Carousel";
 
 export const Slider = (props) => {
 
@@ -31,11 +32,10 @@ export const Slider = (props) => {
       redirect(window.location.protocol+'//'+window.location.host+url)
     }
   }
-
   return (
     <div> 
       
-      <button data-testid="next-button" id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
+      <button data-testid="next-button" id="nextBtn" type="button"  > Suivant </button>
       <button data-testid="previous-button" id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
     </div> 
     )

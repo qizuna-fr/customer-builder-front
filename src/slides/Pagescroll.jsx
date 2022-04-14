@@ -1,18 +1,23 @@
-import Carousel from 're-carousel'
-import IndicatorDots from './indicator-dots'
-import Buttons from './buttons'
+import IndicatorDots from './IndicatorDots'
+import Buttons from './Buttons'
+import Carousel from './Carousel'
+import Validation from './Validation'
 
 export const Pagescroll = (props) => {
 
-    return (
-        <Carousel auto widgets={[IndicatorDots, Buttons]}>
-            {props.data.map((item, index) => (
-                <div style={{height: '100%'}}>
+    let content = () => {
+        return (
+            props.frames.map((item, index) => (
+                <div  style={{height: '100%', background:  item.color }} key={index}>
                     {item.component}
-                </div>
-            )
-            )}
-        </Carousel>
-        
-    )
+              </div>
+            ))
+        )
+    }
+    return ( 
+        <Carousel auto widgets={[IndicatorDots, Validation]} >
+            {content()}
+            
+          </Carousel>
+      )
 }

@@ -1,4 +1,3 @@
-import Buttons from "../slides/buttons";
 import { redirect } from "./utilities"
 
 // import '../assets/css/Style.css'
