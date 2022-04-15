@@ -1,49 +1,55 @@
 import React, { useState } from 'react'
-import {CompactPicker} from "react-color";
-import { setColor } from '../pages/utilities';
+import {CompactPicker, SketchPicker } from "react-color";
+import { setColorApp } from '../pages/utilities';
 
 export const ColorPicker = () => {
   
-  const [state, setState] = useState (
-    {
-        displayClrPkr: false,
-        color: {
-          rgb:{
-            r: 74,
-            b: 144,
-            g: 226,
-            a: 1, 
-          },
-          hex:'#4a90e2',
-        }
-      }
-  )
- 
-  let onClick = () => {
-    setState({ 
-    displayClrPkr: !state.displayClrPkr 
-    })  
-  };
+  const [opacity, setOpacity] = useState();
+    const [color, setColor] = useState();
 
-  let stateClose = () => {
-    setState({ 
-    displayClrPkr: false 
-    })
-    console.log(state);
-  };
-  let onChange = (color) => {
-    setState({ 
-      color: color.rgb,
-      hex:color.hex
-    })
-    setColor(state.color.hex)
-    console.log(state.color.hex);
-  };
+    let opacityValue=(e)=>{
+        console.log(e.target.value);
+        setOpacity(e.target.value)
+    }
+    let colorValue=(e)=>{
+
+        console.log(e.target.value);
+        setColor(e.target.value)
+    }
+
+    setColorApp(color+','+opacity)
 
     return (
-      <div data-testid="color-picker" >
-        <CompactPicker color={state.color} onChange={onChange} />
-        
-      </div>
-    )
+        <div >
+            Couleur :
+            <input type="range" min="0" max="1" step="0.1" list="tickmarks" onChange={(e)=>{opacityValue(e)}}/>
+                <datalist id="tickmarks">
+                    <option value="0" label="0"/>
+                    <option value="0.1"/>
+                    <option value="0.2"/>
+                    <option value="0.3"/>
+                    <option value="0.4"/>
+                    <option value="0.5" label="0.5"/>
+                    <option value="0.6"/>
+                    <option value="0.7"/>
+                    <option value="0.8"/>
+                    <option value="0.9"/>
+                    <option value="1" label="1"/>
+                </datalist>
+
+                <p></p>
+
+                Opacité :
+            <input type="color" list="profilecolorslist" onChange={(e)=>{colorValue(e)}}/>
+            <datalist id="profilecolorslist">
+                <option value="#00ffff"/>
+                <option value="#ff00ff"/>
+                <option value="#ffff00"/>
+                <option value="#ffaa00"/>
+            </datalist>
+
+            <p></p> 
+            <div id="rectangle" style={{background: color, opacity: opacity}}></div>
+        </div>
+        )
   }

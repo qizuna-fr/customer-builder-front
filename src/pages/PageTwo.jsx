@@ -9,6 +9,7 @@ export const PageTwo = () => {
   return (
     <div className="containerscrol">
         <h4>Avez vous un logo pour votre application ? </h4>
+        <hr></hr>
         <UploadFile/>
         {/* <input type="button" value="Valider"></input> */}
         {/* <Slider></Slider> */}

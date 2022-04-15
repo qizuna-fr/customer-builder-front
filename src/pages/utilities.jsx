@@ -21,11 +21,11 @@ export const setFile = (file) => {
     sessionStorage.setItem('file', file);
 }
 
-export const getColor = () => {
+export const getColorApp = () => {
     return sessionStorage.getItem('color')
 }
 
-export const setColor = (color) => {
+export const setColorApp = (color) => {
     sessionStorage.setItem('color', color);
 }
 

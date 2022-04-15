@@ -36,8 +36,8 @@ export const UploadFile = () => {
       return (
         <div >
         <form onSubmit={submitForm} data-testid="form">
-            <input type="file" onChange={(e) => setUploadFile(e.target.files)} data-testid="file-input"/>
-            <input type="submit" /> 
+            <input required type="file" onChange={(e) => setUploadFile(e.target.files)} data-testid="file-input"/>
+            <button>Submit</button>
         </form>
             {uploadResponse}
         </div>

@@ -20,7 +20,11 @@ export const InputContent = (props) => {
     return (
     <div>
         <h4>Saisissez votre {textInput} !</h4>
-        <p><input value={value} data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
+        <hr></hr>
+        <form>
+        <p><input required  value={value} data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
+        <button>Submit</button>
+        </form>
     </div> 
     )
 }

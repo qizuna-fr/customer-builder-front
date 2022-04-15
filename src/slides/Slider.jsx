@@ -1,7 +1,6 @@
 import {Data} from "../components/Data"
 import { redirect } from '../pages/utilities';
 import React from 'react'
-import Carousel from "./Carousel";
 
 export const Slider = (props) => {
 
