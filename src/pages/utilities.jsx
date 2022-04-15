@@ -13,11 +13,11 @@ export const setInputContent = (text) => {
     sessionStorage.setItem('text', text);
 }
 
-export const getFile = () => {
+export const getFileApp = () => {
     return sessionStorage.getItem('file')
 }
 
-export const setFile = (file) => {
+export const setFileApp = (file) => {
     sessionStorage.setItem('file', file);
 }
 

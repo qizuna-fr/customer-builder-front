@@ -23,26 +23,19 @@ import {BrowserRouter} from "react-router-dom";
 /* Theme variables */
 import './theme/variables.css';
 import Page from './pages/Page';
-import { Pagescroll } from './slides/Pagescroll';
 import { Data } from './components/Data';
 
 setupIonicReact();
 
-const data = Data.filter(page => page.scroll === 1)
-
 const App = () => {
 
 return (
-  // <IonApp>
-  //   <Pagescroll data={data}></Pagescroll>
-  // </IonApp>
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/">
           <Redirect to="/accueil" />
         </Route>
-        
         <Route path="/:name" >
               <Page/>
             </Route>

@@ -1,7 +1,5 @@
-import { getInputContent, setInputContent } from "../pages/utilities"
+import { setInputContent } from "../pages/utilities"
 import React from 'react'
-
-// import "../assets/css/Style.css"
 
 export const InputContent = (props) => {
 
@@ -21,10 +19,8 @@ export const InputContent = (props) => {
     <div>
         <h4>Saisissez votre {textInput} !</h4>
         <hr></hr>
-        <form>
         <p><input required  value={value} data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p>
-        <button>Submit</button>
-        </form>
+
     </div> 
     )
 }

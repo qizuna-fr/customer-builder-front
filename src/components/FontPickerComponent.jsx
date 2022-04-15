@@ -3,11 +3,10 @@ import React from 'react'
 import FontPicker from "font-picker-react";
 import { setFontApp } from '../pages/utilities';
 
-// import '../assets/css/Style.css'
-
 export const FontPickerComponent = () => {
  
     const [font, setFont] = useState("Open Sans");
+    
     let setColor = (color) => {
         setFont(color);
         setFontApp(color)

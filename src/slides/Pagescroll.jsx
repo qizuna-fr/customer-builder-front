@@ -1,7 +1,6 @@
 import IndicatorDots from './IndicatorDots'
-import Validation from './Validation'
 import Buttons from './Buttons'
-import Carousel from 're-carousel'
+import Carousel from './Carousel';
 
 export const Pagescroll = (props) => {
 
@@ -15,9 +14,8 @@ export const Pagescroll = (props) => {
         )
     }
     return ( 
-        <Carousel auto widgets={[IndicatorDots, Buttons, Validation]} >
+        <Carousel auto widgets={[IndicatorDots, Buttons]} >
             {content()}
-            
           </Carousel>
       )
 }

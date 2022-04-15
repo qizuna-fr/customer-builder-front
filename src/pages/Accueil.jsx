@@ -1,7 +1,5 @@
 import { redirect } from "./utilities"
 
-// import '../assets/css/Style.css'
-
 export const Accueil = () => {
 
     const logo = require('../assets/icon/qizuna.png');

@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
-import {CompactPicker, SketchPicker } from "react-color";
 import { setColorApp } from '../pages/utilities';
 
 export const ColorPicker = () => {
-  
-  const [opacity, setOpacity] = useState();
+    const [opacity, setOpacity] = useState();
     const [color, setColor] = useState();
-
+  
     let opacityValue=(e)=>{
         console.log(e.target.value);
         setOpacity(e.target.value)
     }
     let colorValue=(e)=>{
-
-        console.log(e.target.value);
-        setColor(e.target.value)
+      console.log(e.target.value);
+      setColor(e.target.value)
     }
 
     setColorApp(color+','+opacity)
@@ -51,5 +48,5 @@ export const ColorPicker = () => {
             <p></p> 
             <div id="rectangle" style={{background: color, opacity: opacity}}></div>
         </div>
-        )
-  }
+    )
+}

@@ -1,45 +1,19 @@
-
-
-import axios from "axios";
-import React from "react";
-import { setFile } from '../pages/utilities'
-
-// import '../assets/css/Style.css'
+import React, { useState } from "react";
+import { setFileApp } from '../pages/utilities'
 
 export const UploadFile = () => {
+  
+  const [uploadFile, setUploadFile] = useState();
 
-  const [uploadFile, setUploadFile] = React.useState();
-  const [uploadResponse, setUploadResponse] = React.useState();
-
-    const submitForm = (event) => {
-        event.preventDefault();
-    
-        const dataArray = new FormData();
-        dataArray.append("uploadFile", uploadFile);
-    
-        axios
-          .post("/", dataArray, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            }
-          })
-          .then((response) => {
-            setUploadResponse(`File uploaded successfully
-            value - ${uploadFile}`);
-          })
-          .catch((error) => {
-            setUploadResponse(`Fichier téléchargé avec succès`);
-          });
-          setFile(uploadFile)
-    };
-    
-      return (
-        <div >
-        <form onSubmit={submitForm} data-testid="form">
-            <input required type="file" onChange={(e) => setUploadFile(e.target.files)} data-testid="file-input"/>
-            <button>Submit</button>
-        </form>
-            {uploadResponse}
-        </div>
-      );
+  const handleChange = (e) => {
+    console.log(e.target.files[0].name);
+    setUploadFile(e.target.files[0]);
+    setFileApp(e.target.files[0].name)
+  }
+  
+  return (
+    <div >
+      <input required type="file" onChange={(e) => handleChange(e)} data-testid="file-input"/>
+    </div>
+  );
 }
