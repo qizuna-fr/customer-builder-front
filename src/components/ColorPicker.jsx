@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { setColorApp } from '../pages/utilities';
+import { setColorApp, getColorApp } from '../pages/utilities';
 
 export const ColorPicker = () => {
     const [opacity, setOpacity] = useState();
@@ -15,6 +15,7 @@ export const ColorPicker = () => {
     }
 
     setColorApp(color+','+opacity)
+    console.log(getColorApp());
 
     return (
         <div >
