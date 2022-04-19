@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import { setColorApp, getColorApp } from '../pages/utilities';
 
 export const ColorPicker = () => {
-    const [opacity, setOpacity] = useState();
-    const [color, setColor] = useState();
+    const [opacity, setOpacity] = useState('1');
+    const [color, setColor] = useState("#000000");
+    setColorApp(color+','+opacity)
   
     let opacityValue=(e)=>{
-        console.log(e.target.value);
         setOpacity(e.target.value)
     }
     let colorValue=(e)=>{
-      console.log(e.target.value);
       setColor(e.target.value)
     }
 

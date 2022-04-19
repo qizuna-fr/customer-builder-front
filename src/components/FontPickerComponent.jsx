@@ -8,9 +8,7 @@ export const FontPickerComponent = () => {
     const [font, setFont] = useState("Open Sans");
     
     let setFontName = (value) => {
-        console.log(value);
-        setFont(value);
-        
+        setFont(value)
     }
 
     return (
@@ -18,7 +16,7 @@ export const FontPickerComponent = () => {
         <FontPicker
             apiKey="AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU"
             activeFontFamily={font}
-            onChange={nextFont => { setFontName(nextFont.family);}}
+            onChange={nextFont => { setFontName(nextFont.family)}}
         />
         <p className="apply-font">La police sera appliquée à ce texte.</p>
 
