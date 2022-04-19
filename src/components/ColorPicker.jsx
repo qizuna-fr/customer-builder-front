@@ -14,8 +14,10 @@ export const ColorPicker = () => {
       setColor(e.target.value)
     }
 
-    setColorApp(color+','+opacity)
-    console.log(getColorApp());
+    const setColorWithOpacity = () => {
+        setColorApp(color+','+opacity)
+        console.log(getColorApp());
+    }
 
     return (
         <div >
@@ -48,6 +50,8 @@ export const ColorPicker = () => {
 
             <p></p> 
             <div id="rectangle" style={{background: color, opacity: opacity}}></div>
+            <p></p>
+            <input type="button" value="Valider" onClick={setColorWithOpacity}/>
         </div>
     )
 }

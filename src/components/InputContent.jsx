@@ -5,28 +5,24 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 export const InputContent = (props) => {
 
-    let textInput = props.textInput
-    let onInput = props.onInput
-    let value = props.value
+  let textInput = props.textInput
+  let onInput = props.onInput
 
-    if (onInput) {
-        onInput()
-      }
+  if (onInput) {
+    onInput()
+  }
 
-    let textContent = (value) => {
-        setInputContent(value)
-    }
+  let textContent = (value) => {
+    setInputContent(value)
+  }
 
-    const [result, setResult] = useState([])
+  const [result, setResult] = useState([])
   
   const getDataFromAPI = (adresse, codePostal) => {
-    console.log("Options Fetched from API")
-    console.log('https://api-adresse.data.gouv.fr/search/?q='+adresse+'');
   
-    fetch('https://api-adresse.data.gouv.fr/search/?q='+adresse+'').then((response) => {
-      return response.json()
+  fetch('https://api-adresse.data.gouv.fr/search/?q='+adresse+'&type=locality').then((response) => {
+    return response.json()
     }).then((res) => {
-      console.log(res.features[1].properties['name'])
       for (var i = 0; i < res.features.length; i++) {
         result.push(res.features[i].properties['name'])
       }
@@ -34,7 +30,13 @@ export const InputContent = (props) => {
     })
   }
 
-    return (
+  const setInput = () =>{
+    const name = document.querySelector("input");
+    console.log(name.value);
+    setInputContent(name.value)
+  } 
+
+  return (
     <div>
         <h4>Saisissez votre {textInput} !</h4>
         <hr></hr>
@@ -46,12 +48,15 @@ export const InputContent = (props) => {
         options={result}
         renderInput={(params) => (
           <TextField {...params}
-            onChange={(e) => {getDataFromAPI(e.target.value)}}
-            variant="outlined"
-            label="Tapez votre texte ici"
+          onChange={(e) => {getDataFromAPI(e.target.value)}}
+          variant="outlined"
+          label="Tapez votre texte ici"
+          className="name"
           />
-        )}
+          )}
       />
+      <p></p>
+      <input type="button" value="Valider" onClick={setInput}/>
     </div> 
-    )
+  )
 }

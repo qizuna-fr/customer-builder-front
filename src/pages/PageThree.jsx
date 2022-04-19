@@ -1,5 +1,4 @@
 import {ColorPicker} from '../components/ColorPicker'
-import { useState } from 'react';
 
 export const PageThree = () => {
 

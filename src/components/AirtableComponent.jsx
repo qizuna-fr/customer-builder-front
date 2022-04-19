@@ -1,4 +1,3 @@
-import { IonButton} from "@ionic/react"
 import { getInputContent, getFontApp, getColorApp, getFileApp } from "../pages/utilities"
 
 export const AirtableComponent = () => {
@@ -22,7 +21,7 @@ export const AirtableComponent = () => {
       if (err) { console.error(err); return; }
     });
   
-    if (exist == 0)
+    if (exist === 0)
     {
       base('Projects').create([
         {

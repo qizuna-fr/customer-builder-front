@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FontPickerComponent } from '../components/FontPickerComponent';
 
 export const PageFour = () => {

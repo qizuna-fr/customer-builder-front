@@ -10,10 +10,16 @@ export const UploadFile = () => {
     setUploadFile(e.target.files[0]);
     setFileApp(e.target.files[0].name)
   }
+
+  const setFile = () => {
+    console.log(uploadFile.name);
+    setFileApp(uploadFile.name)
+  }
   
   return (
-    <div >
+    <div>
       <input required type="file" onChange={(e) => handleChange(e)} data-testid="file-input"/>
+      <input type="button" value="Valider" onClick={setFile}/>
     </div>
   );
 }
