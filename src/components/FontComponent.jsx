@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
-import { setFontApp } from '../pages/utilities';
+import { setTitleFont } from '../pages/utilities';
 
 export const FontPickerComponent = () => {
  
@@ -21,7 +21,7 @@ export const FontPickerComponent = () => {
         <p className="apply-font">La police sera appliquée à ce texte.</p>
 
         <p></p>
-            <input type="button" value="Valider" onClick={setFontApp(font)}/>
+            <input type="button" value="Valider" onClick={setTitleFont(font)}/>
     </div>
     )
 }

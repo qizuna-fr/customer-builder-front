@@ -1,5 +1,5 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import {  getColorApp, getFileApp, getFontApp, getInputContent } from "./utilities"
+import {  getColorApp, getFileApp, getTitleFont, getInputContent } from "./utilities"
 import { AirtableComponent } from "../components/AirtableComponent"
 
 export const LastPage = () => {
@@ -25,7 +25,7 @@ export const LastPage = () => {
         <IonLabel > Couleur : {getColorApp()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Police : {getFontApp()}</IonLabel>
+        <IonLabel > Police : {getTitleFont()}</IonLabel>
       </IonItem>
       <p></p>
       <AirtableComponent></AirtableComponent> 

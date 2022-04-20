@@ -1,4 +1,4 @@
-import { redirect, setColorApp, setFileApp, setFontApp, setInputContent } from "./utilities"
+import { redirect, setColorApp, setFileApp, setTitleFont, setInputContent } from "./utilities"
 
 export const Accueil = () => {
 
@@ -7,7 +7,7 @@ export const Accueil = () => {
     const scrollToNext = () => {
         setInputContent("")
         setFileApp("")
-        setFontApp("")
+        setTitleFont("")
         setColorApp("")
         redirect(`${window.location.protocol}//${window.location.host}/scroll`)
     }

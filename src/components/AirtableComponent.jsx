@@ -1,4 +1,4 @@
-import { getInputContent, getFontApp, getColorApp, getFileApp } from "../pages/utilities"
+import { getInputContent, getTitleFont, getColorApp, getFileApp } from "../pages/utilities"
 
 export const AirtableComponent = () => {
   
@@ -6,10 +6,8 @@ export const AirtableComponent = () => {
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
 
-  console.log(getColorApp())
   let contentAirtable = async () => {
     base('Projects').select({
-      // Selecting the first 3 records in Grid view:
       filterByFormula: `departement = "${getInputContent()}"`
     }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
@@ -27,7 +25,6 @@ export const AirtableComponent = () => {
     }
   
     else {
-
       if (exist === 0)
       {
         base('Projects').create([
@@ -36,7 +33,7 @@ export const AirtableComponent = () => {
               "Departement": getInputContent(),
               "logo": getFileApp(),
               "color": getColorApp(),
-              "front": getFontApp()
+              "front": getTitleFont()
             }
           }
         ], function(err, records) {

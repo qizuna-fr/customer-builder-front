@@ -29,10 +29,10 @@ export const setColorApp = (color) => {
     sessionStorage.setItem('color', color);
 }
 
-export const getFontApp = () => {
+export const getTitleFont = () => {
     return sessionStorage.getItem('font')
 }
 
-export const setFontApp = (font) => {
+export const setTitleFont = (font) => {
     sessionStorage.setItem('font', font);
 }

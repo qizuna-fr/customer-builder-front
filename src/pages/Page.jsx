@@ -13,20 +13,20 @@ const Page = () => {
 
   const content = () => {
 
-    if ((name === "accueil"))
+    if ((name == "accueil"))
     {
       return <Accueil/>
     }
-    if ((name === "last-page"))
+    if ((name == "last-page"))
     {
       return <LastPage/>
     }
-    if ((name === "scroll"))
+    if ((name == "scroll"))
     {
       return <Pagescroll frames={pages}></Pagescroll>
     }
     return data.component
-    
+
   }
 
   return (

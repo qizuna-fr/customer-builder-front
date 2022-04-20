@@ -1,4 +1,4 @@
-import { FontPickerComponent } from '../components/FontPickerComponent';
+import { FontPickerComponent } from '../components/FontComponent';
 
 export const PageFour = () => {
 
