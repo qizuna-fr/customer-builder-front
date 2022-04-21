@@ -9,17 +9,15 @@ export const ColorPicker = () => {
         setOpacity(e.target.value)
     }
     let colorValue=(e)=>{
-      setColor(e.target.value)
+        setColor(e.target.value)
     }
-
     const setColorWithOpacity = () => {
         setTitleColor(color+','+opacity)
-        console.log(TitleColor());
     }
 
     return (
         <div >
-            Couleur :
+            Opacité :
             <input type="range" min="0" max="1" step="0.1" list="tickmarks" onChange={(e)=>{opacityValue(e)}}/>
                 <datalist id="tickmarks">
                     <option value="0" label="0"/>
@@ -34,10 +32,8 @@ export const ColorPicker = () => {
                     <option value="0.9"/>
                     <option value="1" label="1"/>
                 </datalist>
-
                 <p></p>
-
-                Opacité :
+            Couleur :
             <input type="color" list="profilecolorslist" onChange={(e)=>{colorValue(e)}}/>
             <datalist id="profilecolorslist">
                 <option value="#00ffff"/>
@@ -45,7 +41,6 @@ export const ColorPicker = () => {
                 <option value="#ffff00"/>
                 <option value="#ffaa00"/>
             </datalist>
-
             <p></p> 
             <div id="rectangle" style={{background: color, opacity: opacity}}></div>
             <p></p>

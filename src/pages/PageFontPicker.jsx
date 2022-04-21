@@ -4,7 +4,7 @@ export const PageFontPicker = () => {
 
     return (
         <div className="containerscrol">
-        <h4> Maitenant choisissez le style d'écriture que vous souhaitez utiliser pour votre application !</h4>
+        <h4> Choisissez la police des titres de votre application !</h4>
         <FontPickerComponent/>
         <hr></hr>
         Appuiez sur "entrer" pour valider !

@@ -6,13 +6,11 @@ export const UploadFile = () => {
   const [file, setFile] = useState();
 
   const handleChange = (e) => {
-    console.log(e.target.files[0].name);
     setFile(e.target.files[0]);
     setUploadFile(e.target.files[0].name)
   }
 
   const setFileTitle = () => {
-    console.log(file.name);
     setUploadFile(file.name)
   }
   

@@ -14,25 +14,21 @@ export const InputContentComponent = (props) => {
 
   const [result, setResult] = useState([])
   
-  const getDataFromAPI = (adresse, codePostal) => {
+  const getDataFromAPI = (adresse) => {
   
   fetch('https://geo.api.gouv.fr/communes?nom='+adresse+'&fields=departement&limit=5').then((response) => {
     return response.json()
     }).then((res) => {
-      console.log(res);
       for (var i = 0; i < res.length; i++) {
         result.push(res[i].nom)
       }
       setResult(result)
-      console.log(result);
     })
   }
 
   const setInput = () =>{
     const name = document.querySelector("input");
-    // console.log(name.value);
     setInputContent(name.value)
-    console.log(InputContent());
   } 
 
   return (

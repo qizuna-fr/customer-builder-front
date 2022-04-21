@@ -9,6 +9,7 @@ import { PageInputContent} from './PageInputContent';
 import { PageUploadFile } from './PageUploadFile';
 import { PageFontPicker } from './PageFontPicker';
 import { PageColorPicker } from './PageColorPicker';
+import { PageStyleComponent } from './PageStyleComponent';
 
 const Page = () => {
   
@@ -32,6 +33,7 @@ const Page = () => {
         if (record.get('Component') === 'ColorComponent') component = <PageColorPicker/>
         if (record.get('Component') === 'UploadFileComponent') component = <PageUploadFile/>
         if (record.get('Component') === 'InputContentComponent') component = <PageInputContent/>
+        if (record.get('Component') === 'StyleComponent') component = <PageStyleComponent/>
         obj = {
           title : record.get('Title'),
           component : component, 
@@ -55,7 +57,6 @@ const Page = () => {
     },
   )
   }
-  console.log(dataAirtable);
   
   useEffect(() => {
       fetchData();

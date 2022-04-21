@@ -28,7 +28,7 @@ export const LastPage = () => {
         <IonLabel > Police : {TitleFont()}</IonLabel>
       </IonItem>
       <p></p>
-      <AirtableComponent></AirtableComponent> 
+      <input type='button' value='Preview'/>
     </div> 
   )
 }
