@@ -1,11 +1,12 @@
-import { InputContent } from "../components/InputContentComponent";
+import { InputContentComponent } from "../components/InputContentComponent";
 import React from 'react'
 
 export const PageInputContent = () => {
 
+    
     return (
     <div className="containerscrol">
-    <InputContent textInput="departement"></InputContent>
+    <InputContentComponent textInput="departement"></InputContentComponent>
     <hr></hr>
     Appuiez sur "entrer" pour valider !
     </div> 

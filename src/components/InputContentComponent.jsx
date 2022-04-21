@@ -1,19 +1,15 @@
-import { setInputContent } from "../pages/utilities"
+import { setInputContent, InputContent } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-export const InputContent = (props) => {
+export const InputContentComponent = (props) => {
 
   let textInput = props.textInput
   let onInput = props.onInput
 
   if (onInput) {
     onInput()
-  }
-
-  let textContent = (value) => {
-    setInputContent(value)
   }
 
   const [result, setResult] = useState([])
@@ -34,8 +30,9 @@ export const InputContent = (props) => {
 
   const setInput = () =>{
     const name = document.querySelector("input");
-    console.log(name.value);
+    // console.log(name.value);
     setInputContent(name.value)
+    console.log(InputContent());
   } 
 
   return (

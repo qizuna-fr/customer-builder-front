@@ -1,14 +1,11 @@
-import { redirect, setInputContent, setTitleColor, setTitleFont, setUploadFile } from "./utilities"
+import { redirect } from "./utilities"
 
 export const Accueil = () => {
 
     const logo = require('../assets/icon/qizuna.png');
 
     const scrollToNext = () => {
-        setInputContent("")
-        setUploadFile("")
-        setTitleFont("")
-        setTitleColor("")
+        
         redirect(`${window.location.protocol}//${window.location.host}/scroll`)
     }
 

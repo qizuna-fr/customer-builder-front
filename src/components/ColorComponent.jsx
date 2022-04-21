@@ -4,7 +4,6 @@ import { setTitleColor, TitleColor } from '../pages/utilities';
 export const ColorPicker = () => {
     const [opacity, setOpacity] = useState('1');
     const [color, setColor] = useState("#000000");
-    setTitleColor(color+','+opacity)
   
     let opacityValue=(e)=>{
         setOpacity(e.target.value)

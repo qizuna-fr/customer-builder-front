@@ -11,6 +11,10 @@ export const FontPickerComponent = () => {
         setFont(value)
     }
 
+    let setFontOnClick = () => {
+        setTitleFont(font)
+    }
+
     return (
         <div data-testid="font-picker" >
         <FontPicker
@@ -21,7 +25,7 @@ export const FontPickerComponent = () => {
         <p className="apply-font">La police sera appliquée à ce texte.</p>
 
         <p></p>
-            <input type="button" value="Valider" onClick={setTitleFont(font)}/>
+            <input type="button" value="Valider" onClick={setFontOnClick}/>
     </div>
     )
 }
