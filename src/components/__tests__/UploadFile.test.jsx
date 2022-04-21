@@ -5,7 +5,7 @@
 import { render , screen } from '@testing-library/react'
 import React from 'react'
 import '@testing-library/jest-dom'
-import { UploadFile } from "../UploadFile" 
+import { UploadFile } from "../UploadFileComponent" 
 import 'regenerator-runtime/runtime';
 
 test('The input file field should be in the document', () => {

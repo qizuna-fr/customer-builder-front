@@ -1,9 +1,9 @@
 import { Accueil } from '../pages/Accueil';
 import { LastPage } from '../pages/LastPage';
-import { PageOne } from '../pages/PageOne';
-import { PageTwo } from '../pages/PageTwo';
-import { PageThree } from '../pages/PageThree';
-import { PageFour } from '../pages/PageFour';
+import { PageInputContent } from '../pages/PageInputContent';
+import { PageUploadFile } from '../pages/PageUploadFile';
+import { PageColorPicker } from '../pages/PageColorPicker';
+import { PageFontPicker } from '../pages/PageFontPicker';
 import { Pagescroll } from '../slides/Pagescroll';
 
   export const Data = [
@@ -27,7 +27,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       slide : 1,
       scroll : 1,
       color : 'orange',
-      component : <PageOne/>
+      component : <PageInputContent/>
     },
     {
       title: 'secondPage',
@@ -35,7 +35,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       slide : 2,
       scroll : 1,
       color : 'tomato',
-      component : <PageTwo/>
+      component : <PageUploadFile/>
     },
     {
       title: 'third_page',
@@ -43,7 +43,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       slide : 3,
       scroll : 1,
       color : 'orchid',
-      component : <PageThree/>
+      component : <PageColorPicker/>
     },
     {
       title: 'fourthPage',
@@ -51,7 +51,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       slide : 4,
       color : 'DarkSeaGreen',
       scroll : 1,
-      component : <PageFour/>
+      component : <PageFontPicker/>
     },
     {
       title: 'lastPage',

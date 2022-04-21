@@ -5,9 +5,10 @@ import { Accueil } from './Accueil';
 import { LastPage } from './LastPage';
 import { Pagescroll } from '../slides/Pagescroll';
 import { useEffect, useState } from 'react';
-import { PageOne } from './PageOne';
-import { PageTwo } from './PageTwo';
-// import { getDataFromDataBase } from './utilities';
+import { PageInputContent} from './PageInputContent';
+import { PageUploadFile } from './PageUploadFile';
+import { PageFontPicker } from './PageFontPicker';
+import { PageColorPicker } from './PageColorPicker';
 
 const Page = () => {
   
@@ -15,42 +16,46 @@ const Page = () => {
   const data = Data.find(page => page.url.substring(1) === name)
   const pages = Data.filter(page => page.scroll === 1)
   
-  // const getDataFromDataBase = () => {
+  const [dataAirtable, setDataAirtable] = useState([])
+  let airtable = []
+  let obj = {}
 
-    const [dataAirtable, setDataAirtable] = useState([])
-    let airtable = []
-    let obj = {}
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
 
-    var Airtable = require('airtable');
-    var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-
-    const fetchData = async() => {
-    base('Projects').select({sort:[{field: "Order", direction: "desc"}], view: "Grid view"}).eachPage(
-        function page(records, fetchNextPage) {
-            records.forEach(function(record) {
-              let component 
-              if (record.get('Component') === 'FontComponent') component = <PageOne/>
-              if (record.get('Component') === 'ColorComponent') component = <PageTwo/>
-                obj = {
-                    title : record.get('Title'),
-                    component : component, 
-                    variableName: record.get('VariableName'),
-                    order: record.get('Order')
-                }
-                airtable.push(obj)
-            })
-            fetchNextPage()
-            console.log(dataAirtable);
-            setDataAirtable(airtable)
-        }, 
-        function done(err) {
-            if (err) { console.error(err); return; }
-        },
-    )
-    }
-    console.log(dataAirtable);
-  //   return dataAirtable
-  // }
+  const fetchData = async() => {
+  base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
+    function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+        let component 
+        if (record.get('Component') === 'FontComponent') component = <PageFontPicker/>
+        if (record.get('Component') === 'ColorComponent') component = <PageColorPicker/>
+        if (record.get('Component') === 'UploadFileComponent') component = <PageUploadFile/>
+        if (record.get('Component') === 'InputContentComponent') component = <PageInputContent/>
+        obj = {
+          title : record.get('Title'),
+          component : component, 
+          variableName: record.get('VariableName'),
+          order: record.get('Order')
+        }
+        airtable.push(obj)
+      })
+      fetchNextPage()
+      let nbComponent  = airtable.length
+      airtable.push({
+        title : 'Résumé des pages',
+        component : <LastPage/>, 
+        variableName: '',
+        order: nbComponent+1
+      })
+      setDataAirtable(airtable)
+    }, 
+    function done(err) {
+      if (err) { console.error(err); return; }
+    },
+  )
+  }
+  console.log(dataAirtable);
   
   useEffect(() => {
       fetchData();
@@ -62,19 +67,11 @@ const Page = () => {
     {
       return <Accueil/>
     }
-    if ((name === "last-page"))
-    {
-      return <LastPage/>
-    }
     if ((name === "scroll"))
     {
-      // console.log(getDataFromDataBase())
-      // let components = getDataFromDataBase().map(item => item.component)
-      // console.log(components);
       return <Pagescroll frames={dataAirtable}></Pagescroll>
     }
     return data.component
-    
   }
 
   return (

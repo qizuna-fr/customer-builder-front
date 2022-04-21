@@ -3,7 +3,7 @@
 */  
 
 import { render , screen, fireEvent,} from '@testing-library/react'
-import { InputContent } from "../InputContent" 
+import { InputContent } from "../InputContentComponent" 
 import React from 'react'
 import '@testing-library/jest-dom'
 

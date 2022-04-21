@@ -1,7 +1,7 @@
-import { InputContent } from "../components/InputContent";
+import { InputContent } from "../components/InputContentComponent";
 import React from 'react'
 
-export const PageOne = () => {
+export const PageInputContent = () => {
 
     return (
     <div className="containerscrol">

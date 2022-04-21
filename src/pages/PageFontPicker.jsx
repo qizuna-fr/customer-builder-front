@@ -1,6 +1,6 @@
 import { FontPickerComponent } from '../components/FontComponent';
 
-export const PageFour = () => {
+export const PageFontPicker = () => {
 
     return (
         <div className="containerscrol">

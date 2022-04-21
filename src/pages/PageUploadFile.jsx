@@ -1,9 +1,9 @@
-import { UploadFile } from '../components/UploadFile';
+import { UploadFile } from '../components/UploadFileComponent';
 import React from 'react'
 
 import '../assets/css/Style.css'
 
-export const PageTwo = () => {
+export const PageUploadFile = () => {
 
   return (
     <div className="containerscrol">

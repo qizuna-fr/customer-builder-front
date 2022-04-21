@@ -1,6 +1,6 @@
 import {ColorPicker} from '../components/ColorComponent'
 
-export const PageThree = () => {
+export const PageColorPicker = () => {
 
     return (
         <div className="containerscrol">
