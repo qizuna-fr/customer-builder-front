@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { setColorApp, getColorApp } from '../pages/utilities';
+import { setTitleColor, TitleColor } from '../pages/utilities';
 
 export const ColorPicker = () => {
     const [opacity, setOpacity] = useState('1');
     const [color, setColor] = useState("#000000");
-    setColorApp(color+','+opacity)
+    setTitleColor(color+','+opacity)
   
     let opacityValue=(e)=>{
         setOpacity(e.target.value)
@@ -14,8 +14,8 @@ export const ColorPicker = () => {
     }
 
     const setColorWithOpacity = () => {
-        setColorApp(color+','+opacity)
-        console.log(getColorApp());
+        setTitleColor(color+','+opacity)
+        console.log(TitleColor());
     }
 
     return (

@@ -1,6 +1,6 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import {  getColorApp, getFileApp, getTitleFont, getInputContent } from "./utilities"
 import { AirtableComponent } from "../components/AirtableComponent"
+import { InputContent, TitleColor, TitleFont, UploadFile } from "./utilities"
 
 export const LastPage = () => {
 
@@ -16,16 +16,16 @@ export const LastPage = () => {
     <div  className="containerscrol">
       <h4> Résumé de vos choix ! </h4>
       <IonItem >
-        <IonLabel >Departement : {getInputContent()}</IonLabel>
+        <IonLabel >Departement : {InputContent()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Logo : {getFileApp()}</IonLabel>
+        <IonLabel > Logo : {UploadFile()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Couleur : {getColorApp()}</IonLabel>
+        <IonLabel > Couleur : {TitleColor()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Police : {getTitleFont()}</IonLabel>
+        <IonLabel > Police : {TitleFont()}</IonLabel>
       </IonItem>
       <p></p>
       <AirtableComponent></AirtableComponent> 

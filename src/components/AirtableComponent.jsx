@@ -1,4 +1,4 @@
-import { getInputContent, getTitleFont, getColorApp, getFileApp } from "../pages/utilities"
+import { InputContent, TitleColor, TitleFont, UploadFile } from '../pages/utilities';
 
 export const AirtableComponent = () => {
   
@@ -8,7 +8,7 @@ export const AirtableComponent = () => {
 
   let contentAirtable = async () => {
     base('Projects').select({
-      filterByFormula: `departement = "${getInputContent()}"`
+      filterByFormula: `departement = "${InputContent()}"`
     }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
           console.log('Retrieved', record.get('Departement'));
@@ -19,7 +19,7 @@ export const AirtableComponent = () => {
       if (err) { console.error(err); return; }
     });
 
-    if (getInputContent()==="" || getFileApp()==="" || getColorApp()==="" ) 
+    if (InputContent()==="" || UploadFile()==="" || TitleColor()==="" ) 
     {
       alert("Valeur manquante !");
     }
@@ -30,10 +30,10 @@ export const AirtableComponent = () => {
         base('Projects').create([
           {
             "fields": {
-              "Departement": getInputContent(),
-              "logo": getFileApp(),
-              "color": getColorApp(),
-              "front": getTitleFont()
+              "Departement": InputContent(),
+              "logo": UploadFile(),
+              "color": TitleColor(),
+              "front": TitleFont()
             }
           }
         ], function(err, records) {

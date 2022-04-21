@@ -6,9 +6,7 @@ export const redirect = (targetURL) => {
     newURL.click();
 }
 
-// export 
-
-export const getInputContent = () => {
+export const InputContent = () => {
     return sessionStorage.getItem('text')
 }
 
@@ -16,23 +14,23 @@ export const setInputContent = (text) => {
     sessionStorage.setItem('text', text);
 }
 
-export const getFileApp = () => {
+export const UploadFile = () => {
     return sessionStorage.getItem('file')
 }
 
-export const setFileApp = (file) => {
+export const setUploadFile = (file) => {
     sessionStorage.setItem('file', file);
 }
 
-export const getColorApp = () => {
+export const TitleColor = () => {
     return sessionStorage.getItem('color')
 }
 
-export const setColorApp = (color) => {
+export const setTitleColor = (color) => {
     sessionStorage.setItem('color', color);
 }
 
-export const getTitleFont = () => {
+export const TitleFont = () => {
     return sessionStorage.getItem('font')
 }
 
