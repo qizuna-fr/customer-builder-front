@@ -1,7 +1,4 @@
-import { IonButton, IonItem, IonLabel } from "@ionic/react"
-import {  getColor, getInputContent, getFile, getFontApp } from "../pages/utilities"
-
-import '../assets/css/Style.css'
+import { getInputContent, getTitleFont, getColorApp, getFileApp } from "../pages/utilities"
 
 export const AirtableComponent = () => {
   
@@ -10,51 +7,55 @@ export const AirtableComponent = () => {
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
 
   let contentAirtable = async () => {
-
     base('Projects').select({
-      // Selecting the first 3 records in Grid view:
       filterByFormula: `departement = "${getInputContent()}"`
-  }).eachPage(function page(records, fetchNextPage) {
+    }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
           console.log('Retrieved', record.get('Departement'));
           exist = 1
-          console.log(exist);
       });
       fetchNextPage();
-  
-  }, function done(err) {
+    }, function done(err) {
       if (err) { console.error(err); return; }
-  });
-  
-  if (exist == 0)
-  {
-    base('Projects').create([
-      {
-        "fields": {
-          "Departement": getInputContent(),
-          "logo": getFile(),
-          "color": getColor(),
-          "front": getFontApp()
-        }
-      }
-    ], function(err, records) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      records.forEach(function (record) {
-        console.log(record.getId());
-      });
     });
-  }
-  else console.log("Existe déjà ! ");
-  }
 
-    return (
-
+    if (getInputContent()==="" || getFileApp()==="" || getColorApp()==="" ) 
+    {
+      alert("Valeur manquante !");
+    }
+  
+    else {
+      if (exist === 0)
+      {
+        base('Projects').create([
+          {
+            "fields": {
+              "Departement": getInputContent(),
+              "logo": getFileApp(),
+              "color": getColorApp(),
+              "front": getTitleFont()
+            }
+          }
+        ], function(err, records) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          records.forEach(function (record) {
+            console.log(record.getId());
+          });
+        });
+      }
+      else {
+        console.log("Existe déjà ! ");
+        alert("Departement existant !");
+      }
+    }
+    }
+  
+  return (
     <div>
-    <IonButton > Preview </IonButton>
-      <IonButton onClick={() => contentAirtable()}> Valider </IonButton>
+      <input type="button" value="Valider" onClick={() => contentAirtable()}/>
     </div>
-    )
+  )
 }

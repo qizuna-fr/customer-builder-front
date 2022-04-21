@@ -1,21 +1,13 @@
-import { redirect, setURLPage, setDepartement } from "./utilities";
-
-import '../assets/css/Style.css'
 import { InputContent } from "../components/InputContent";
+import React from 'react'
 
-export const PageOne = (textInput) => {
-
-    const scrollToNext = () => {
-    setURLPage('second_page')
-    redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
-   
-    }
+export const PageOne = () => {
 
     return (
-    <div className="container">
+    <div className="containerscrol">
     <InputContent textInput="departement"></InputContent>
-    <button id="nextBtn" type="button" onClick={() => scrollToNext()} > Suivant </button>
-    <hr /><hr /><hr /><hr />
+    <hr></hr>
+    Appuiez sur "entrer" pour valider !
     </div> 
     )
 }

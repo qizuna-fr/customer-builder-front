@@ -1,8 +1,9 @@
-.slide{
+
+/* .slide{
     height: 100px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-  }
+  } */
 
 .imgcontainer {
   text-align: center;
@@ -22,13 +23,14 @@
   padding: 10px 20px;
 } */
   
-.containerAccueil {
+.containerscrol {
   text-align: center;
-  padding: 16px;
-  border: 1px solid #136ce0;
-  border-radius: 0.50rem;
-  margin: 1rem;
-  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 400px;
+  margin: -200px 0 0 -300px;
 }
 
 .containerColor {
@@ -47,64 +49,11 @@
   border-radius: 0.50rem;
   margin: 1rem;
   padding: 1rem;
+  bottom: 4em;
 }
 
 img.logo {
   width: 40%;
-}
-
-.fade-enter {
-  opacity: 0.01;
-}
-  
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-  
-.fade-exit {
-  opacity: 1;
-}
-  
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-  
-div.transition-group {
-  position: relative;
-}
-  
-section.route-section {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
-.slide-enter,
-.slide-exit {
-  transition: transform 1000ms ease-out;
-}
-
-.slide-enter {
-  transform: translateX(100%);
-}
-
-.slide-enter.slide-enter-active {
-  transform: translateX(0%);
-}
-
-.slide-exit {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: translateX(0%);
-}
-
-.slide-exit-active {
-  transform: translateX(-100%);
 }
 
 .accueil{
@@ -167,11 +116,6 @@ button:hover {
   margin: 24px 0 12px 0;
 }
   
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-  
 .container {
   padding: 16px;
 }
@@ -192,3 +136,13 @@ span.psw {
   width: 100%;
 }
 
+#rectangle{
+  width:50px;
+  height:50px;
+  border: 1px solid;
+  border-radius: 0.50rem;
+  margin: 0 auto;
+	padding: 1px;
+  display: flex;
+  background: #000000;
+}

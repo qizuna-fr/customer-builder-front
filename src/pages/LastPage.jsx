@@ -1,32 +1,34 @@
-import { IonButton, IonItem, IonLabel } from "@ionic/react"
-import {  getColor, getFile, getFontApp, getInputContent, redirect } from "./utilities"
-
-import '../assets/css/Style.css'
+import { IonItem, IonLabel } from "@ionic/react"
+import {  getColorApp, getFileApp, getTitleFont, getInputContent } from "./utilities"
 import { AirtableComponent } from "../components/AirtableComponent"
 
 export const LastPage = () => {
 
-    return (
-    <div className="container">
-        <h4> Résumé de vos choix ! </h4>
+  let saveToJson = (text, fileName) => {
+    // console.log("save");
+    // let a = document.createElement('a');
+    // a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
+    // a.setAttribute('download', fileName);
+    // a.click()
+  }
+
+  return (
+    <div  className="containerscrol">
+      <h4> Résumé de vos choix ! </h4>
       <IonItem >
         <IonLabel >Departement : {getInputContent()}</IonLabel>
-        <IonButton > Modifier </IonButton>
       </IonItem>
       <IonItem>
-        <IonLabel > Logo : {getFile()}</IonLabel>
-        <IonButton > Modifier </IonButton>
+        <IonLabel > Logo : {getFileApp()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Couleur : {getColor()}</IonLabel>
-        <IonButton > Modifier </IonButton>
+        <IonLabel > Couleur : {getColorApp()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Police : {getFontApp()}</IonLabel>
-        <IonButton > Modifier </IonButton>
+        <IonLabel > Police : {getTitleFont()}</IonLabel>
       </IonItem>
       <p></p>
-      <AirtableComponent></AirtableComponent>
+      <AirtableComponent></AirtableComponent> 
     </div> 
-    )
+  )
 }

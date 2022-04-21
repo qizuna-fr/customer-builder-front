@@ -23,10 +23,13 @@ import {BrowserRouter} from "react-router-dom";
 /* Theme variables */
 import './theme/variables.css';
 import Page from './pages/Page';
+import { Data } from './components/Data';
 
 setupIonicReact();
 
-const App = () => (
+const App = () => {
+
+return (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -41,6 +44,6 @@ const App = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
-
-export default App;
+)
+}
+export default App

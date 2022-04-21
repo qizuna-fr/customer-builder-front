@@ -1,29 +1,17 @@
-import { redirect, setURLPage } from "./utilities";
 import { UploadFile } from '../components/UploadFile';
+import React from 'react'
 
 import '../assets/css/Style.css'
 
 export const PageTwo = () => {
 
-  const scrollToNext = () => {
-    setURLPage('third_page')
-    redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
-}
-
-    const scrollToPrevious = () => {
-        setURLPage('first_page')
-        redirect(`${window.location.protocol}//${window.location.host}/animated-switch`)
-    }
-
   return (
-    <div className="container">
+    <div className="containerscrol">
         <h4>Avez vous un logo pour votre application ? </h4>
+        <hr></hr>
         <UploadFile/>
-        <div className="buttonright">
-            <button id="nextBtn" type="button" onClick={() => scrollToNext()} >Suivant</button>
-        </div>
-        <button id="prevBtn" className="buttonleft" type="button" onClick={() => scrollToPrevious()} >Precedent</button>
-        <hr /><hr /><hr /><hr />
+        <hr></hr>
+        Appuiez sur "entrer" pour valider !
     </div>
   );
 }
