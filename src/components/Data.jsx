@@ -4,7 +4,7 @@ import { PageInputContent } from '../pages/PageInputContent';
 import { PageUploadFile } from '../pages/PageUploadFile';
 import { PageColorPicker } from '../pages/PageColorPicker';
 import { PageFontPicker } from '../pages/PageFontPicker';
-import { Pagescroll } from '../slides/Pagescroll';
+import { Slider } from '../slides/Slider';
 
   export const Data = [
     {
@@ -12,7 +12,7 @@ import { Pagescroll } from '../slides/Pagescroll';
       url: '/scroll',
       slide : 0,
       scroll : 0,
-      component : <Pagescroll/>
+      component : <Slider/>
     },
     {
       title: 'accueil',

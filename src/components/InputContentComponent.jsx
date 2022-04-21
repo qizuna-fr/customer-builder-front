@@ -20,13 +20,15 @@ export const InputContent = (props) => {
   
   const getDataFromAPI = (adresse, codePostal) => {
   
-  fetch('https://api-adresse.data.gouv.fr/search/?q='+adresse+'&type=locality').then((response) => {
+  fetch('https://geo.api.gouv.fr/communes?nom='+adresse+'&fields=departement&limit=5').then((response) => {
     return response.json()
     }).then((res) => {
-      for (var i = 0; i < res.features.length; i++) {
-        result.push(res.features[i].properties['name'])
+      console.log(res);
+      for (var i = 0; i < res.length; i++) {
+        result.push(res[i].nom)
       }
       setResult(result)
+      console.log(result);
     })
   }
 
@@ -38,9 +40,8 @@ export const InputContent = (props) => {
 
   return (
     <div>
-        <h4>Saisissez votre {textInput} !</h4>
-        <hr></hr>
-        {/* <p><input required  value={value} data-testid="text-input" type = "text" placeholder="Tapez ici votre texte..." onInput={(e) => textContent(e.target.value)}></input></p> */}
+      <h4>Saisissez votre {textInput} !</h4>
+      <hr></hr>
       <Autocomplete
         freeSolo
         autoComplete

@@ -3,7 +3,7 @@ import {Data} from "../components/Data"
 import { useParams } from 'react-router';
 import { Accueil } from './Accueil';
 import { LastPage } from './LastPage';
-import { Pagescroll } from '../slides/Pagescroll';
+import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
 import { PageInputContent} from './PageInputContent';
 import { PageUploadFile } from './PageUploadFile';
@@ -69,7 +69,7 @@ const Page = () => {
     }
     if ((name === "scroll"))
     {
-      return <Pagescroll frames={dataAirtable}></Pagescroll>
+      return <Slider frames={dataAirtable}></Slider>
     }
     return data.component
   }
