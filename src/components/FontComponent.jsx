@@ -13,6 +13,9 @@ export const FontComponent = () => {
 
     let setFontOnClick = () => {
         setTitleFont(font)
+        let idFontComponent = getIdComponentFromAirtable("FontComponent")
+        saveChoicesIntoAirtable(idFontComponent, font)
+
     }
 
     return (

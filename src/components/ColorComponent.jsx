@@ -13,6 +13,8 @@ export const ColorComponent = () => {
     }
     const setColorWithOpacity = () => {
         setTitleColor(color+','+opacity)
+        let idColorComponent = getIdComponentFromAirtable("ColorComponent")
+        saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
     }
 
     return (

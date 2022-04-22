@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setUploadFile } from "../pages/utilities";
+import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setUploadFile, setValidate } from "../pages/utilities";
 
 export const UploadFileComponent = () => {
   
@@ -12,6 +12,8 @@ export const UploadFileComponent = () => {
 
   const setFileTitle = () => {
     setUploadFile(file.name)
+    let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
+    saveChoicesIntoAirtable(idUploadFileComponent, file.name)
   }
   
   return (

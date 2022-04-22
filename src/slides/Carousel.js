@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getValidate, validate } from '../pages/utilities'
 
 const styles = {
   wrapper: {
@@ -371,9 +372,9 @@ class Carousel extends React.Component {
   // }
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-        this.autoSlide('next')
+      this.autoSlide('next')
     }
-}
+  }
 
   render () {
     const { frames, current } = this.state

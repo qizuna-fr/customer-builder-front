@@ -12,22 +12,17 @@ export const LastPage = () => {
   }
 
   let saveToAirtable = () => {
-    let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
-    let idColorComponent = getIdComponentFromAirtable("ColorComponent")
-    let idFontComponent = getIdComponentFromAirtable("FontComponent")
-    let idStyleComponent = getIdComponentFromAirtable("StyleComponent")
-    let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
+    // let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
+    // let idColorComponent = getIdComponentFromAirtable("ColorComponent")
+    // let idFontComponent = getIdComponentFromAirtable("FontComponent")
+    // let idStyleComponent = getIdComponentFromAirtable("StyleComponent")
+    // let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
 
-    // console.log(idInputContentComponent);
-    // console.log(idColorComponent);
-    // console.log(idFontComponent);
-    // console.log(idStyleComponent);
-    // console.log(idUploadFileComponent);
-    saveChoicesIntoAirtable(idInputContentComponent, inputValue())
-    saveChoicesIntoAirtable(idColorComponent, titleColor())
-    saveChoicesIntoAirtable(idFontComponent, titleFont())
-    saveChoicesIntoAirtable(idStyleComponent, titleStyle())
-    saveChoicesIntoAirtable(idUploadFileComponent, uploadFile())
+    // saveChoicesIntoAirtable(idInputContentComponent, inputValue())
+    // saveChoicesIntoAirtable(idColorComponent, titleColor())
+    // saveChoicesIntoAirtable(idFontComponent, titleFont())
+    // saveChoicesIntoAirtable(idStyleComponent, titleStyle())
+    // saveChoicesIntoAirtable(idUploadFileComponent, uploadFile())
   }
 
   return (
@@ -49,7 +44,7 @@ export const LastPage = () => {
         <IonLabel > Style des titres : {titleStyle()}</IonLabel>
       </IonItem>
       <p></p>
-      <input type='button' value='Valider' onClick={saveToAirtable}/>
+      {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
       <input type='button' value='Preview'/>
     </div> 
   )

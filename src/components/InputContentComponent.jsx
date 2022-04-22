@@ -29,6 +29,8 @@ export const InputContentComponent = (props) => {
   const setInput = () =>{
     const name = document.querySelector("input");
     setInputValue(name.value)
+    let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
+    saveChoicesIntoAirtable(idInputContentComponent, name.value)
   } 
 
   return (

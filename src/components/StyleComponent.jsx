@@ -44,7 +44,8 @@ export const StyleComponent = () => {
         let text = cssObj.getPropertyValue("text-transform") 
         let obj = font+', '+weight+', '+text
         setTitleStyle(obj)
-        console.log(titleStyle());
+        let idStyleComponent = getIdComponentFromAirtable("StyleComponent")
+        saveChoicesIntoAirtable(idStyleComponent, obj)
     }
 
     return(
