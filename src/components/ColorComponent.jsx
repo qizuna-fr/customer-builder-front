@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { setTitleColor, TitleColor } from '../pages/utilities';
+import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setTitleColor} from '../pages/utilities';
 
-export const ColorPicker = () => {
+export const ColorComponent = () => {
     const [opacity, setOpacity] = useState('1');
     const [color, setColor] = useState("#000000");
   

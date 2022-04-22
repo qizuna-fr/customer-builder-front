@@ -1,4 +1,4 @@
-import { setInputContent, InputContent } from "../pages/utilities"
+import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setInputValue } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -28,7 +28,7 @@ export const InputContentComponent = (props) => {
 
   const setInput = () =>{
     const name = document.querySelector("input");
-    setInputContent(name.value)
+    setInputValue(name.value)
   } 
 
   return (

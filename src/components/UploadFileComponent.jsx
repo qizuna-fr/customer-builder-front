@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { setUploadFile } from "../pages/utilities";
+import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setUploadFile } from "../pages/utilities";
 
-export const UploadFile = () => {
+export const UploadFileComponent = () => {
   
   const [file, setFile] = useState();
 

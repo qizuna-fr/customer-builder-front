@@ -1,6 +1,5 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import { AirtableComponent } from "../components/AirtableComponent"
-import { InputContent, TitleColor, TitleFont, UploadFile } from "./utilities"
+import { getIdComponentFromAirtable, inputValue, saveChoicesIntoAirtable, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
 
 export const LastPage = () => {
 
@@ -12,22 +11,45 @@ export const LastPage = () => {
     // a.click()
   }
 
+  let saveToAirtable = () => {
+    let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
+    let idColorComponent = getIdComponentFromAirtable("ColorComponent")
+    let idFontComponent = getIdComponentFromAirtable("FontComponent")
+    let idStyleComponent = getIdComponentFromAirtable("StyleComponent")
+    let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
+
+    // console.log(idInputContentComponent);
+    // console.log(idColorComponent);
+    // console.log(idFontComponent);
+    // console.log(idStyleComponent);
+    // console.log(idUploadFileComponent);
+    saveChoicesIntoAirtable(idInputContentComponent, inputValue())
+    saveChoicesIntoAirtable(idColorComponent, titleColor())
+    saveChoicesIntoAirtable(idFontComponent, titleFont())
+    saveChoicesIntoAirtable(idStyleComponent, titleStyle())
+    saveChoicesIntoAirtable(idUploadFileComponent, uploadFile())
+  }
+
   return (
     <div  className="containerscrol">
       <h4> Résumé de vos choix ! </h4>
       <IonItem >
-        <IonLabel >Departement : {InputContent()}</IonLabel>
+        <IonLabel >Departement : {inputValue()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Logo : {UploadFile()}</IonLabel>
+        <IonLabel > Logo : {uploadFile()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Couleur : {TitleColor()}</IonLabel>
+        <IonLabel > Couleur des titres : {titleColor()}</IonLabel>
       </IonItem>
       <IonItem>
-        <IonLabel > Police : {TitleFont()}</IonLabel>
+        <IonLabel > Police des titres : {titleFont()}</IonLabel>
+      </IonItem>
+      <IonItem>
+        <IonLabel > Style des titres : {titleStyle()}</IonLabel>
       </IonItem>
       <p></p>
+      <input type='button' value='Valider' onClick={saveToAirtable}/>
       <input type='button' value='Preview'/>
     </div> 
   )

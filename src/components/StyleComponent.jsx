@@ -1,13 +1,11 @@
-import { TitleColor } from "../pages/utilities";
+import { getIdComponentFromAirtable, saveChoicesIntoAirtable, titleStyle, setTitleStyle } from "../pages/utilities";
 
 export const StyleComponent = () => {
 
     let setBold = () => {
         const element = document.getElementById("apply-style");
         const cssObj = window.getComputedStyle(element, null);
-        console.log(cssObj);
         let style = cssObj.getPropertyValue("font-weight");
-        console.log(cssObj.getPropertyValue("color"));
         if (style == 400) document.getElementById("apply-style").style.fontWeight = "bold";
         else if (style == 700) document.getElementById("apply-style").style.fontWeight = "normal";
     }
@@ -35,6 +33,18 @@ export const StyleComponent = () => {
     let setNormal = () => {
         document.getElementById("apply-style").style.textTransform = "none";
         document.getElementById("apply-style").style.fontStyle = "normal";
+        document.getElementById("apply-style").style.fontWeight = "normal";
+    }
+
+    let setStyle = () => {
+        const element = document.getElementById("apply-style")
+        const cssObj = window.getComputedStyle(element, null)
+        let font = cssObj.getPropertyValue("font-style")
+        let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
+        let text = cssObj.getPropertyValue("text-transform") 
+        let obj = font+', '+weight+', '+text
+        setTitleStyle(obj)
+        console.log(titleStyle());
     }
 
     return(
@@ -49,7 +59,7 @@ export const StyleComponent = () => {
             <p id="apply-style"> Le style sera appliqué à ce texte </p> 
 
             <p></p>
-            <input type="button" value="Valider" />
+            <input type="button" value="Valider" onClick={setStyle}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { UploadFile } from '../components/UploadFileComponent';
+import { UploadFileComponent } from '../components/UploadFileComponent';
 import React from 'react'
 
 import '../assets/css/Style.css'
@@ -9,7 +9,7 @@ export const PageUploadFile = () => {
     <div className="containerscrol">
         <h4>Avez vous un logo pour votre application ? </h4>
         <hr></hr>
-        <UploadFile/>
+        <UploadFileComponent/>
         <hr></hr>
         Appuiez sur "entrer" pour valider !
     </div>

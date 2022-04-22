@@ -1,4 +1,4 @@
-import {ColorPicker} from '../components/ColorComponent'
+import {ColorComponent} from '../components/ColorComponent'
 
 export const PageColorPicker = () => {
 
@@ -6,7 +6,7 @@ export const PageColorPicker = () => {
         <div className="containerscrol">
             <h4> Maitenant choisissez la couleur des titres de votre application !</h4>
             <hr></hr>
-            <ColorPicker></ColorPicker>
+            <ColorComponent></ColorComponent>
             <hr></hr>
             Appuiez sur "entrer" pour valider !
         </div>
