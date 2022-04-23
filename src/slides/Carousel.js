@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getValidate, validate } from '../pages/utilities'
+import { PageColorPicker } from '../pages/PageColorPicker'
 
 const styles = {
   wrapper: {
@@ -380,7 +380,6 @@ class Carousel extends React.Component {
     const { frames, current } = this.state
     const { widgets, axis, loop, auto, interval } = this.props
     const wrapperStyle = objectAssign(styles.wrapper, this.props.style)
-
     return (
       <div style={wrapperStyle}>
         <div
@@ -390,12 +389,16 @@ class Carousel extends React.Component {
           className={this.props.className}
           // onMouseDown={this.onTouchStart} 
           >
-          {
+        <PageColorPicker next={this.next}></PageColorPicker>
+            
+          { 
             frames.map((frame, i) => {
               const frameStyle = objectAssign({zIndex: 99 - i}, styles.frame)
-              return <div ref={'f' + i} key={i} style={frameStyle} onKeyPress={(e) => this.handleKeyPress(e)}>{frame}
-              
+              return (
+              <div ref={'f' + i} key={i} style={frameStyle} onKeyPress={(e) => this.handleKeyPress(e)}>
+                {frame}
               </div>
+              )
             })
           }
           { this.props.frames && this.props.children }

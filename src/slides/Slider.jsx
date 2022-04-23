@@ -26,7 +26,7 @@ export const Slider = (props) => {
     <>
       <Carousel widgets={[IndicatorDots, Buttons]} >
         {content()}
-        </Carousel>
+      </Carousel>
       </>
   )
 }

@@ -1,4 +1,3 @@
-
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
     newURL.href = targetURL;
@@ -50,6 +49,14 @@ export const saveChoicesIntoAirtable = (id, values) => {
     console.log(record.getId());
   });
   });
+}
+
+export const setNext = (next) => {
+  sessionStorage.setItem('next', next);
+}
+
+export const getNext = () => {
+  return sessionStorage.getItem('next')
 }
 
 export const inputValue = () => {

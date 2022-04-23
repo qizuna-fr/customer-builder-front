@@ -11,15 +11,21 @@ export const UploadFileComponent = () => {
   }
 
   const setFileTitle = () => {
-    setUploadFile(file.name)
-    let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
-    saveChoicesIntoAirtable(idUploadFileComponent, file.name)
+    if (file === undefined ) 
+    {
+      alert("Veuillez choisir un fichier !");
+    }
+    else {
+      setUploadFile(file.name)
+      let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
+      saveChoicesIntoAirtable(idUploadFileComponent, file.name)
+    }
   }
   
   return (
     <div>
       <input required type="file" onChange={(e) => handleChange(e)} data-testid="file-input"/>
-      <input type="button" value="Valider" onClick={setFileTitle}/>
+      <input type="button" value="Valider" onClick={()=>{setFileTitle()}}/>
     </div>
   );
 }

@@ -28,18 +28,15 @@ const Page = () => {
   base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        let component 
-        if (record.get('Component') === 'FontComponent') component = <PageFontPicker/>
-        if (record.get('Component') === 'ColorComponent') component = <PageColorPicker/>
-        if (record.get('Component') === 'UploadFileComponent') component = <PageUploadFile/>
-        if (record.get('Component') === 'InputContentComponent') component = <PageInputContent/>
-        if (record.get('Component') === 'StyleComponent') component = <PageStyleComponent/>
+        console.log(record.get('Component'));
+        let component = Data.find(page => page.title === record.get('Component'))
         obj = {
           title : record.get('Title'),
-          component : component, 
+          component : component.component, 
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
+        console.log(obj);
         airtable.push(obj)
       })
       fetchNextPage()
@@ -68,11 +65,11 @@ const Page = () => {
     {
       return <Accueil/>
     }
-    if ((name === "scroll"))
+    if ((name === "qizuna"))
     {
       return <Slider frames={dataAirtable}></Slider>
     }
-    return data.component
+    // return data.component
   }
 
   return (

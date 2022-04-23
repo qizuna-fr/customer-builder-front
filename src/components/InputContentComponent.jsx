@@ -2,6 +2,7 @@ import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setInputValue } fr
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import {next} from '../slides/Carousel'
 
 export const InputContentComponent = (props) => {
 
@@ -28,9 +29,16 @@ export const InputContentComponent = (props) => {
 
   const setInput = () =>{
     const name = document.querySelector("input");
-    setInputValue(name.value)
-    let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
-    saveChoicesIntoAirtable(idInputContentComponent, name.value)
+    console.log(name.value);
+    if (name.value === "" ) 
+    {
+      alert("Veuillez saisir le nom de votre "+textInput+" !");
+    }
+    else {
+      setInputValue(name.value)
+      let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
+      saveChoicesIntoAirtable(idInputContentComponent, name.value)
+    }
   } 
 
   return (
@@ -48,11 +56,12 @@ export const InputContentComponent = (props) => {
           variant="outlined"
           label="Tapez votre texte ici"
           className="name"
+          required
           />
           )}
       />
       <p></p>
-      <input type="button" value="Valider" onClick={setInput}/>
+      <input type="button" value="Valider" onClick={() => {setInput()}} />
     </div> 
   )
 }

@@ -23,7 +23,6 @@ import {BrowserRouter} from "react-router-dom";
 /* Theme variables */
 import './theme/variables.css';
 import Page from './pages/Page';
-import { Data } from './components/Data';
 
 setupIonicReact();
 

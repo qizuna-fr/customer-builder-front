@@ -5,59 +5,52 @@ import { PageUploadFile } from '../pages/PageUploadFile';
 import { PageColorPicker } from '../pages/PageColorPicker';
 import { PageFontPicker } from '../pages/PageFontPicker';
 import { Slider } from '../slides/Slider';
+import { PageStyleComponent } from '../pages/PageStyleComponent';
 
   export const Data = [
     {
-      title: 'scroll',
-      url: '/scroll',
-      slide : 0,
-      scroll : 0,
+      title: 'qizuna',
+      url: '/qizuna',
       component : <Slider/>
     },
     {
       title: 'accueil',
       url: '/accueil',
-      slide : 0,
-      scroll : 0,
       component : <Accueil/>
     },
     {
-      title: 'firstPage',
+      title: 'InputContentComponent',
       url: '/page1',
-      slide : 1,
-      scroll : 1,
       color : 'orange',
       component : <PageInputContent/>
     },
     {
-      title: 'secondPage',
+      title: 'UploadFileComponent',
       url: '/page2',
-      slide : 2,
-      scroll : 1,
       color : 'tomato',
       component : <PageUploadFile/>
     },
     {
-      title: 'third_page',
+      title: 'ColorComponent',
       url: '/page3',
-      slide : 3,
-      scroll : 1,
       color : 'orchid',
       component : <PageColorPicker/>
     },
     {
-      title: 'fourthPage',
+      title: 'FontComponent',
       url: '/page4',
-      slide : 4,
       color : 'DarkSeaGreen',
-      scroll : 1,
       component : <PageFontPicker/>
+    },
+    {
+      title: 'StyleComponent',
+      url: '/page5',
+      color : 'DarkSeaGreen',
+      component : <PageStyleComponent/>
     },
     {
       title: 'lastPage',
       url: '/last-page',
-      slide : -1,
-      scroll : 1,
       component : <LastPage/>
     }
 ]

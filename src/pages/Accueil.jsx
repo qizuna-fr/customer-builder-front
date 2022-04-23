@@ -6,7 +6,7 @@ export const Accueil = () => {
 
     const scrollToNext = () => {
         
-        redirect(`${window.location.protocol}//${window.location.host}/scroll`)
+        redirect(`${window.location.protocol}//${window.location.host}/qizuna`)
     }
 
     return(
