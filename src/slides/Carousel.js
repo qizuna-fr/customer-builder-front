@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { PageColorPicker } from '../pages/PageColorPicker'
 
 const styles = {
   wrapper: {
@@ -389,8 +388,6 @@ class Carousel extends React.Component {
           className={this.props.className}
           // onMouseDown={this.onTouchStart} 
           >
-        <PageColorPicker next={this.next}></PageColorPicker>
-            
           { 
             frames.map((frame, i) => {
               const frameStyle = objectAssign({zIndex: 99 - i}, styles.frame)

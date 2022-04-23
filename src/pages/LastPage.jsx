@@ -1,5 +1,5 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import { getIdComponentFromAirtable, inputValue, saveChoicesIntoAirtable, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
+import { inputValue, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
 
 export const LastPage = () => {
 
@@ -27,7 +27,6 @@ export const LastPage = () => {
 
   return (
     <div  className="containerscrol">
-      <h4> Résumé de vos choix ! </h4>
       <IonItem >
         <IonLabel >Departement : {inputValue()}</IonLabel>
       </IonItem>

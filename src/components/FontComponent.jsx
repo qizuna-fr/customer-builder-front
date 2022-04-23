@@ -3,7 +3,7 @@ import React from 'react'
 import FontPicker from "font-picker-react";
 import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setTitleFont } from '../pages/utilities';
 
-export const FontComponent = () => {
+export const FontComponent = (props) => {
  
     const [font, setFont] = useState("Open Sans");
     

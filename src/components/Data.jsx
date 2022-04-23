@@ -1,11 +1,11 @@
 import { Accueil } from '../pages/Accueil';
 import { LastPage } from '../pages/LastPage';
-import { PageInputContent } from '../pages/PageInputContent';
-import { PageUploadFile } from '../pages/PageUploadFile';
-import { PageColorPicker } from '../pages/PageColorPicker';
-import { PageFontPicker } from '../pages/PageFontPicker';
 import { Slider } from '../slides/Slider';
-import { PageStyleComponent } from '../pages/PageStyleComponent';
+import { InputContentComponent } from './InputContentComponent';
+import { UploadFileComponent } from './UploadFileComponent';
+import { ColorComponent } from './ColorComponent';
+import { FontComponent } from './FontComponent';
+import { StyleComponent } from './StyleComponent';
 
   export const Data = [
     {
@@ -20,33 +20,38 @@ import { PageStyleComponent } from '../pages/PageStyleComponent';
     },
     {
       title: 'InputContentComponent',
+      id: 'recCu5skhFCwqRgTm',
       url: '/page1',
       color : 'orange',
-      component : <PageInputContent/>
+      component : <InputContentComponent/>
     },
     {
       title: 'UploadFileComponent',
+      id: 'recauoAwNNzk9cI44',
       url: '/page2',
       color : 'tomato',
-      component : <PageUploadFile/>
+      component : <UploadFileComponent/>
     },
     {
       title: 'ColorComponent',
+      id: 'reco7nJB2OUhaPI3A',
       url: '/page3',
       color : 'orchid',
-      component : <PageColorPicker/>
+      component : <ColorComponent/>
     },
     {
       title: 'FontComponent',
+      id: 'recINBZ8Xs2vcZbrm',
       url: '/page4',
       color : 'DarkSeaGreen',
-      component : <PageFontPicker/>
+      component : <FontComponent/>
     },
     {
       title: 'StyleComponent',
+      id: 'rec5uJJlLGdQpnmmK',
       url: '/page5',
       color : 'DarkSeaGreen',
-      component : <PageStyleComponent/>
+      component : <StyleComponent/>
     },
     {
       title: 'lastPage',

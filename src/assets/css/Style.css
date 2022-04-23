@@ -31,6 +31,12 @@
   width: 600px;
   height: 400px;
   margin: -200px 0 0 -300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+  flex-wrap: nowrap;
 }
 
 .containerColor {

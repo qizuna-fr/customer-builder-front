@@ -16,8 +16,13 @@ export const Slider = (props) => {
   let content = () => {
     return (
       props.frames.map((item, index) => (
-        <div style={{height: '100%', background:  "white" }} key={index}>
-          {item.component}
+        <div className='containerscrol'> 
+          <h5>
+            {item.title}
+          </h5>
+          <div style={{height: '100%', background:  "white" }} key={index}>
+            {item.component}
+          </div>
         </div>
       ))
     )

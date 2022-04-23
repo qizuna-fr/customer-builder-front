@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setTitleColor} from '../pages/utilities';
 
-export const ColorComponent = () => {
+export const ColorComponent = (props) => {
     const [opacity, setOpacity] = useState('1');
-    const [color, setColor] = useState("#000000");
+    const [color, setColor] = useState("#4f86f7");
+
   
     let opacityValue=(e)=>{
         setOpacity(e.target.value)
@@ -19,7 +20,7 @@ export const ColorComponent = () => {
 
     return (
         <div >
-            Opacité :
+            Opacité 
             <input type="range" min="0" max="1" step="0.1" list="tickmarks" onChange={(e)=>{opacityValue(e)}}/>
                 <datalist id="tickmarks">
                     <option value="0" label="0"/>
@@ -35,8 +36,8 @@ export const ColorComponent = () => {
                     <option value="1" label="1"/>
                 </datalist>
                 <p></p>
-            Couleur :
-            <input type="color" list="profilecolorslist" onChange={(e)=>{colorValue(e)}}/>
+            Couleur 
+            <input type="color" value="#4f86f7" list="profilecolorslist" onChange={(e)=>{colorValue(e)}}/>
             <datalist id="profilecolorslist">
                 <option value="#00ffff"/>
                 <option value="#ff00ff"/>

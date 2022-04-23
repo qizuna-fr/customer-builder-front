@@ -1,6 +1,6 @@
 import { getIdComponentFromAirtable, saveChoicesIntoAirtable, titleStyle, setTitleStyle } from "../pages/utilities";
 
-export const StyleComponent = () => {
+export const StyleComponent = (props) => {
 
     let setBold = () => {
         const element = document.getElementById("apply-style");

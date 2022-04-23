@@ -1,4 +1,4 @@
-import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setInputValue } from "../pages/utilities"
+import { fetchDataFromAirtable, getIdComponentFromAirtable, saveChoicesIntoAirtable, setInputValue } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -6,7 +6,6 @@ import {next} from '../slides/Carousel'
 
 export const InputContentComponent = (props) => {
 
-  let textInput = props.textInput
   let onInput = props.onInput
 
   if (onInput) {
@@ -32,7 +31,7 @@ export const InputContentComponent = (props) => {
     console.log(name.value);
     if (name.value === "" ) 
     {
-      alert("Veuillez saisir le nom de votre "+textInput+" !");
+      alert("Veuillez saisir une valeur !");
     }
     else {
       setInputValue(name.value)
@@ -43,8 +42,6 @@ export const InputContentComponent = (props) => {
 
   return (
     <div>
-      <h4>Saisissez votre {textInput} !</h4>
-      <hr></hr>
       <Autocomplete
         freeSolo
         autoComplete

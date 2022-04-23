@@ -5,11 +5,8 @@ import { Accueil } from './Accueil';
 import { LastPage } from './LastPage';
 import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
-import { PageInputContent} from './PageInputContent';
-import { PageUploadFile } from './PageUploadFile';
-import { PageFontPicker } from './PageFontPicker';
-import { PageColorPicker } from './PageColorPicker';
-import { PageStyleComponent } from './PageStyleComponent';
+
+import '../assets/css/Style.css'
 
 const Page = () => {
   
@@ -28,7 +25,6 @@ const Page = () => {
   base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        console.log(record.get('Component'));
         let component = Data.find(page => page.title === record.get('Component'))
         obj = {
           title : record.get('Title'),
@@ -36,7 +32,6 @@ const Page = () => {
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
-        console.log(obj);
         airtable.push(obj)
       })
       fetchNextPage()

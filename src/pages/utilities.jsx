@@ -1,3 +1,5 @@
+import { Data } from '../components/Data';
+
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
     newURL.href = targetURL;
@@ -23,11 +25,31 @@ export const redirect = (targetURL) => {
 // }
 
 export const getIdComponentFromAirtable = (component) => {
-  if (component == "FontComponent") return "recINBZ8Xs2vcZbrm"
-  if (component == "ColorComponent") return "reco7nJB2OUhaPI3A"
-  if (component == "InputContentComponent") return "recCu5skhFCwqRgTm"
-  if (component == "StyleComponent") return "rec5uJJlLGdQpnmmK"
-  if (component == "UploadFileComponent") return "recauoAwNNzk9cI44"
+  let data = Data.find(page => page.title === component)
+  return data.id
+}
+
+export const fetcTitleFromAirtable = (component) =>{
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
+  let dataToFetch
+  base('Projects').select({
+    filterByFormula: `Component = "${component}"`
+  }).eachPage(
+    function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+        // dataToFetch =  record.get('Title')
+        sessionStorage.setItem('data', record.get('Title'));
+      })
+      fetchNextPage()
+    }, 
+    function done(err) {
+      if (err) { console.error(err); return; }
+    },
+  )
+  let result = sessionStorage.getItem('data')
+  return result
+
 }
 
 export const saveChoicesIntoAirtable = (id, values) => {
