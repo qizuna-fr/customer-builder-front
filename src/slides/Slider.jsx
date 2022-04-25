@@ -53,7 +53,7 @@ const slideOpts = {
 export const Slider = (props) => {
 
   const mySlides = useRef(null);
- 
+    
   return(
   <IonContent >
     <IonSlides pager={false} options={slideOpts} style={{height: '100%'}} ref={mySlides}>

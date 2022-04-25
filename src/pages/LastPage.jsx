@@ -55,9 +55,7 @@ export const LastPage = () => {
       </IonItem>
       <p></p>
       {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
-      <input type='button' value='Preview' 
-      onClick={()=>{preview()}}
-      />
+      <input type='button' value='Preview' onClick={()=>{preview()}}/>
       
     </div> 
   )
