@@ -7,29 +7,12 @@ export const redirect = (targetURL) => {
     newURL.click();
 }
 
-// export const getIdComponentFromAirtable = (component) => {
-//   let id
-//   var Airtable = require('airtable');
-//   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-//   base('Projects').select({
-//     filterByFormula: `Component = "${component}"`
-//   }).eachPage(function page(records, fetchNextPage) {
-//     records.forEach(function(record) {
-//       sessionStorage.setItem('idComponent', record.id);
-//     });
-//     fetchNextPage();
-//   }, function done(err) {
-//     if (err) { console.error(err); return; }
-//   });
-//   return sessionStorage.getItem('idComponent')
-// }
-
 export const getIdComponentFromAirtable = (component) => {
   let data = Data.find(page => page.title === component)
   return data.id
 }
 
-export const fetchCariableNameFromAirtable = (slide) =>{
+export const fetchVariableNameFromAirtable = (slide) =>{
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
   let dataToFetch
@@ -38,8 +21,8 @@ export const fetchCariableNameFromAirtable = (slide) =>{
   }).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        // dataToFetch =  record.get('Title')
-        // sessionStorage.setItem('data', record.get('Title'));
+        // dataToFetch =  record.get('VariableName')
+        // sessionStorage.setItem('data', record.get('VariableName'));
         console.log(record.get('VariableName'));
       })
       fetchNextPage()
@@ -48,10 +31,12 @@ export const fetchCariableNameFromAirtable = (slide) =>{
       if (err) { console.error(err); return; }
     },
   )
-  // let result = sessionStorage.getItem('data')
-  // return result
 
 }
+
+
+
+
 
 export const saveChoicesIntoAirtable = (id, values) => {
   var Airtable = require('airtable');
@@ -132,15 +117,36 @@ export const initializeVariablesValues = (valueName) =>{
   console.log(variablesValues);
 }
 
-export const addValuesToDataVariables = (valueName, value) =>{
-  console.log(value);
-  console.log(valueName);
-  let obj = {
-    name : valueName,
-    value : value
-  }
-  variablesValues.push(obj)
-  console.log(variablesValues);
+export const addValuesToDataVariables = (value, slide) =>{
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
+  let valueName
+  base('Projects').select({
+    filterByFormula: `Order = "${slide}"`
+  }).eachPage(
+    function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+        // dataToFetch =  record.get('VariableName')
+        // sessionStorage.setItem('data', record.get('VariableName'));
+        console.log(record.get('VariableName'));
+        valueName=record.get('VariableName')
+        console.log(value);
+        console.log(valueName);
+        let obj = {
+          name : valueName,
+          value : value
+        }
+        let filtered = variablesValues.filter(item => item.name != valueName)
+        variablesValues=filtered
+        variablesValues.push(obj)
+        console.log(variablesValues);
+      })
+      fetchNextPage()
+    }, 
+    function done(err) {
+      if (err) { console.error(err); return; }
+    },
+  )
 }
 
 export const getVariablesValues = () => {

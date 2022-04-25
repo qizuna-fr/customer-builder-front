@@ -56,8 +56,7 @@ export const Slider = (props) => {
   const mySlides = useRef(null); 
 
   const ionSlide = document.getElementById("ion-slide");
-
-  let content = () => {}
+  
 
   return(
   <IonContent >
@@ -75,7 +74,7 @@ export const Slider = (props) => {
           <div style={{ position: 'absolute', width: '100%', zIndex: '100', bottom: '0', textAlign: 'center'}}> 
           <input type="button" value="Valider"  onClick={()=>{setValue(mySlides,getValue(item.variableName))}}/>
           </div>
-        </div>   
+        </div>  
       </IonSlide>
       ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
     </IonSlides> 
