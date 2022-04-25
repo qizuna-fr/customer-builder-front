@@ -1,27 +1,65 @@
 import React, { useState } from 'react'
-import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setTitleColor} from '../pages/utilities';
+import { addValuesToDataVariables, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setTextColor, setTextOpacity, setTitleColor, variablesValues} from '../pages/utilities';
 
 export const ColorComponent = (props) => {
     const [opacity, setOpacity] = useState('1');
-    const [color, setColor] = useState("#4f86f7");
+    const [color, setColor] = useState("#4ca2af");
 
   
     let opacityValue=(e)=>{
         setOpacity(e.target.value)
+        setTextOpacity(e.target.value)
     }
     let colorValue=(e)=>{
+        console.log(e.target.value);
         setColor(e.target.value)
+        setTextColor(e.target.value)
     }
-    const setColorWithOpacity = () => {
-        setTitleColor(color+','+opacity)
-        let idColorComponent = getIdComponentFromAirtable("ColorComponent")
-        saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
+    const setColorValue = (e) => {
+        const inputColor = document.getElementById("input-color")
+        const inputOpacity = document.getElementById("input-opacity")
+        setColor(inputColor.value)
+        setOpacity(inputOpacity.value)
+        setTextColor(inputColor.value)
+        setTextOpacity(inputOpacity.value)
+        initializeVariablesValues("TitleColor")
+        console.log(variablesValues);
+        let obj = {
+        color : inputColor.value,
+        opacity : inputOpacity.value
+        }
+        addValuesToDataVariables("TitleColor",obj)
+        console.log(variablesValues);
+        // setTitleColor(color+','+opacity)
+        // let idColorComponent = getIdComponentFromAirtable("ColorComponent")
+        // saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
+    }
+
+    const setOpacityValue = (e) => {
+        const inputOpacity = document.getElementById("input-opacity")
+        const inputColor = document.getElementById("input-color")
+        setOpacity(inputOpacity.value)
+        setColor(inputColor.value)
+        setTextColor(inputColor.value)
+        setTextOpacity(inputOpacity.value)
+        console.log(inputColor.value);
+        initializeVariablesValues("TitleColor")
+        console.log(variablesValues);
+        let obj = {
+        color : inputColor.value,
+        opacity : inputOpacity.value
+        }
+        addValuesToDataVariables("TitleColor",obj)
+        console.log(variablesValues);
+        // setTitleColor(color+','+opacity)
+        // let idColorComponent = getIdComponentFromAirtable("ColorComponent")
+        // saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
     }
 
     return (
         <div >
             Opacité 
-            <input type="range" min="0" max="1" step="0.1" list="tickmarks" onChange={(e)=>{opacityValue(e)}}/>
+            <input id="input-opacity" value={opacity} type="range" min="0" max="1" step="0.1" list="tickmarks" onChange={(e)=>{setOpacityValue(e)}}/>
                 <datalist id="tickmarks">
                     <option value="0" label="0"/>
                     <option value="0.1"/>
@@ -37,7 +75,7 @@ export const ColorComponent = (props) => {
                 </datalist>
                 <p></p>
             Couleur 
-            <input type="color" value="#4f86f7" list="profilecolorslist" onChange={(e)=>{colorValue(e)}}/>
+            <input id="input-color" type="color" value={color} list="profilecolorslist" onChange={(e)=>{setColorValue(e)}}/>
             <datalist id="profilecolorslist">
                 <option value="#00ffff"/>
                 <option value="#ff00ff"/>
@@ -47,7 +85,7 @@ export const ColorComponent = (props) => {
             <p></p> 
             <div id="rectangle" style={{background: color, opacity: opacity}}></div>
             <p></p>
-            <input type="button" value="Valider" onClick={setColorWithOpacity}/>
+            {/* <input type="button" value="Valider" onClick={setColorWithOpacity}/> */}
         </div>
     )
 }

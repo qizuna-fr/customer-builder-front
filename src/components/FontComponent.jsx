@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
-import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setTitleFont } from '../pages/utilities';
+import { addValuesToDataVariables, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setTitleFont, variablesValues } from '../pages/utilities';
 
 export const FontComponent = (props) => {
  
@@ -9,10 +9,14 @@ export const FontComponent = (props) => {
     
     let setFontName = (value) => {
         setFont(value)
+        setTitleFont(font)
+        initializeVariablesValues("TitleFont")
+        console.log(variablesValues);
+        addValuesToDataVariables("TitleFont",font)
+        console.log(variablesValues);
     }
 
     let setFontOnClick = () => {
-        setTitleFont(font)
         let idFontComponent = getIdComponentFromAirtable("FontComponent")
         saveChoicesIntoAirtable(idFontComponent, font)
 
@@ -28,7 +32,7 @@ export const FontComponent = (props) => {
         <p className="apply-font">La police sera appliquée à ce texte.</p>
 
         <p></p>
-            <input type="button" value="Valider" onClick={setFontOnClick}/>
+            {/* <input type="button" value="Valider" onClick={setFontOnClick}/> */}
     </div>
     )
 }

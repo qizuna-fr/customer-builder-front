@@ -6,6 +6,7 @@ import { UploadFileComponent } from './UploadFileComponent';
 import { ColorComponent } from './ColorComponent';
 import { FontComponent } from './FontComponent';
 import { StyleComponent } from './StyleComponent';
+import { Preview } from '../pages/Preview';
 
   export const Data = [
     {
@@ -57,5 +58,10 @@ import { StyleComponent } from './StyleComponent';
       title: 'lastPage',
       url: '/last-page',
       component : <LastPage/>
+    },
+    {
+      title: 'preview',
+      url: '/preview',
+      component : <Preview/>
     }
 ]

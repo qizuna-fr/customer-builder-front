@@ -1,7 +1,13 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import { inputValue, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
+import { Modal } from "@material-ui/core"
+import { useState } from "react";
+import { inputValue, redirect, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
 
 export const LastPage = () => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  console.log(uploadFile());
 
   let saveToJson = (text, fileName) => {
     // console.log("save");
@@ -25,8 +31,13 @@ export const LastPage = () => {
     // saveChoicesIntoAirtable(idUploadFileComponent, uploadFile())
   }
 
+  let preview = () => {
+    redirect(`${window.location.protocol}//${window.location.host}/preview`)
+  }
+
   return (
     <div  className="containerscrol">
+      <h1> Résumé de vos choix </h1>
       <IonItem >
         <IonLabel >Departement : {inputValue()}</IonLabel>
       </IonItem>
@@ -44,7 +55,10 @@ export const LastPage = () => {
       </IonItem>
       <p></p>
       {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
-      <input type='button' value='Preview'/>
+      <input type='button' value='Preview' 
+      onClick={()=>{preview()}}
+      />
+      
     </div> 
   )
 }

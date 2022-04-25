@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getIdComponentFromAirtable, saveChoicesIntoAirtable, setUploadFile, setValidate } from "../pages/utilities";
+import { addValuesToDataVariables, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setUploadFile, setValidate, variablesValues } from "../pages/utilities";
 
 export const UploadFileComponent = (props) => {
   
@@ -8,6 +8,12 @@ export const UploadFileComponent = (props) => {
   const handleChange = (e) => {
     setFile(e.target.files[0]);
     setUploadFile(e.target.files[0].name)
+    console.log(e.target.files[0].name);
+    initializeVariablesValues("UploadFile")
+    console.log(variablesValues);
+    addValuesToDataVariables("UploadFile",e.target.files[0].name)
+    console.log(variablesValues);
+
   }
 
   const setFileTitle = () => {
@@ -25,7 +31,7 @@ export const UploadFileComponent = (props) => {
   return (
     <div>
       <input required type="file" onChange={(e) => handleChange(e)} data-testid="file-input"/>
-      <input type="button" value="Valider" onClick={()=>{setFileTitle()}}/>
+      {/* <input type="button" value="Valider" onClick={()=>{setFileTitle()}}/> */}
     </div>
   );
 }

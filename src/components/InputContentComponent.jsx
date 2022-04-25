@@ -1,4 +1,4 @@
-import { fetchDataFromAirtable, getIdComponentFromAirtable, saveChoicesIntoAirtable, setInputValue } from "../pages/utilities"
+import { addValuesToDataVariables, fetchDataFromAirtable,inputValue, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setInputValue, variablesValues } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -7,6 +7,8 @@ import {next} from '../slides/Carousel'
 export const InputContentComponent = (props) => {
 
   let onInput = props.onInput
+
+  // const [inputValue, setInputValue]= useState()
 
   if (onInput) {
     onInput()
@@ -26,18 +28,26 @@ export const InputContentComponent = (props) => {
     })
   }
 
-  const setInput = () =>{
-    const name = document.querySelector("input");
-    console.log(name.value);
-    if (name.value === "" ) 
-    {
-      alert("Veuillez saisir une valeur !");
-    }
-    else {
-      setInputValue(name.value)
-      let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
-      saveChoicesIntoAirtable(idInputContentComponent, name.value)
-    }
+  const setInput = (e) =>{
+    // console.log(e.target.firstChild.data);
+    // const name = document.querySelector("input");
+    setInputValue(e.target.firstChild.data)
+    console.log(inputValue());
+    initializeVariablesValues("InputContent")
+    console.log(variablesValues);
+    addValuesToDataVariables("InputContent",e.target.firstChild.data)
+    console.log(variablesValues);
+    
+    // console.log(name.value);
+    // if (name.value === "" ) 
+    // {
+    //   alert("Veuillez saisir une valeur !");
+    // }
+    // else {
+    //   setInputValue(name.value)
+    //   let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
+    //   saveChoicesIntoAirtable(idInputContentComponent, name.value)
+    // }
   } 
 
   return (
@@ -47,9 +57,10 @@ export const InputContentComponent = (props) => {
         autoComplete
         autoHighlight
         options={result}
+        onChange={(e)=>{setInput(e)}}
         renderInput={(params) => (
           <TextField {...params}
-          onChange={(e) => {getDataFromAPI(e.target.value)}}
+          onInput={(e) => {getDataFromAPI(e.target.value)}}
           variant="outlined"
           label="Tapez votre texte ici"
           className="name"
@@ -58,7 +69,7 @@ export const InputContentComponent = (props) => {
           )}
       />
       <p></p>
-      <input type="button" value="Valider" onClick={() => {setInput()}} />
+      {/* <input type="button" value="Valider" onClick={() => {setInput()}} /> */}
     </div> 
   )
 }

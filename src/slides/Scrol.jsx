@@ -1,34 +1,35 @@
-import { Accueil } from "../pages/Accueil"
-import Page from "../pages/Page"
+import React from 'react'
+import propTypes from 'prop-types'
 
 const styles = {
     wrapper: {
-        position: 'absolute',
-        width: '100%',
-        textAlign: 'center',
-      },
-    btnStyle: {
-        cursor: 'pointer',
-        position: 'absolute',
-        bottom: '180px',
-    },
-    left: {
-        margin: '7px -100px',
-      },
-      right: {
-        margin: '7px 30px',
-    }
+      position: 'absolute',
+      width: '100%',
+      zIndex: '100',
+      bottom: '0',
+      textAlign: 'center'
+      }
 }
 
 export const Scrol = (props) => {
-
-    const prevBtnStyle = Object.assign({}, styles.btnStyle, styles.left)
-    const nextBtnStyle = Object.assign({}, styles.btnStyle, styles.right)
-
+  const { index, total, loop, prevHandler, nextHandler } = props
   return ( 
       <div style={styles.wrapper}>
-        <input type="button" value="precedent" style={prevBtnStyle} onClick={props.prev}/>
-        <input type="button" value="suivant" style={nextBtnStyle} onClick={props.next}/> 
-      </div>
+
+{/* <a href={prevHandler} class="previous">&laquo; </a>
+<a href={nextHandler} class="next"> &raquo;</a> */}
+{ (loop || index !== 0) && (
+<button type="button" class="previous round" onClick={prevHandler}>&#8249;</button>
+)}
+{ (loop || index !== total - 1) && (
+<button type="button" class="next round" onClick={nextHandler}>&#8250;</button>
+)}
+</div>
     )
+}
+Scrol.propTypes = {
+  index: propTypes.number.isRequired,
+  total: propTypes.number.isRequired,
+  prevHandler: propTypes.func,
+  nextHandler: propTypes.func
 }

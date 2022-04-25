@@ -7,6 +7,7 @@ import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
 
 import '../assets/css/Style.css'
+import { setVarialesValues, getVarialesValues } from './utilities';
 
 const Page = () => {
   
@@ -32,16 +33,17 @@ const Page = () => {
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
+        console.log(obj);
         airtable.push(obj)
       })
       fetchNextPage()
-      let nbComponent  = airtable.length
-      airtable.push({
-        title : 'Résumé des pages',
-        component : <LastPage/>, 
-        variableName: '',
-        order: nbComponent+1
-      })
+      // let nbComponent  = airtable.length
+      // airtable.push({
+      //   title : 'Résumé des pages',
+      //   component : <LastPage/>, 
+      //   variableName: '',
+      //   order: nbComponent+1
+      // })
       setDataAirtable(airtable)
     }, 
     function done(err) {
@@ -62,9 +64,9 @@ const Page = () => {
     }
     if ((name === "qizuna"))
     {
-      return <Slider frames={dataAirtable}></Slider>
+      return <Slider frames={dataAirtable} ></Slider>
     }
-    // return data.component
+    return data.component
   }
 
   return (
