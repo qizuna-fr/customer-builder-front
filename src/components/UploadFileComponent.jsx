@@ -7,7 +7,7 @@ export const UploadFileComponent = (props) => {
 
   const handleChange = (e) => {
     setFile(e.target.files[0]);
-    setUploadFile(e.target.files[0].name)
+    // setUploadFile(e.target.files[0].name)
     console.log(e.target.files[0].name);
     initializeVariablesValues("UploadFile")
     console.log(variablesValues);

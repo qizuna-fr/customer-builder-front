@@ -7,7 +7,12 @@ import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
 
 import '../assets/css/Style.css'
-import { setVarialesValues, getVarialesValues } from './utilities';
+import { setVarialesValues, getVarialesValues, setdataListAirtable, dataListAirtable, initializeDataListAirtable } from './utilities';
+import { InputContentComponent } from '../components/InputContentComponent';
+import { UploadFileComponent } from '../components/UploadFileComponent';
+import { ColorComponent } from '../components/ColorComponent';
+import { FontComponent } from '../components/FontComponent';
+import { StyleComponent } from '../components/StyleComponent';
 
 const Page = () => {
   
@@ -26,15 +31,26 @@ const Page = () => {
   base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        let component = Data.find(page => page.title === record.get('Component'))
+        // console.log(record.get('Component'));
+        let component
+        if (record.get('Component') === "InputContentComponent") component=<InputContentComponent slide={record.get('Order')}></InputContentComponent>
+        if (record.get('Component') === "UploadFileComponent") component=<UploadFileComponent slide={record.get('Order')}></UploadFileComponent>
+        if (record.get('Component') === "FontComponent") component=<FontComponent slide={record.get('Order')}></FontComponent>
+        if (record.get('Component') === "ColorComponent") component=<ColorComponent slide={record.get('Order')}></ColorComponent>
+        if (record.get('Component') === "StyleComponent") component=<StyleComponent slide={record.get('Order')}></StyleComponent>
+        // let component = Data.find(page => page.title === record.get('Component')) 
+
+        // console.log(record);
         obj = {
+          idComponent: record.id,
           title : record.get('Title'),
-          component : component.component, 
+          component : component, 
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
         console.log(obj);
         airtable.push(obj)
+        setdataListAirtable(obj)
       })
       fetchNextPage()
       // let nbComponent  = airtable.length
@@ -45,6 +61,7 @@ const Page = () => {
       //   order: nbComponent+1
       // })
       setDataAirtable(airtable)
+      // console.log(dataListAirtable);
     }, 
     function done(err) {
       if (err) { console.error(err); return; }
@@ -64,7 +81,7 @@ const Page = () => {
     }
     if ((name === "qizuna"))
     {
-      return <Slider frames={dataAirtable} ></Slider>
+      return <Slider frames={dataListAirtable} ></Slider>
     }
     return data.component
   }

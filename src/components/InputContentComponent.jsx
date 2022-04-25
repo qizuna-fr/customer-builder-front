@@ -1,4 +1,4 @@
-import { addValuesToDataVariables, fetchDataFromAirtable,inputValue, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setInputValue, variablesValues } from "../pages/utilities"
+import { addValuesToDataVariables, fetchDataFromAirtable,inputValue, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setInputValue, variablesValues, activeSlide, fetchTitleFromAirtable, fetchCariableNameFromAirtable } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -7,6 +7,8 @@ import {next} from '../slides/Carousel'
 export const InputContentComponent = (props) => {
 
   let onInput = props.onInput
+
+  
 
   // const [inputValue, setInputValue]= useState()
 
@@ -28,13 +30,16 @@ export const InputContentComponent = (props) => {
     })
   }
 
+  
   const setInput = (e) =>{
+    console.log(variablesValues);
+    console.log(props);
+    fetchCariableNameFromAirtable(props.slide)
     // console.log(e.target.firstChild.data);
     // const name = document.querySelector("input");
-    setInputValue(e.target.firstChild.data)
-    console.log(inputValue());
-    initializeVariablesValues("InputContent")
-    console.log(variablesValues);
+    // setInputValue(e.target.firstChild.data)
+    // console.log(inputValue());
+    // initializeVariablesValues("InputContent")
     addValuesToDataVariables("InputContent",e.target.firstChild.data)
     console.log(variablesValues);
     

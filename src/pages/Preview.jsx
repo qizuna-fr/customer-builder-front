@@ -30,6 +30,8 @@ export const Preview = () => {
         let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
         saveChoicesIntoAirtable(idUploadFileComponent, logoapp)
 
+        redirect(`${window.location.protocol}//${window.location.host}/accueil`)
+
       }
     return(
         <div className="containerpreviw">
@@ -59,8 +61,8 @@ export const Preview = () => {
     bottom: '0',
     border: 'white',
     }}> 
-        <input style={{ border: '1px solid #ccc'}} class="previous round" type='button' value='Retour' onClick={()=>{retour()}}/>
-        <input style={{ border: '1px solid #ccc'}} class="next round" type='button' value='Valider' onClick={()=>{saveData()}}/>
+        <input style={{ border: '1px solid #ccc'}} className="previous round" type='button' value='Retour' onClick={()=>{retour()}}/>
+        <input style={{ border: '1px solid #ccc'}} className="next round" type='button' value='Valider' onClick={()=>{saveData()}}/>
         </div>
         </div>
 );

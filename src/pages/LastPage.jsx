@@ -1,13 +1,11 @@
 import { IonItem, IonLabel } from "@ionic/react"
 import { Modal } from "@material-ui/core"
 import { useState } from "react";
-import { inputValue, redirect, titleColor, titleFont, titleStyle, uploadFile } from "./utilities"
+import { dataListAirtable, getVariablesValues, inputValue, redirect, titleColor, titleFont, titleStyle, uploadFile, variablesValues } from "./utilities"
 
 export const LastPage = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  console.log(uploadFile());
 
   let saveToJson = (text, fileName) => {
     // console.log("save");
@@ -34,25 +32,21 @@ export const LastPage = () => {
   let preview = () => {
     redirect(`${window.location.protocol}//${window.location.host}/preview`)
   }
+  console.log(getVariablesValues());
 
   return (
     <div  className="containerscrol">
       <h1> Résumé de vos choix </h1>
-      <IonItem >
-        <IonLabel >Departement : {inputValue()}</IonLabel>
+      {
+        variablesValues.map((item, index) => (
+        <IonItem key={index}>
+          <IonLabel key={index}>
+            coucouc
+            {item.name} : {item.value}
+          </IonLabel>
       </IonItem>
-      <IonItem>
-        <IonLabel > Logo : {uploadFile()}</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel > Couleur des titres : {titleColor()}</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel > Police des titres : {titleFont()}</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel > Style des titres : {titleStyle()}</IonLabel>
-      </IonItem>
+      ))
+      }
       <p></p>
       {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
       <input type='button' value='Preview' onClick={()=>{preview()}}/>

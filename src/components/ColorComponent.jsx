@@ -40,8 +40,8 @@ export const ColorComponent = (props) => {
         const inputColor = document.getElementById("input-color")
         setOpacity(inputOpacity.value)
         setColor(inputColor.value)
-        setTextColor(inputColor.value)
-        setTextOpacity(inputOpacity.value)
+        // setTextColor(inputColor.value)
+        // setTextOpacity(inputOpacity.value)
         console.log(inputColor.value);
         initializeVariablesValues("TitleColor")
         console.log(variablesValues);

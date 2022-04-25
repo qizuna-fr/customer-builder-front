@@ -29,17 +29,18 @@ export const getIdComponentFromAirtable = (component) => {
   return data.id
 }
 
-export const fetcTitleFromAirtable = (component) =>{
+export const fetchCariableNameFromAirtable = (slide) =>{
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
   let dataToFetch
   base('Projects').select({
-    filterByFormula: `Component = "${component}"`
+    filterByFormula: `Order = "${slide}"`
   }).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
         // dataToFetch =  record.get('Title')
-        sessionStorage.setItem('data', record.get('Title'));
+        // sessionStorage.setItem('data', record.get('Title'));
+        console.log(record.get('VariableName'));
       })
       fetchNextPage()
     }, 
@@ -47,8 +48,8 @@ export const fetcTitleFromAirtable = (component) =>{
       if (err) { console.error(err); return; }
     },
   )
-  let result = sessionStorage.getItem('data')
-  return result
+  // let result = sessionStorage.getItem('data')
+  // return result
 
 }
 
@@ -102,11 +103,25 @@ export const setValue = async (mySlides,value) => {
   else {
     const swiper = await mySlides.current.getSwiper();
     if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
+    
     swiper.slideNext();
     // let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
     // saveChoicesIntoAirtable(idUploadFileComponent, value)
   }
 }
+
+export const setActiveSlide = async (mySlides) => {
+  const swiper = await mySlides.current.getSwiper();
+  console.log(swiper.activeIndex);
+  activeSlide = swiper.activeIndex
+}
+
+export const setCurrentSlide = (slide) => {
+  console.log(slide);
+  activeSlide = slide
+}
+
+export let activeSlide 
 
 export let variablesValues = []
 
@@ -126,6 +141,26 @@ export const addValuesToDataVariables = (valueName, value) =>{
   }
   variablesValues.push(obj)
   console.log(variablesValues);
+}
+
+export const getVariablesValues = () => {
+  return variablesValues
+}
+
+export const initializeDataListAirtable = () =>{
+
+  dataListAirtable=[]
+  console.log(dataListAirtable);
+}
+
+export let dataListAirtable = []
+
+export const setdataListAirtable = (obj) => {
+  dataListAirtable.push(obj)
+}
+
+export const getdataListAirtable = () => {
+  return dataListAirtable
 }
 
 export const setNext = (next) => {

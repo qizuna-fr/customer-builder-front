@@ -19,10 +19,10 @@ export const Scrol = (props) => {
 {/* <a href={prevHandler} class="previous">&laquo; </a>
 <a href={nextHandler} class="next"> &raquo;</a> */}
 { (loop || index !== 0) && (
-<button type="button" class="previous round" onClick={prevHandler}>&#8249;</button>
+<button type="button" className="previous round" onClick={prevHandler}>&#8249;</button>
 )}
 { (loop || index !== total - 1) && (
-<button type="button" class="next round" onClick={nextHandler}>&#8250;</button>
+<button type="button" className="next round" onClick={nextHandler}>&#8250;</button>
 )}
 </div>
     )

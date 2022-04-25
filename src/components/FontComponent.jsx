@@ -9,7 +9,7 @@ export const FontComponent = (props) => {
     
     let setFontName = (value) => {
         setFont(value)
-        setTitleFont(font)
+        // setTitleFont(font)
         initializeVariablesValues("TitleFont")
         console.log(variablesValues);
         addValuesToDataVariables("TitleFont",font)

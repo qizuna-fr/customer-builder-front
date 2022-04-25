@@ -96,7 +96,7 @@ export const StyleComponent = (props) => {
             textTrasnform : text
         }
         console.log(variablesValues);
-        initializeVariablesValues("TitleStyle")
+        // initializeVariablesValues("TitleStyle")
         addValuesToDataVariables("TitleStyle",obj)
         console.log(variablesValues);
     }
@@ -119,7 +119,7 @@ export const StyleComponent = (props) => {
             textTrasnform : text
         }
         console.log(variablesValues);
-        initializeVariablesValues("TitleStyle")
+        // initializeVariablesValues("TitleStyle")
         addValuesToDataVariables("TitleStyle",obj)
         console.log(variablesValues);
     }
@@ -136,7 +136,7 @@ export const StyleComponent = (props) => {
             textTrasnform : text
         }
         console.log(variablesValues);
-        initializeVariablesValues("TitleStyle")
+        // initializeVariablesValues("TitleStyle")
         addValuesToDataVariables("TitleStyle",obj)
         console.log(variablesValues);
         // let obj = font+', '+weight+', '+text
@@ -147,7 +147,7 @@ export const StyleComponent = (props) => {
 
     return(
         <div >
-            <div class="btn-group">
+            <div className="btn-group">
             <button type="button" onClick={() => {setBold()}}>Bold</button>
             <button type="button" onClick={() => {setItalic()}}>Italic</button>
             <button type="button" onClick={() => {setUpperCase()}}>Upper Case</button>
