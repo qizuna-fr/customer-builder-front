@@ -7,12 +7,13 @@ import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
 
 import '../assets/css/Style.css'
-import { setVarialesValues, getVarialesValues, setdataListAirtable, dataListAirtable, initializeDataListAirtable } from './utilities';
+import { setVarialesValues, getVarialesValues, setdataListAirtable, dataListAirtable, initializeDataListAirtable, variablesValues } from './utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
 import { FontComponent } from '../components/FontComponent';
 import { StyleComponent } from '../components/StyleComponent';
+import { Preview } from './Preview';
 
 const Page = () => {
   
@@ -23,6 +24,8 @@ const Page = () => {
   const [dataAirtable, setDataAirtable] = useState([])
   let airtable = []
   let obj = {}
+
+  
 
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
@@ -53,15 +56,14 @@ const Page = () => {
         setdataListAirtable(obj)
       })
       fetchNextPage()
-      // let nbComponent  = airtable.length
-      // airtable.push({
-      //   title : 'Résumé des pages',
-      //   component : <LastPage/>, 
-      //   variableName: '',
-      //   order: nbComponent+1
-      // })
-      setDataAirtable(airtable)
-      // console.log(dataListAirtable);
+      let nbComponent  = dataListAirtable.length
+      dataListAirtable.push({
+        title : 'Résumé des pages',
+        component : <LastPage/>, 
+        variableName: 'Result',
+        order: nbComponent+1
+      })
+      // setDataAirtable(airtable)
     }, 
     function done(err) {
       if (err) { console.error(err); return; }

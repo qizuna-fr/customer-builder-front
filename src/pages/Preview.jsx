@@ -1,8 +1,10 @@
 import React from 'react';
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonIcon, IonItem, IonLabel } from '@ionic/react';
-import { getFontStyle, getIdComponentFromAirtable, getTextColor, getTextOpacity, getTextTrasnform, getWeight, inputValue, redirect, saveChoicesIntoAirtable, titleColor, titleFont, uploadFile } from './utilities';
+import { getFontStyle, getIdComponentFromAirtable, getTextColor, getTextOpacity, getTextTrasnform, getWeight, inputValue, redirect, saveChoicesIntoAirtable, titleColor, titleFont, uploadFile, variablesValues } from './utilities';
 
 export const Preview = () => {
+    console.log(variablesValues);
+    
     let title = inputValue()
     let logoapp = uploadFile()
     let color = getTextColor()
@@ -18,20 +20,7 @@ export const Preview = () => {
       }
 
       let saveData = () => {
-        let idColorComponent = getIdComponentFromAirtable("ColorComponent")
-        saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
-        let idFontComponent = getIdComponentFromAirtable("FontComponent")
-        saveChoicesIntoAirtable(idFontComponent, font)
-        let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
-        saveChoicesIntoAirtable(idInputContentComponent, title)
-        let obj = font+', '+weight+', '+textTransfrom
-        let idStyleComponent = getIdComponentFromAirtable("StyleComponent")
-        saveChoicesIntoAirtable(idStyleComponent, obj)
-        let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
-        saveChoicesIntoAirtable(idUploadFileComponent, logoapp)
-
-        redirect(`${window.location.protocol}//${window.location.host}/accueil`)
-
+        
       }
     return(
         <div className="containerpreviw">

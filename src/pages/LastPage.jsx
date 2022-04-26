@@ -3,7 +3,7 @@ import { Modal } from "@material-ui/core"
 import { useState } from "react";
 import { dataListAirtable, getVariablesValues, inputValue, redirect, titleColor, titleFont, titleStyle, uploadFile, variablesValues } from "./utilities"
 
-export const LastPage = () => {
+export const LastPage = (props) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -30,26 +30,24 @@ export const LastPage = () => {
   }
 
   let preview = () => {
-    redirect(`${window.location.protocol}//${window.location.host}/preview`)
+    // redirect(`${window.location.protocol}//${window.location.host}/preview`)
   }
   console.log(variablesValues);
 
   return (
-    <div  className="containerscrol">
-      <h1> Résumé de vos choix </h1>
+    <div  >
       {
         variablesValues.map((item, index) => (
-        <IonItem key={index}>
+          <IonItem >
           <IonLabel key={index}>
-            coucouc
             {item.name} : {item.value}
           </IonLabel>
-      </IonItem>
+    </IonItem>
       ))
-      }
+    }
       <p></p>
       {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
-      <input type='button' value='Preview' onClick={()=>{preview()}}/>
+      {/* <input type='button' value='Preview' onClick={()=>{preview()}}/> */}
       
     </div> 
   )

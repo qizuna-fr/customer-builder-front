@@ -55,11 +55,11 @@ export const Slider = (props) => {
   const mySlides = useRef(null);
 
   const ionSlide = document.getElementById("ion-slide");
- 
+
   return(
   <IonContent >
     <IonSlides  pager={false} options={slideOpts} style={{height: '100%'}} ref={mySlides}>
-    {props.frames.map((item, index) => (  
+    {props.frames.map((item, index) => ( 
       <IonSlide id="ion-slide" key={index}>
         <div className='containerscrol' >   
           <h1>
@@ -71,15 +71,15 @@ export const Slider = (props) => {
           </div>
           <div style={{ position: 'absolute', width: '100%', zIndex: '100', bottom: '0', textAlign: 'center'}}> 
           <input type="button" value="Valider"  onClick={()=>{setValue(mySlides,getValue(item.variableName))}}/>
-          </div>
+          </div> 
         </div>  
-      </IonSlide>
+      </IonSlide> 
     ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
-    </IonSlides> 
+    </IonSlides>
     <div style={{ position: 'absolute',
     width: '100%',
     zIndex: '100',
-    bottom: '0', 
+    bottom: '0',  
     textAlign: 'right'}}> 
       <button className="previous round"  onClick={() => onBtnClicked(mySlides,"prev")}>&#8249;</button>
       <button className="next round"  onClick={() => onBtnClicked(mySlides,"next")}>&#8250;</button>

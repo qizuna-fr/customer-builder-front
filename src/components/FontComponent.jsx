@@ -61,7 +61,7 @@ export const FontComponent = (props) => {
                 <p></p>
                 <hr></hr>
             <select onClick={getDataFromAPI} onChange={(e)=>{getSelectedFontFamily(e)}}> 
-                <option value="choisir une police" key="key" disabled>Choisir une police</option>
+                <option value="choisir une police" disabled>Choisir une police</option>
                 {
                     data.map((item, index) => ( 
 

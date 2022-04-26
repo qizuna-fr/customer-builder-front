@@ -12,15 +12,16 @@ export const StyleComponent = (props) => {
         setWeight(weight)
         let font = cssObj.getPropertyValue("font-style")
         let text = cssObj.getPropertyValue("text-transform") 
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)
         // console.log(variablesValues);
+        let obj = font+', '+weight+', '+text
         console.log(props);
         let varName = fetchVariableName(dataListAirtable, props.slide)
         addValuesToDataVariables(varName, obj)
@@ -37,11 +38,12 @@ export const StyleComponent = (props) => {
         setFontStyle(font)
         let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
         let text = cssObj.getPropertyValue("text-transform") 
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
+        let obj = font+', '+weight+', '+text
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)
@@ -60,11 +62,12 @@ export const StyleComponent = (props) => {
         setTextTrasnform(text)
         let font = cssObj.getPropertyValue("font-style")
         let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
+        let obj = font+', '+weight+', '+text
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)
@@ -83,11 +86,12 @@ export const StyleComponent = (props) => {
         setTextTrasnform(text)
         let font = cssObj.getPropertyValue("font-style")
         let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
+        let obj = font+', '+weight+', '+text
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)
@@ -106,11 +110,12 @@ export const StyleComponent = (props) => {
         setTextTrasnform(text)
         let font = cssObj.getPropertyValue("font-style")
         let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
+        let obj = font+', '+weight+', '+text
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)
@@ -133,11 +138,12 @@ export const StyleComponent = (props) => {
         setFontStyle(font)
         setWeight(weight)
         setTextTrasnform(text)
-        let obj = {
-            fontStyle : font,
-            weight : weight,
-            textTrasnform : text
-        }
+        // let obj = {
+        //     fontStyle : font,
+        //     weight : weight,
+        //     textTrasnform : text
+        // }
+        let obj = font+', '+weight+', '+text
         // console.log(variablesValues);
         // initializeVariablesValues("TitleStyle")
         // addValuesToDataVariables("TitleStyle",obj)

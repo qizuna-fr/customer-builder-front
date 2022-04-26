@@ -63,8 +63,11 @@ export const onBtnClicked = async (mySlides,direction) => {
   const swiper = await mySlides.current.getSwiper();
   // console.log(swiper.isEnd);
   if (direction === "next") {
-    if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
-    swiper.slideNext();
+    // if (swiper.isEnd) 
+    // {
+    //   redirect(`${window.location.protocol}//${window.location.host}/last-page`)
+    // }
+     swiper.slideNext();
   } else if (direction === "prev") {
     swiper.slidePrev();
   }
@@ -86,8 +89,10 @@ export const setValue = async (mySlides,value) => {
   }
   else {
     const swiper = await mySlides.current.getSwiper();
-    if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
-    
+    // if (swiper.isEnd) 
+    // {
+    //   redirect(`${window.location.protocol}//${window.location.host}/last-page`)
+    // }
     swiper.slideNext();
     // let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
     // saveChoicesIntoAirtable(idUploadFileComponent, value)
@@ -138,11 +143,11 @@ export const addValuesToDataVariables = (valueName, value) =>{
 }
 
 export const getVariablesValues = () => {
-  return variablesValues
+  return sessionStorage.getItem('variablesValues')
 }
 
-export const setVariablesValues = (value) => {
-  variablesValues = value
+export const setVariablesValues = (variablesValues) => {
+  sessionStorage.setItem('variablesValues', variablesValues);
 }
 
 export const initializeDataListAirtable = () =>{
