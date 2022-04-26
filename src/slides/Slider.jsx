@@ -47,7 +47,7 @@ import { getValue, onBtnClicked, setActiveSlide, setCurrentSlide, setValue } fro
 // See https://swiperjs.com/swiper-api for valid options.
 const slideOpts = {
   initialSlide: 1, 
-  speed: 400  
+  speed: 400 
 };
  
 export const Slider = (props) => {
@@ -66,7 +66,7 @@ export const Slider = (props) => {
             {item.title} 
           </h1> 
           <p></p>
-          <div style={{height: '50%', background:  "white" }} >
+          <div style={{height: '50%', background:  "white" }} key={index}>
             {item.component} 
           </div>
           <div style={{ position: 'absolute', width: '100%', zIndex: '100', bottom: '0', textAlign: 'center'}}> 
