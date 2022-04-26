@@ -4,7 +4,6 @@ export const StyleComponent = (props) => {
 
     let setBold = () => {
         const element = document.getElementById(props.slide);
-        console.log(element);
         const cssObj = window.getComputedStyle(element, null);
         let style = cssObj.getPropertyValue("font-weight");
         if (style == 400) document.getElementById(props.slide).style.fontWeight = "bold";

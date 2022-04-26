@@ -59,7 +59,7 @@ export const Slider = (props) => {
   return(
   <IonContent >
     <IonSlides  pager={false} options={slideOpts} style={{height: '100%'}} ref={mySlides}>
-    {props.frames.map((item, index) => ( 
+    {props.frames.map((item, index) => (  
       <IonSlide id="ion-slide" key={index}>
         <div className='containerscrol' >   
           <h1>
@@ -74,7 +74,7 @@ export const Slider = (props) => {
           </div>
         </div>  
       </IonSlide>
-    ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+    ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
     </IonSlides> 
     <div style={{ position: 'absolute',
     width: '100%',
