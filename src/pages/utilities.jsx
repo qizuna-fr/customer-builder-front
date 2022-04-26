@@ -23,7 +23,7 @@ export const fetchVariableNameFromAirtable = (slide) =>{
       records.forEach(function(record) {
         // dataToFetch =  record.get('VariableName')
         // sessionStorage.setItem('data', record.get('VariableName'));
-        console.log(record.get('VariableName'));
+        // console.log(record.get('VariableName'));
       })
       fetchNextPage()
     }, 
@@ -61,7 +61,7 @@ export const saveChoicesIntoAirtable = (id, values) => {
 
 export const onBtnClicked = async (mySlides,direction) => {
   const swiper = await mySlides.current.getSwiper();
-  console.log(swiper.isEnd);
+  // console.log(swiper.isEnd);
   if (direction === "next") {
     if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
     swiper.slideNext();
@@ -72,11 +72,10 @@ export const onBtnClicked = async (mySlides,direction) => {
 
 export const getValue = (variable) => {
   console.log(variable);
-  if (variable === "InputContent") return inputValue()
-  if (variable === "TitleFont") return titleFont()
-  if (variable === "TitleColor") return titleColor()
-  if (variable === "UploadFile") return uploadFile()
-  if (variable === "TitleStyle") return titleStyle()
+  console.log(variablesValues);
+  let filtered = variablesValues.filter(item => item.name === variable)
+  console.log(filtered[0].value);
+  return filtered[0].value
 }
 
 export const setValue = async (mySlides,value) => {
@@ -97,12 +96,12 @@ export const setValue = async (mySlides,value) => {
 
 export const setActiveSlide = async (mySlides) => {
   const swiper = await mySlides.current.getSwiper();
-  console.log(swiper.activeIndex);
+  // console.log(swiper.activeIndex);
   activeSlide = swiper.activeIndex
 }
 
 export const setCurrentSlide = (slide) => {
-  console.log(slide);
+  // console.log(slide);
   activeSlide = slide
 }
 
@@ -112,26 +111,20 @@ export let variablesValues = []
 
 export const initializeVariablesValues = (valueName) =>{
   let filtered = variablesValues.filter(item => item.name != valueName)
-  console.log(variablesValues);
+  // console.log(variablesValues);
   variablesValues=filtered
-  console.log(variablesValues);
+  // console.log(variablesValues);
 }
 
-export const addValuesToDataVariables = (value, slide) =>{
-  var Airtable = require('airtable');
-  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-  let valueName
-  base('Projects').select({
-    filterByFormula: `Order = "${slide}"`
-  }).eachPage(
-    function page(records, fetchNextPage) {
-      records.forEach(function(record) {
-        // dataToFetch =  record.get('VariableName')
-        // sessionStorage.setItem('data', record.get('VariableName'));
-        console.log(record.get('VariableName'));
-        valueName=record.get('VariableName')
-        console.log(value);
-        console.log(valueName);
+export const fetchVariableName = (dataList, slide) =>{
+  console.log(dataList);
+  let filtered = dataList.filter(item => item.order === slide)
+  console.log(filtered);
+  return filtered[0].variableName
+}
+
+export const addValuesToDataVariables = (valueName, value) =>{
+  
         let obj = {
           name : valueName,
           value : value
@@ -139,24 +132,23 @@ export const addValuesToDataVariables = (value, slide) =>{
         let filtered = variablesValues.filter(item => item.name != valueName)
         variablesValues=filtered
         variablesValues.push(obj)
-        console.log(variablesValues);
-      })
-      fetchNextPage()
-    }, 
-    function done(err) {
-      if (err) { console.error(err); return; }
-    },
-  )
+        // setVariablesValues(variablesValues)
+        // console.log(getVariablesValues());
+        // console.log(variablesValues);
 }
 
 export const getVariablesValues = () => {
   return variablesValues
 }
 
+export const setVariablesValues = (value) => {
+  variablesValues = value
+}
+
 export const initializeDataListAirtable = () =>{
 
   dataListAirtable=[]
-  console.log(dataListAirtable);
+  // console.log(dataListAirtable);
 }
 
 export let dataListAirtable = []
@@ -178,7 +170,7 @@ export const getNext = () => {
 }
 
 export const setVarialesValues = (variablesValues) =>{
-  console.log(variablesValues);
+  // console.log(variablesValues);
   sessionStorage.setItem('variablesValues', variablesValues);
 }
 
@@ -243,7 +235,7 @@ export const setTextOpacity = (opacity) => {
 }
 
 export const titleColor = () => {
-  console.log(getTextColor());
+  // console.log(getTextColor());
   return getTextColor()+', '+getTextOpacity()
 }
 

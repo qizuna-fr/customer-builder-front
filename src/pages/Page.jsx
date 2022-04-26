@@ -48,7 +48,7 @@ const Page = () => {
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
-        console.log(obj);
+        // console.log(obj);
         airtable.push(obj)
         setdataListAirtable(obj)
       })

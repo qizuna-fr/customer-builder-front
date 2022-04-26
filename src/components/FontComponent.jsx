@@ -6,6 +6,17 @@ import { addValuesToDataVariables, getIdComponentFromAirtable, initializeVariabl
 export const FontComponent = (props) => {
  
     const [font, setFont] = useState("Open Sans");
+
+    // fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU').then((response) => {
+    //       return response.json()
+    //       }).then((res) => {
+    //           let data = []
+    //         for (var i = 0; i < 50; i++) {
+    //           data.push(res.items[i].family)
+    //         }
+    //         setResult(data)
+    //       })
+
     
     let setFontName = (value) => {
         setFont(value)
@@ -22,17 +33,23 @@ export const FontComponent = (props) => {
 
     }
 
+    let getSelectedFontFamily = (e) => {
+        console.log(e);
+
+    }
+
     return (
-        <div data-testid="font-picker" >
+        <>
+        
         <FontPicker
             apiKey="AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU"
             activeFontFamily={font}
-            onChange={nextFont => { setFontName(nextFont.family)}}
+            onChange={(nextFont) => { setFontName(nextFont.family)}}
         />
         <p className="apply-font">La police sera appliquée à ce texte.</p>
-
         <p></p>
             {/* <input type="button" value="Valider" onClick={setFontOnClick}/> */}
-    </div>
+        </>
+
     )
 }

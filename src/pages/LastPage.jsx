@@ -32,7 +32,7 @@ export const LastPage = () => {
   let preview = () => {
     redirect(`${window.location.protocol}//${window.location.host}/preview`)
   }
-  console.log(getVariablesValues());
+  console.log(variablesValues);
 
   return (
     <div  className="containerscrol">

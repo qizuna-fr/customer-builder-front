@@ -47,26 +47,24 @@ import { getValue, onBtnClicked, setActiveSlide, setCurrentSlide, setValue } fro
 // See https://swiperjs.com/swiper-api for valid options.
 const slideOpts = {
   initialSlide: 1, 
-  speed: 400
+  speed: 400  
 };
-
-
+ 
 export const Slider = (props) => {
 
-  const mySlides = useRef(null); 
+  const mySlides = useRef(null);
 
   const ionSlide = document.getElementById("ion-slide");
-  
-
+ 
   return(
   <IonContent >
     <IonSlides  pager={false} options={slideOpts} style={{height: '100%'}} ref={mySlides}>
     {props.frames.map((item, index) => ( 
       <IonSlide id="ion-slide" key={index}>
         <div className='containerscrol' >   
-          <h1 > 
-            {item.title}
-          </h1>
+          <h1>
+            {item.title} 
+          </h1> 
           <p></p>
           <div style={{height: '50%', background:  "white" }} >
             {item.component} 
@@ -76,7 +74,7 @@ export const Slider = (props) => {
           </div>
         </div>  
       </IonSlide>
-      ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+    ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
     </IonSlides> 
     <div style={{ position: 'absolute',
     width: '100%',

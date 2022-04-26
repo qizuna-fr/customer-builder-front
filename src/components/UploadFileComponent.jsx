@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addValuesToDataVariables, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setUploadFile, setValidate, variablesValues } from "../pages/utilities";
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName, getIdComponentFromAirtable, getVariablesValues, initializeVariablesValues, saveChoicesIntoAirtable, setUploadFile, setValidate, variablesValues } from "../pages/utilities";
 
 export const UploadFileComponent = (props) => {
   
@@ -9,9 +9,12 @@ export const UploadFileComponent = (props) => {
     setFile(e.target.files[0]);
     // setUploadFile(e.target.files[0].name)
     console.log(e.target.files[0].name);
-    initializeVariablesValues("UploadFile")
-    console.log(variablesValues);
-    addValuesToDataVariables("UploadFile",e.target.files[0].name)
+    // initializeVariablesValues("UploadFile")
+    // console.log(getVariablesValues);
+    // addValuesToDataVariables("UploadFile",e.target.files[0].name)
+    console.log(props);
+    let varName = fetchVariableName(dataListAirtable, props.slide)
+    addValuesToDataVariables(varName, e.target.files[0].name)
     console.log(variablesValues);
 
   }
