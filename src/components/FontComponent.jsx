@@ -7,8 +7,7 @@ export const FontComponent = (props) => {
  
     const [data, setData] = useState([])
     const getDataFromAPI = () => {
-        console.log("click");
-    fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU').then((response) => {
+        fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU').then((response) => {
           return response.json()
           }).then((res) => {
               let tab = []
@@ -20,9 +19,9 @@ export const FontComponent = (props) => {
     }
     
     let getSelectedFontFamily = (e) => {
-        document.getElementById(props.slide).style.fontFamily = e.target.value;
         let varName = fetchVariableName(dataListAirtable, props.slide)
         addValuesToDataVariables(varName, e.target.value)
+        document.getElementById(props.slide).style.fontFamily = e.target.value;
     }
 
     return (
@@ -48,6 +47,5 @@ export const FontComponent = (props) => {
                 }
            </select> 
         </>
-
     )
 }

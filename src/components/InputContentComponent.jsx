@@ -2,7 +2,6 @@ import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from ".
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {next} from '../slides/Carousel'
 
 export const InputContentComponent = (props) => {
 
@@ -12,17 +11,18 @@ export const InputContentComponent = (props) => {
     onInput()
   }
 
-  const [result, setResult] = useState([])
+  const [commune, setCommune] = useState([])
   
   const getDataFromAPI = (adresse) => {
   
   fetch('https://geo.api.gouv.fr/communes?nom='+adresse+'&fields=departement&limit=5').then((response) => {
     return response.json()
     }).then((res) => {
+      let resultCommune = []
       for (var i = 0; i < res.length; i++) {
-        result.push(res[i].nom)
+        resultCommune.push(res[i].nom)
       }
-      setResult(result)
+      setCommune(resultCommune)
     })
   }
   
@@ -37,7 +37,7 @@ export const InputContentComponent = (props) => {
         freeSolo
         autoComplete
         autoHighlight
-        options={result}
+        options={commune}
         onChange={(e)=>{setInput(e)}}
         renderInput={(params) => (
           <TextField {...params}

@@ -64,11 +64,9 @@ export const onBtnClicked = async (mySlides,direction) => {
 };
 
 export const getValue = (variable) => {
-  console.log(variable);
-  console.log(variablesValues);
   let filtered = variablesValues.filter(item => item.name === variable)
-  console.log(filtered[0].value);
-  return filtered[0].value
+  if (filtered.length != 0) return filtered[0].value
+  else return null
 }
 
 export const setValue = async (mySlides,value) => {

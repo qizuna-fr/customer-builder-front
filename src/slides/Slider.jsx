@@ -41,20 +41,19 @@
 //import React from 'react';
 import { IonSlides, IonSlide, IonContent } from '@ionic/react';
 import { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { getValue, onBtnClicked, setValue } from '../pages/utilities';
 import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { InputContentComponent } from '../components/InputContentComponent';
-import { FontComponent } from '../components/FontComponent';
 const slideOpts = {
   initialSlide: 1, 
   speed: 400 
-};
- 
+}; 
+
+
 export const Slider = (props) => {
 
   const mySlides = useRef(null);
