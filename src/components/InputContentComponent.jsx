@@ -1,4 +1,4 @@
-import { addValuesToDataVariables, variableName, fetchDataFromAirtable,inputValue, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setInputValue, variablesValues, activeSlide, fetchTitleFromAirtable, fetchVariableNameFromAirtable, dataListAirtable, fetchVariableName } from "../pages/utilities"
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -7,10 +7,6 @@ import {next} from '../slides/Carousel'
 export const InputContentComponent = (props) => {
 
   let onInput = props.onInput
-
-  
-
-  // const [inputValue, setInputValue]= useState()
 
   if (onInput) {
     onInput()
@@ -29,32 +25,10 @@ export const InputContentComponent = (props) => {
       setResult(result)
     })
   }
-
   
   const setInput = (e) =>{
-    console.log(props);
-    
-    console.log(dataListAirtable);
     let varName = fetchVariableName(dataListAirtable, props.slide)
-    // fetchVariableNameFromAirtable(props.slide)
-    // console.log(e.target.firstChild.data);
-    // const name = document.querySelector("input");
-    // setInputValue(e.target.firstChild.data)
-    // console.log(inputValue());
-    // initializeVariablesValues(props.slide)
     addValuesToDataVariables(varName, e.target.firstChild.data)
-    console.log(variablesValues);
-    
-    // console.log(name.value);
-    // if (name.value === "" ) 
-    // {
-    //   alert("Veuillez saisir une valeur !");
-    // }
-    // else {
-    //   setInputValue(name.value)
-    //   let idInputContentComponent = getIdComponentFromAirtable("InputContentComponent")
-    //   saveChoicesIntoAirtable(idInputContentComponent, name.value)
-    // }
   } 
 
   return (

@@ -7,13 +7,12 @@ import { Slider } from '../slides/Slider';
 import { useEffect, useState } from 'react';
 
 import '../assets/css/Style.css'
-import { setVarialesValues, getVarialesValues, setdataListAirtable, dataListAirtable, initializeDataListAirtable, variablesValues } from './utilities';
+import { setdataListAirtable, dataListAirtable } from './utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
 import { FontComponent } from '../components/FontComponent';
 import { StyleComponent } from '../components/StyleComponent';
-import { Preview } from './Preview';
 
 const Page = () => {
   
@@ -34,16 +33,12 @@ const Page = () => {
   base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        // console.log(record.get('Component'));
         let component
         if (record.get('Component') === "InputContentComponent") component=<InputContentComponent slide={record.get('Order')}></InputContentComponent>
         if (record.get('Component') === "UploadFileComponent") component=<UploadFileComponent slide={record.get('Order')}></UploadFileComponent>
         if (record.get('Component') === "FontComponent") component=<FontComponent slide={record.get('Order')}></FontComponent>
         if (record.get('Component') === "ColorComponent") component=<ColorComponent slide={record.get('Order')}></ColorComponent>
         if (record.get('Component') === "StyleComponent") component=<StyleComponent slide={record.get('Order')}></StyleComponent>
-        // let component = Data.find(page => page.title === record.get('Component')) 
-
-        // console.log(record);
         obj = {
           idComponent: record.id,
           title : record.get('Title'),
@@ -51,7 +46,6 @@ const Page = () => {
           variableName: record.get('VariableName'),
           order: record.get('Order')
         }
-        // console.log(obj);
         airtable.push(obj)
         setdataListAirtable(obj)
       })

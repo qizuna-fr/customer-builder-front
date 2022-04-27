@@ -1,19 +1,18 @@
 import React from 'react';
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonIcon, IonItem, IonLabel } from '@ionic/react';
-import { getFontStyle, getIdComponentFromAirtable, getTextColor, getTextOpacity, getTextTrasnform, getWeight, inputValue, redirect, saveChoicesIntoAirtable, titleColor, titleFont, uploadFile, variablesValues } from './utilities';
+import { redirect, variablesValues } from './utilities';
 
 export const Preview = () => {
     console.log(variablesValues);
     
-    let title = inputValue()
-    let logoapp = uploadFile()
-    let color = getTextColor()
-    let opacity = getTextOpacity()
-    let font = titleFont()
-    let fontStyle = getFontStyle()
-    let weight = getWeight()
-    let textTransfrom = getTextTrasnform()
-    const logo = require('../assets/icon/'+logoapp);
+    let title 
+    let color 
+    let opacity 
+    let font 
+    let fontStyle 
+    let weight 
+    let textTransfrom 
+    let logo 
 
     let retour = () => {
         redirect(`${window.location.protocol}//${window.location.host}/last-page`)

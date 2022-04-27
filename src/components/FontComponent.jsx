@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setTitleFont, variablesValues } from '../pages/utilities';
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName} from '../pages/utilities';
 
 export const FontComponent = (props) => {
  
-    // const [font, setFont] = useState("Open Sans");
-
-
     const [data, setData] = useState([])
     const getDataFromAPI = () => {
         console.log("click");
@@ -22,28 +19,10 @@ export const FontComponent = (props) => {
           })
     }
     
-    let setFontName = (value) => {
-        
-        // setTitleFont(font)
-        // initializeVariablesValues("TitleFont")
-        // console.log(variablesValues);
-        // addValuesToDataVariables("TitleFont",font)
-        // console.log(variablesValues);
-    }
-    
-    let setFontOnClick = () => {
-        let idFontComponent = getIdComponentFromAirtable("FontComponent")
-        // saveChoicesIntoAirtable(idFontComponent, font)
-        
-    }
-    
     let getSelectedFontFamily = (e) => {
-        console.log(e.target.value);
         document.getElementById(props.slide).style.fontFamily = e.target.value;
         let varName = fetchVariableName(dataListAirtable, props.slide)
         addValuesToDataVariables(varName, e.target.value)
-        console.log(variablesValues);
-
     }
 
     return (
@@ -64,7 +43,6 @@ export const FontComponent = (props) => {
                 <option value="choisir une police" disabled>Choisir une police</option>
                 {
                     data.map((item, index) => ( 
-
                         <option value={item} key={index}>{item}</option>
                     ))
                 }

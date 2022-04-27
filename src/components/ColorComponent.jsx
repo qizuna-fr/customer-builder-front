@@ -1,69 +1,24 @@
 import React, { useState } from 'react'
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName, getIdComponentFromAirtable, initializeVariablesValues, saveChoicesIntoAirtable, setTextColor, setTextOpacity, setTitleColor, variablesValues} from '../pages/utilities';
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from '../pages/utilities';
 
 export const ColorComponent = (props) => {
-    const [opacity, setOpacity] = useState('1');
-    const [color, setColor] = useState("#4ca2af");
-
-    // let color = "#4ca2af"
-    // let opacity = '1'
-  
-    let opacityValue=(e)=>{
-        // setOpacity(e.target.value)
-        // setTextOpacity(e.target.value)
-    }
-    let colorValue=(e)=>{
-        // console.log(e.target.value);
-        // setColor(e.target.value)
-        // setTextColor(e.target.value)
-    }
+   
     const setColorValue = (e) => {
-        console.log(e.target.value);
-        // setOpacity(inputOpacity.value)
-        // setColor(inputColor.value)
-        // setTextColor(inputColor.value)
-        // setTextOpacity(inputOpacity.value)
-        // initializeVariablesValues("TitleColor")
-        // console.log(variablesValues);
         let color = e.target.value
-        console.log(props);
         let varName = fetchVariableName(dataListAirtable, props.slide)
         addValuesToDataVariables(varName, color)
-        console.log(variablesValues);
-        // addValuesToDataVariables("TitleColor",obj)
-        // console.log(variablesValues);
-        // setTitleColor(color+','+opacity)
-        // let idColorComponent = getIdComponentFromAirtable("ColorComponent")
-        // saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
     }
 
-    const setOpacityValue = (e) => {
-        const inputOpacity = document.getElementById("input-opacity")
-        const inputColor = document.getElementById("input-color")
-        // setOpacity(inputOpacity.value)
-        // setColor(inputColor.value)
-        console.log(inputColor);
-        console.log(inputOpacity);
-        // setTextColor(inputColor.value)
-        // setTextOpacity(inputOpacity.value)
-        // console.log(inputColor.value);
-        // initializeVariablesValues("TitleColor")
-        // console.log(variablesValues);
-        let obj = {
-        color : inputColor.value,
-        opacity : inputOpacity.value
-        }
-        console.log(obj);
-        // addValuesToDataVariables("TitleColor",obj)
-        // console.log(variablesValues);
-        // setTitleColor(color+','+opacity)
-        // let idColorComponent = getIdComponentFromAirtable("ColorComponent")
-        // saveChoicesIntoAirtable(idColorComponent, color+','+opacity)
-        console.log(props);
-        let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, obj)
-        console.log(variablesValues);
-    }
+    // const setOpacityValue = (e) => {
+    //     const inputOpacity = document.getElementById("input-opacity")
+    //     const inputColor = document.getElementById("input-color")
+    //     let obj = {
+    //     color : inputColor.value,
+    //     opacity : inputOpacity.value
+    //     }
+    //     let varName = fetchVariableName(dataListAirtable, props.slide)
+    //     addValuesToDataVariables(varName, obj)
+    // }
 
     return (
         <div >

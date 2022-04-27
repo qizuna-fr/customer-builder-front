@@ -39,12 +39,17 @@
 // }
 
 //import React from 'react';
-import { IonSlides, IonSlide, IonContent, IonButton } from '@ionic/react';
-import { useEffect, useRef } from 'react';
-import { getValue, onBtnClicked, setActiveSlide, setCurrentSlide, setValue } from '../pages/utilities';
-
-// Optional parameters to pass to the swiper instance.
-// See https://swiperjs.com/swiper-api for valid options.
+import { IonSlides, IonSlide, IonContent } from '@ionic/react';
+import { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { getValue, onBtnClicked, setValue } from '../pages/utilities';
+import 'swiper/css';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { InputContentComponent } from '../components/InputContentComponent';
+import { FontComponent } from '../components/FontComponent';
 const slideOpts = {
   initialSlide: 1, 
   speed: 400 
@@ -53,10 +58,7 @@ const slideOpts = {
 export const Slider = (props) => {
 
   const mySlides = useRef(null);
-
-  const ionSlide = document.getElementById("ion-slide");
-
-  return(
+  return( 
   <IonContent >
     <IonSlides  pager={false} options={slideOpts} style={{height: '100%'}} ref={mySlides}>
     {props.frames.map((item, index) => ( 
@@ -64,7 +66,7 @@ export const Slider = (props) => {
         <div className='containerscrol' >   
           <h1>
             {item.title} 
-          </h1> 
+          </h1>
           <p></p>
           <div style={{height: '50%', background:  "white" }} key={index}>
             {item.component} 
@@ -73,7 +75,7 @@ export const Slider = (props) => {
           <input type="button" value="Valider"  onClick={()=>{setValue(mySlides,getValue(item.variableName))}}/>
           </div> 
         </div>  
-      </IonSlide> 
+      </IonSlide>
     ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
     </IonSlides>
     <div style={{ position: 'absolute',
@@ -85,5 +87,33 @@ export const Slider = (props) => {
       <button className="next round"  onClick={() => onBtnClicked(mySlides,"next")}>&#8250;</button>
     </div>
   </IonContent>
-) 
+      // <IonContent>
+      //   <Swiper style={{height: '100%'}} modules={[Navigation, Pagination, Scrollbar, A11y]}
+      //           spaceBetween={50}
+      //           slidesPerView={1}
+      //           navigation
+      //           pagination={{ clickable: true }}
+      //           scrollbar={{ draggable: true }}
+      //           onSwiper={(swiper) => console.log(swiper)}
+      //           onSlideChange={() => console.log('slide change')}>
+      //   {props.frames.map((item, index) => 
+      //   (  
+      //     <SwiperSlide id="ion-slide" key={index}>
+      //       <div className='containerscrol' >   
+      //         <h1>
+      //           {item.title} 
+      //         </h1> 
+      //         <p></p>
+      //         <div style={{height: '50%', background:  "white" }} key={index}>
+      //           {item.component} 
+      //         </div>
+      //         <div style={{ position: 'absolute', width: '100%', zIndex: '100', bottom: '0', textAlign: 'center'}}> 
+      //         <input type="button" value="Valider"  onClick={()=>{setValue(mySlides,getValue(item.variableName))}}/>
+      //         </div> 
+      //       </div>  
+      //     </SwiperSlide>
+      //   ))}
+      //   </Swiper>
+      // </IonContent>
+      ) 
 }
