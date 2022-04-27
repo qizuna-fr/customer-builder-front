@@ -12,7 +12,7 @@ export const LastPage = (props) => {
   let preview = () => {
     // redirect(`${window.location.protocol}//${window.location.host}/preview`)
   }
-  console.log(variablesValues);
+  // console.log(variablesValues);
 
   return (
     <div  >

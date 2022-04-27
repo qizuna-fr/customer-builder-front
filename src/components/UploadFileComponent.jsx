@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName, getIdComponentFromAirtable, saveChoicesIntoAirtable } from "../pages/utilities";
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from "../pages/utilities";
 
 export const UploadFileComponent = (props) => {
   
@@ -9,17 +9,6 @@ export const UploadFileComponent = (props) => {
     setFile(e.target.files[0]);
     let varName = fetchVariableName(dataListAirtable, props.slide)
     addValuesToDataVariables(varName, e.target.files[0].name)
-  }
-
-  const setFileTitle = () => {
-    if (file === undefined ) 
-    {
-      alert("Veuillez choisir un fichier !");
-    }
-    else {
-      let idUploadFileComponent = getIdComponentFromAirtable("UploadFileComponent")
-      saveChoicesIntoAirtable(idUploadFileComponent, file.name)
-    }
   }
   
   return (

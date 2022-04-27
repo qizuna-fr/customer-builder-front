@@ -15,7 +15,6 @@ export const getIdComponentFromAirtable = (component) => {
 export const fetchVariableNameFromAirtable = (slide) =>{
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-  let dataToFetch
   base('Projects').select({
     filterByFormula: `Order = "${slide}"`
   }).eachPage(
@@ -70,7 +69,6 @@ export const getValue = (variable) => {
 }
 
 export const setValue = async (mySlides,value) => {
-  console.log(value);
   if (value === null) 
   {
     alert("Veuillez remplir le champ !");
@@ -101,10 +99,9 @@ export let variablesValues = []
 // }
 
 export const fetchVariableName = (dataList, slide) =>{
-  console.log(dataList);
   let filtered = dataList.filter(item => item.order === slide)
-  console.log(filtered);
-  return filtered[0].variableName
+  if (filtered.length != 0) return filtered[0].variableName
+  else return null
 }
 
 export const addValuesToDataVariables = (valueName, value) =>{
@@ -115,6 +112,7 @@ export const addValuesToDataVariables = (valueName, value) =>{
   let filtered = variablesValues.filter(item => item.name != valueName)
   variablesValues=filtered
   variablesValues.push(obj)
+  console.log(variablesValues);
 }
 
 export const initializeDataListAirtable = () =>{

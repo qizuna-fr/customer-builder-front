@@ -26,10 +26,10 @@ const Page = () => {
 
   
 
-  var Airtable = require('airtable');
-  var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-
+  
   const fetchData = async() => {
+    var Airtable = require('airtable');
+    var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
   base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {

@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
 import { addValuesToDataVariables, dataListAirtable, fetchVariableName} from '../pages/utilities';
 
 export const FontComponent = (props) => {
+
+    let initialize = () => {
+        let varName = fetchVariableName(dataListAirtable, props.slide)
+        addValuesToDataVariables(varName, "Open sans")
+    }
+
+    useEffect(() => {
+        initialize();
+    }, []);
  
     const [data, setData] = useState([])
     const getDataFromAPI = () => {
@@ -46,6 +55,8 @@ export const FontComponent = (props) => {
                     ))
                 }
            </select> 
+           <hr></hr>
+            <p style={{fontFamily: "Open sans"}}>La police par défaut sera celle appliquée à ce texte ("Open sans") !</p> 
         </>
     )
 }
