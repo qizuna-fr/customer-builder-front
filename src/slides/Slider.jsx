@@ -1,12 +1,15 @@
-import { IonSlides, IonSlide, IonContent } from '@ionic/react';
+import { IonSlides, IonSlide, IonContent, IonToast } from '@ionic/react';
 import { useRef, useState, useEffect } from 'react';
-import { dataListAirtable, initializeDataListAirtable, setDataListAirtable } from '../pages/utilities';
+import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, setOrderError, setValueError } from '../pages/utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
 import { FontComponent } from '../components/FontComponent';
 import { StyleComponent } from '../components/StyleComponent';
 import { useHistory } from 'react-router';
+
+import { alertCircleOutline } from 'ionicons/icons';
+
 
 export const Slider = (props) => {
 
@@ -56,10 +59,48 @@ export const Slider = (props) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  
   
   let content = () => {
     initializeDataListAirtable()
     setDataListAirtable(dataAirtable)
+    console.log(dataListAirtable);
+
+    let orderList = []
+    let valueList = []
+    dataListAirtable.map((item , index) => {
+      orderList.push(item.order)
+      valueList.push(item.variableName)
+    }) 
+    let uniqueOrder = [...new Set(orderList)];
+    let uniqueValue = [...new Set(valueList)];
+     if (orderList.length != uniqueOrder.length){
+       return (
+        <>
+            <IonToast isOpen={true}
+                position="middle"
+                color="warning"
+                icon={alertCircleOutline}
+                message=" Vous avez des doublons dans l'ordre de vos page ! Veuillez verifier votre saisi ! "
+            />
+        </>
+    )
+     }
+     if (valueList.length != uniqueValue.length) 
+     {
+       return (
+        <>
+            <IonToast isOpen={true}
+                position="middle"
+                color="warning"
+                icon={alertCircleOutline}
+                message=" Les noms de variables devraient être unique ! Veuillez verifier votre saisi ! "
+            />
+        </>
+    )
+     }
+
     return (
       dataAirtable.map((item, index) => ( 
       <IonSlide id="ion-slide" key={index}>
