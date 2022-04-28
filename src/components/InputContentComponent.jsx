@@ -1,4 +1,4 @@
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from "../pages/utilities"
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName, setChoisesValue } from "../pages/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -28,7 +28,7 @@ export const InputContentComponent = (props) => {
   
   const setInput = (e) =>{
     let varName = fetchVariableName(dataListAirtable, props.slide)
-    addValuesToDataVariables(varName, e.target.firstChild.data)
+    setChoisesValue(varName, e.target.firstChild.data)
   } 
 
   return (
@@ -50,7 +50,6 @@ export const InputContentComponent = (props) => {
           )}
       /> 
       <p></p>
-      {/* <input type="button" value="Valider" onClick={() => {setInput()}} /> */}
     </div> 
   )
 }

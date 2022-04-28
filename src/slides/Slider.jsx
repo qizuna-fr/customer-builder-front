@@ -1,12 +1,11 @@
 import { IonSlides, IonSlide, IonContent } from '@ionic/react';
 import { useRef, useState, useEffect } from 'react';
-import { dataListAirtable, getValue, getVariablesValue, onBtnClicked, setDataListAirtable, setValue, setVariablesValue, variablesValues } from '../pages/utilities';
+import { dataListAirtable, initializeDataListAirtable, setDataListAirtable } from '../pages/utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
 import { FontComponent } from '../components/FontComponent';
 import { StyleComponent } from '../components/StyleComponent';
-import { LastPage } from '../pages/LastPage';
 import { useHistory } from 'react-router';
 
 export const Slider = (props) => {
@@ -39,22 +38,13 @@ export const Slider = (props) => {
           title : record.get('Title'),
           component : component, 
           variableName: record.get('VariableName'),
-          order: record.get('Order')
+          order: record.get('Order'),
+          Choices : null
         }
         airtable.push(obj)
         setDataListAirtable(obj)
       })
       fetchNextPage()
-      console.log(airtable);
-      // let nbComponent  = airtable.length
-      // airtable.push({
-      //   title : 'Résumé des pages',
-      //   component : <LastPage/>, 
-      //   variableName: 'Result',
-      //   order: nbComponent+1
-      // })
-      // airtable.push({})
-      // airtable.pop();
       setDataAirtable(airtable)
     }, 
     function done(err) {
@@ -68,7 +58,8 @@ export const Slider = (props) => {
   }, []);
   
   let content = () => {
-    console.log(dataAirtable);
+    initializeDataListAirtable()
+    setDataListAirtable(dataAirtable)
     return (
       dataAirtable.map((item, index) => ( 
       <IonSlide id="ion-slide" key={index}>
@@ -88,12 +79,9 @@ export const Slider = (props) => {
 
   const onBtnClicked = async (mySlides,direction) => {
     const swiper = await mySlides.current.getSwiper();
-    console.log(swiper.isEnd);
     if (direction === "next") {
       if (swiper.isEnd) {
-        console.log(variablesValues);
         redirectToLast()
-        // redirect(`${window.location.protocol}//${window.location.host}/last-page`, {data : variablesValues})
       }
       swiper.slideNext();
     } else if (direction === "prev") {
@@ -102,7 +90,7 @@ export const Slider = (props) => {
   };
   
   const getValue = (variable) => {
-    let filtered = variablesValues.filter(item => item.name === variable)
+    let filtered = dataListAirtable.filter(item => item.variableName === variable)
     if (filtered.length != 0) return filtered[0].value
     else return null
   }
@@ -117,21 +105,16 @@ export const Slider = (props) => {
     }
     else {
       if (swiper.isEnd) {
-        console.log(variablesValues);
         redirectToLast()
-        // redirect(`${window.location.protocol}//${window.location.host}/last-page`, {data : variablesValues})
       }
       swiper.slideNext();
     }
   }
 
   const history = useHistory()
+
   const redirectToLast = () => {
-    console.log(variablesValues);
-    setVariablesValue(variablesValues)
-    
-    console.log(getVariablesValue());
-    history.push('/last-page', { data: variablesValues })
+    history.push('/last-page')
   }
 
   return (
@@ -140,8 +123,8 @@ export const Slider = (props) => {
         {content()}
       </IonSlides>
       <div id="btn-center" > 
-      <button className="previous round"  onClick={() => onBtnClicked(mySlides,"prev")}>&#8249;</button>
-      <button className="next round"  onClick={() => onBtnClicked(mySlides,"next")}>&#8250;</button>
+      <button className="previous"  onClick={() => onBtnClicked(mySlides,"prev")}>&#8249;</button>
+      <button className="next"  onClick={() => onBtnClicked(mySlides,"next")}>&#8250;</button>
     </div>
     </IonContent> 
   )

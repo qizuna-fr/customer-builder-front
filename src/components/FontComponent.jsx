@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName} from '../pages/utilities';
+import { dataListAirtable, fetchVariableName, setChoisesValue} from '../pages/utilities';
 
 export const FontComponent = (props) => {
 
     let initialize = () => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, "Open sans")
+        setChoisesValue(varName, "Open sans")
     }
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export const FontComponent = (props) => {
     
     let getSelectedFontFamily = (e) => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, e.target.value)
+        setChoisesValue(varName, e.target.value)
         document.getElementById(props.slide).style.fontFamily = e.target.value;
     }
 

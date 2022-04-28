@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName } from '../pages/utilities';
+import React, { useEffect } from 'react'
+import { dataListAirtable, fetchVariableName, setChoisesValue } from '../pages/utilities';
 
 export const ColorComponent = (props) => {
 
     let initialize = () => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, "#000000, 1")
+        setChoisesValue(varName, "#000000, 1")
     }
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export const ColorComponent = (props) => {
     const setColorValue = (e) => {
         let color = e.target.value
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, color)
+        setChoisesValue(varName, color)
     }
 
     return (

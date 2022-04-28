@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { addValuesToDataVariables, fetchVariableName, dataListAirtable } from "../pages/utilities";
+import { addValuesToDataVariables, fetchVariableName, dataListAirtable, setChoisesValue } from "../pages/utilities";
 
 export const StyleComponent = (props) => {
 
@@ -17,7 +17,7 @@ export const StyleComponent = (props) => {
         let text = cssObj.getPropertyValue("text-transform") 
         let obj = font+', '+weight+', '+text
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        addValuesToDataVariables(varName, obj)
+        setChoisesValue(varName, obj)
     }
 
     let setBold = () => {
@@ -81,7 +81,6 @@ export const StyleComponent = (props) => {
             <hr></hr>
             <p id={props.slide}> Le style sera appliqué à ce texte </p> 
             <hr></hr>
-            {/* <input type="button" value="Valider" onClick={setStyle}/> */}
         </div>
     )
 }
