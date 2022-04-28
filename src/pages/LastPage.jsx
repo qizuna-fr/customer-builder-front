@@ -23,7 +23,7 @@ export const LastPage = (props) => {
  
   return (
 
-    <div className='containerscrol' >
+    <div >
       <h1>Résumé de vos choix !</h1>
       <hr></hr>
 
