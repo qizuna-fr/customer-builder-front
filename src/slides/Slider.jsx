@@ -88,6 +88,7 @@ export const Slider = (props) => {
 
   const onBtnClicked = async (mySlides,direction) => {
     const swiper = await mySlides.current.getSwiper();
+    console.log(swiper.isEnd);
     if (direction === "next") {
       if (swiper.isEnd) {
         console.log(variablesValues);
@@ -108,12 +109,13 @@ export const Slider = (props) => {
   
   const setValue = async (mySlides,value) => {
     console.log(mySlides);
+    const swiper = await mySlides.current.getSwiper();
+    console.log(swiper.isEnd);
     if (value === null) 
     {
       alert("Veuillez remplir le champ !");
     }
     else {
-      const swiper = await mySlides.current;
       if (swiper.isEnd) {
         console.log(variablesValues);
         redirectToLast()
@@ -129,10 +131,7 @@ export const Slider = (props) => {
     setVariablesValue(variablesValues)
     
     console.log(getVariablesValue());
-    history.push({
-      pathname: '/last-page',
-      state: { data: variablesValues }
-    })
+    history.push('/last-page', { data: variablesValues })
   }
 
   return (

@@ -4,25 +4,10 @@ import { useLocation } from "react-router";
 import { dataListAirtable, getDataListAirtable, getVariablesValue, redirect, variablesValues } from "./utilities"
 
 export const LastPage = (props) => {
+
   console.log(getVariablesValue());
 
-  const location = useLocation()
-  
-  const [dataList, setDataList] = useState([])
-  
-  const fetchData = async() => {
-
-    console.log(location);
-  
-    let d = location.state.data
-  
-    console.log(d);
-    setDataList(d)
-  }
-
-  useEffect(() => {
-    fetchData();
-}, []);
+  let dataList = getVariablesValue()
 
   let saveToAirtable = () => {
 
