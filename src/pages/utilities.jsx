@@ -1,4 +1,6 @@
+import { Redirect } from 'react-router';
 import { Data } from '../components/Data';
+import { LastPage } from './LastPage';
 
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
@@ -52,36 +54,8 @@ export const saveChoicesIntoAirtable = (id, values) => {
   });
 }
 
-export const onBtnClicked = async (mySlides,direction) => {
-  const swiper = await mySlides.current.getSwiper();
-  if (direction === "next") {
-    // if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
-     swiper.slideNext();
-  } else if (direction === "prev") {
-    swiper.slidePrev();
-  }
-};
-
-export const getValue = (variable) => {
-  let filtered = variablesValues.filter(item => item.name === variable)
-  if (filtered.length != 0) return filtered[0].value
-  else return null
-}
-
-export const setValue = async (mySlides,value) => {
-  if (value === null) 
-  {
-    alert("Veuillez remplir le champ !");
-  }
-  else {
-    const swiper = await mySlides.current.getSwiper();
-    // if (swiper.isEnd) redirect(`${window.location.protocol}//${window.location.host}/last-page`)
-    swiper.slideNext();
-  }
-}
-
 export const setActiveSlide = async (mySlides) => {
-  const swiper = await mySlides.current.getSwiper();
+  const swiper = await mySlides.current;
   activeSlide = swiper.activeIndex
 }
 
@@ -93,10 +67,6 @@ export let activeSlide
 
 export let variablesValues = []
 
-// export const initializeVariablesValues = (valueName) =>{
-//   let filtered = variablesValues.filter(item => item.name != valueName)
-//   variablesValues=filtered
-// }
 
 export const fetchVariableName = (dataList, slide) =>{
   let filtered = dataList.filter(item => item.order === slide)
@@ -112,7 +82,14 @@ export const addValuesToDataVariables = (valueName, value) =>{
   let filtered = variablesValues.filter(item => item.name != valueName)
   variablesValues=filtered
   variablesValues.push(obj)
-  console.log(variablesValues);
+}
+
+export const setVariablesValue = (variablesValues) =>  {
+  variablesValues =variablesValues
+}
+
+export const getVariablesValue = () =>{
+  return variablesValues
 }
 
 export const initializeDataListAirtable = () =>{
@@ -121,10 +98,10 @@ export const initializeDataListAirtable = () =>{
 
 export let dataListAirtable = []
 
-export const setdataListAirtable = (obj) => {
+export const setDataListAirtable = (obj) => {
   dataListAirtable.push(obj)
 }
 
-export const getdataListAirtable = () => {
+export const getDataListAirtable = () => {
   return dataListAirtable
 }

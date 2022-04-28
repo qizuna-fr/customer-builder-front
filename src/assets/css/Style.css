@@ -38,7 +38,7 @@ p {
   flex-wrap: nowrap;
 }
 
-.containerpreviw {
+/* .containerpreviw {
   text-align: center;
   position: absolute;
   top: 50%;
@@ -52,7 +52,7 @@ p {
   align-items: stretch;
   align-content: center;
   flex-wrap: nowrap;
-}
+} */
 
 img.logo {
   width: 40%;
@@ -79,7 +79,7 @@ input[type=button] {
 	color: white;
 	padding: 9px 20px;
 	cursor: pointer;
-  border: none
+  border: 0.1px solid #ffffff;
 }
 
 button {
@@ -106,32 +106,33 @@ button:hover {
   background: #000000;
 }
 
-/* .swiper-slide {
-  display: block;
-} */
-
-/* .swiper-slide h2 {
-  margin-top: 2.8rem;
-} */
-
-/* .swiper-slide img {
-  max-height: 50%;
-  max-width: 80%;
-  margin: 60px 0 40px;
-  pointer-events: none;
-} */
-
-/* b {
-  font-weight: 500;
-} */
-
-/* p {
-  padding: 0 40px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ion-color-step-600, #60646b);
+#datas {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-p b {
-  color: var(--ion-text-color, #000000);
-} */
+#datas td, #datas th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#datas tr:nth-child(even){background-color: #f2f2f2;}
+
+#datas tr:hover {background-color: #ddd;}
+
+#datas th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4ca2af;
+  color: white;
+}
+
+#btn-center {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  bottom: 0;
+  border: 0.1px solid #ffffff;
+}

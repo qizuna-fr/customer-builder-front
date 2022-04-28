@@ -1,34 +1,72 @@
 import { IonItem, IonLabel } from "@ionic/react"
-import { Modal } from "@material-ui/core"
-import { useState } from "react";
-import { variablesValues } from "./utilities"
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import { dataListAirtable, getDataListAirtable, getVariablesValue, redirect, variablesValues } from "./utilities"
 
 export const LastPage = (props) => {
+  console.log(getVariablesValue());
+
+  const location = useLocation()
+  
+  const [dataList, setDataList] = useState([])
+  
+  const fetchData = async() => {
+
+    console.log(location);
+  
+    let d = location.state.data
+  
+    console.log(d);
+    setDataList(d)
+  }
+
+  useEffect(() => {
+    fetchData();
+}, []);
 
   let saveToAirtable = () => {
 
   }
 
+  let previous = () =>{
+    redirect(`${window.location.protocol}//${window.location.host}/qizuna`)
+  }
+
   let preview = () => {
     // redirect(`${window.location.protocol}//${window.location.host}/preview`)
   }
-  // console.log(variablesValues);
-
+ 
   return (
-    <div  >
-      {
-        variablesValues.map((item, index) => (
-          <IonItem >
-          <IonLabel key={index}>
-            {item.name} : {item.value}
-          </IonLabel>
-    </IonItem>
-      ))
-    }
+
+    <div className='containerscrol' >
+      <h1>Résumé de vos choix !</h1>
+      <hr></hr>
+
+      <table id="datas" >
+        <thead>
+          <tr>
+            <th>Nom de la variable </th>
+            <th>Valeur </th>
+          </tr>
+        </thead>
+        <tbody>
+          {dataList.map((item, index) => (
+            <tr  key={index}>
+              <td>{item.name} </td>
+              <td>{item.value} </td>
+            </tr >
+          ))
+          } 
+        </tbody>
+      </table >
       <p></p>
-      {/* <input type='button' value='Valider' onClick={saveToAirtable}/> */}
-      {/* <input type='button' value='Preview' onClick={()=>{preview()}}/> */}
-      
+      <div id="btn-center" >
+      <input type='button' value='Retour' onClick={()=>{previous()}}/>
+      <input type='button' value='Valider' onClick={saveToAirtable}/> 
+      <input type='button' value='Preview' onClick={()=>{preview()}}/>
+      </div>
+      <hr></hr>
+      <hr></hr>
     </div> 
   )
 }

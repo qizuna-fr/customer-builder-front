@@ -21,22 +21,27 @@ import { Preview } from '../pages/Preview';
     },
     {
       title: 'InputContentComponent',
+      url: '/input-content',
       component : <InputContentComponent/>
     },
     {
       title: 'UploadFileComponent',
+      url: '/uoload-file',
       component : <UploadFileComponent/>
     },
     {
       title: 'ColorComponent',
+      url: '/color-picker',
       component : <ColorComponent/>
     },
     {
       title: 'FontComponent',
+      url: '/font-picker',
       component : <FontComponent/>
     },
     {
       title: 'StyleComponent',
+      url: '/style',
       component : <StyleComponent/>
     },
     {

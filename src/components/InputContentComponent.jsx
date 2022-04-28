@@ -48,7 +48,7 @@ export const InputContentComponent = (props) => {
           required
           />
           )}
-      />
+      /> 
       <p></p>
       {/* <input type="button" value="Valider" onClick={() => {setInput()}} /> */}
     </div> 
