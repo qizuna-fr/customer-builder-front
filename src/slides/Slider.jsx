@@ -10,7 +10,6 @@ import { useHistory } from 'react-router';
 
 import { alertCircleOutline } from 'ionicons/icons';
 
-
 export const Slider = (props) => {
 
   const mySlides = useRef(null); 
@@ -60,12 +59,10 @@ export const Slider = (props) => {
     fetchData();
   }, []);
 
-  
-  
   let content = () => {
+
     initializeDataListAirtable()
     setDataListAirtable(dataAirtable)
-    console.log(dataListAirtable);
 
     let orderList = []
     let valueList = []
@@ -137,9 +134,7 @@ export const Slider = (props) => {
   }
   
   const setValue = async (mySlides,value) => {
-    console.log(mySlides);
     const swiper = await mySlides.current.getSwiper();
-    console.log(swiper.isEnd);
     if (value === null) 
     {
       alert("Veuillez remplir le champ !");

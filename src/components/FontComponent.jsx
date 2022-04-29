@@ -26,7 +26,11 @@ export const FontComponent = (props) => {
             setData(tab)
           })
     }
-    
+
+    useEffect(() => {
+        getDataFromAPI();
+    }, []);
+
     let getSelectedFontFamily = (e) => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
         setChoisesValue(varName, e.target.value)
@@ -47,8 +51,8 @@ export const FontComponent = (props) => {
                 <p id={props.slide}>La police sera appliquée à ce texte.</p>
                 <p></p>
                 <hr></hr>
-            <select onClick={getDataFromAPI} onChange={(e)=>{getSelectedFontFamily(e)}}> 
-                <option value="choisir une police" disabled>Choisir une police</option>
+            <select onChange={(e)=>{getSelectedFontFamily(e)}}> 
+            <option value="choisir une police" disabled>Choisir une police</option>
                 {
                     data.map((item, index) => ( 
                         <option value={item} key={index}>{item}</option>

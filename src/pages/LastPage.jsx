@@ -1,12 +1,13 @@
-import { getDataListAirtable, redirect } from "./utilities"
+import { getDataListAirtable, redirect, saveChoicesIntoAirtable } from "./utilities"
 
 export const LastPage = (props) => {
 
   let dataList = getDataListAirtable()
 
-  console.log(getDataListAirtable());
-
   let saveToAirtable = () => {
+    dataList.map((item, index) => {
+      saveChoicesIntoAirtable(item.idComponent, item.Choices)
+    })
   }
 
   let previous = () =>{
@@ -38,8 +39,8 @@ export const LastPage = (props) => {
       </table >
       <p></p>
       <div id="btn-center" >
-      <input type='button' value='Retour' onClick={()=>{previous()}}/>
-      <input type='button' value='Valider' onClick={saveToAirtable}/> 
+      <input type='button' value='Retour' onClick={()=>previous()}/>
+      <input type='button' value='Valider' onClick={() => saveToAirtable()}/> 
       </div>
       <hr></hr>
       <hr></hr>

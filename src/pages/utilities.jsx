@@ -1,3 +1,4 @@
+
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
     newURL.href = targetURL;
@@ -21,7 +22,6 @@ export const saveChoicesIntoAirtable = (id, values) => {
     return;
   }
   records.forEach(function (record) {
-    console.log(record.getId());
   });
   });
 }
@@ -32,11 +32,11 @@ export const fetchVariableName = (dataList, slide) =>{
   else return null
 }
 
+export let dataListAirtable = []
+
 export const initializeDataListAirtable = () =>{
   dataListAirtable=[]
 }
-
-export let dataListAirtable = []
 
 export const setDataListAirtable = (data) => {
   dataListAirtable=data
