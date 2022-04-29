@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { addValuesToDataVariables, fetchVariableName, dataListAirtable, setChoisesValue } from "../pages/utilities";
+import { addValuesToDataVariables, fetchVariableName, dataListAirtable, setChoisesValue } from "../utilities/utilities";
 
 export const StyleComponent = (props) => {
 

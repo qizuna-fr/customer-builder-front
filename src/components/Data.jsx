@@ -1,6 +1,6 @@
 import { Accueil } from '../pages/Accueil';
 import { LastPage } from '../pages/LastPage';
-import { Slider } from '../slides/Slider';
+import { Slider } from '../pages/Slider';
 import { InputContentComponent } from './InputContentComponent';
 import { UploadFileComponent } from './UploadFileComponent';
 import { ColorComponent } from './ColorComponent';

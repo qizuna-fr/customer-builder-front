@@ -1,4 +1,4 @@
-import { getDataListAirtable, redirect, saveChoicesIntoAirtable } from "./utilities"
+import { getDataListAirtable, redirect, saveChoicesIntoAirtable } from "../utilities/utilities"
 
 export const LastPage = (props) => {
 

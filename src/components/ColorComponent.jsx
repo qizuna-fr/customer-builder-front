@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { dataListAirtable, fetchVariableName, setChoisesValue } from '../pages/utilities';
+import { dataListAirtable, fetchVariableName, setChoisesValue } from '../utilities/utilities';
 
 export const ColorComponent = (props) => {
 

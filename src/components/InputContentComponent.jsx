@@ -1,4 +1,4 @@
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName, setChoisesValue } from "../pages/utilities"
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName, setChoisesValue } from "../utilities/utilities"
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';

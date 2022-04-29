@@ -2,7 +2,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import {Data} from "../components/Data"
 import { useParams } from 'react-router';
 import { Accueil } from './Accueil';
-import { Slider } from '../slides/Slider';
+import { Slider } from './Slider';
 
 import '../assets/css/Style.css'
 

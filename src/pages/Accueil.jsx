@@ -1,4 +1,4 @@
-import { orderError, redirect } from "./utilities"
+import { orderError, redirect } from "../utilities/utilities"
 
 export const Accueil = () => {
 

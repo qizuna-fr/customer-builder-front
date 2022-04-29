@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addValuesToDataVariables, dataListAirtable, fetchVariableName, setChoisesValue } from "../pages/utilities";
+import { addValuesToDataVariables, dataListAirtable, fetchVariableName, setChoisesValue } from "../utilities/utilities";
 
 export const UploadFileComponent = (props) => {
   

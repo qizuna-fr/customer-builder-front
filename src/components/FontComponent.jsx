@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react'
 import FontPicker from "font-picker-react";
-import { dataListAirtable, fetchVariableName, setChoisesValue} from '../pages/utilities';
+import { dataListAirtable, fetchVariableName, setChoisesValue} from '../utilities/utilities';
 
 export const FontComponent = (props) => {
 

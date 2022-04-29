@@ -1,3 +1,5 @@
+import { IonToast } from '@ionic/react';
+import { alertCircleOutline } from 'ionicons/icons';
 
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
@@ -50,4 +52,14 @@ export const setChoisesValue = (variableName, choices) => {
   let filtered = dataListAirtable.filter(item => item.variableName == variableName)
   let index = dataListAirtable.indexOf(filtered[0]);
   dataListAirtable[index].Choices = choices
+}
+
+export const verifyUnique = (list) =>{
+  console.log(list);
+  let unique = [...new Set(list)];
+  console.log(unique);
+  if (list.length != unique.length){
+    console.log("oui");
+    return true
+  }
 }

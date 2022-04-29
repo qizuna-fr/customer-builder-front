@@ -1,13 +1,12 @@
 import { IonSlides, IonSlide, IonContent, IonToast } from '@ionic/react';
 import { useRef, useState, useEffect } from 'react';
-import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, setOrderError, setValueError } from '../pages/utilities';
+import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, setOrderError, setValueError, verifyUnique } from '../utilities/utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
 import { FontComponent } from '../components/FontComponent';
 import { StyleComponent } from '../components/StyleComponent';
 import { useHistory } from 'react-router';
-
 import { alertCircleOutline } from 'ionicons/icons';
 
 export const Slider = (props) => {
@@ -70,33 +69,18 @@ export const Slider = (props) => {
       orderList.push(item.order)
       valueList.push(item.variableName)
     }) 
-    let uniqueOrder = [...new Set(orderList)];
-    let uniqueValue = [...new Set(valueList)];
-     if (orderList.length != uniqueOrder.length){
-       return (
+    if (verifyUnique(orderList) || verifyUnique(valueList)) {
+      return (
         <>
-            <IonToast isOpen={true}
-                position="middle"
-                color="warning"
-                icon={alertCircleOutline}
-                message=" Vous avez des doublons dans l'ordre de vos page ! Veuillez verifier votre saisi ! "
-            />
+          <IonToast isOpen={true}
+            position="middle"
+            color="warning"
+            icon={alertCircleOutline}
+            message= "Vous avez des doublons dans votre base de données ! Veuillez verifier votre saisie ! "
+          />
         </>
-    )
-     }
-     if (valueList.length != uniqueValue.length) 
-     {
-       return (
-        <>
-            <IonToast isOpen={true}
-                position="middle"
-                color="warning"
-                icon={alertCircleOutline}
-                message=" Les noms de variables devraient être unique ! Veuillez verifier votre saisi ! "
-            />
-        </>
-    )
-     }
+        )
+    }
 
     return (
       dataAirtable.map((item, index) => ( 
@@ -108,7 +92,7 @@ export const Slider = (props) => {
           <p></p>
             {item.component}
           <div >
-          <input type="button" value="Valider"  onClick={()=>{setValue(mySlides,getValue(item.variableName))}}/>
+          <input type="button" value="Valider"  onClick={()=>{goNextOnValidateClick(mySlides,getValue(item.variableName))}}/>
           </div> 
         </div>  
       </IonSlide>
@@ -133,7 +117,7 @@ export const Slider = (props) => {
     else return null
   }
   
-  const setValue = async (mySlides,value) => {
+  const goNextOnValidateClick = async (mySlides,value) => {
     const swiper = await mySlides.current.getSwiper();
     if (value === null) 
     {
