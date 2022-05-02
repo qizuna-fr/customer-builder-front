@@ -1,5 +1,3 @@
-import { IonToast } from '@ionic/react';
-import { alertCircleOutline } from 'ionicons/icons';
 
 export const redirect = (targetURL) => {
     let newURL = document.createElement('a');
@@ -55,11 +53,8 @@ export const setChoisesValue = (variableName, choices) => {
 }
 
 export const verifyUnique = (list) =>{
-  console.log(list);
   let unique = [...new Set(list)];
-  console.log(unique);
   if (list.length != unique.length){
-    console.log("oui");
     return true
   }
 }

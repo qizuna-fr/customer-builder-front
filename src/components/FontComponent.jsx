@@ -5,9 +5,11 @@ import { dataListAirtable, fetchVariableName, setChoisesValue} from '../utilitie
 
 export const FontComponent = (props) => {
 
+    const [font, setFont] = useState("Roboto")
+
     let initialize = () => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        setChoisesValue(varName, "Open sans")
+        setChoisesValue(varName, "Roboto")
     }
 
     useEffect(() => {
@@ -15,6 +17,7 @@ export const FontComponent = (props) => {
     }, []);
  
     const [data, setData] = useState([])
+
     const getDataFromAPI = () => {
         fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyDVQrji1LB_5ED_0Yd3WvdkMZXMmNDF6GU').then((response) => {
           return response.json()
@@ -33,6 +36,7 @@ export const FontComponent = (props) => {
 
     let getSelectedFontFamily = (e) => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
+        setFont(e.target.value)
         setChoisesValue(varName, e.target.value)
         document.getElementById(props.slide).style.fontFamily = e.target.value;
     }
@@ -48,11 +52,9 @@ export const FontComponent = (props) => {
         {/* <p id={props.slide}>La police sera appliquée à ce texte.</p> */}
         <p></p>
             {/* <input type="button" value="Valider" onClick={setFontOnClick}/> */}
-                <p id={props.slide}>La police sera appliquée à ce texte.</p>
-                <p></p>
+                <p id={props.slide} >La police sera appliquée à ce texte.</p>
                 <hr></hr>
             <select onChange={(e)=>{getSelectedFontFamily(e)}}> 
-            <option value="choisir une police" disabled>Choisir une police</option>
                 {
                     data.map((item, index) => ( 
                         <option value={item} key={index}>{item}</option>
@@ -60,7 +62,6 @@ export const FontComponent = (props) => {
                 }
            </select> 
            <hr></hr>
-            <p style={{fontFamily: "Open sans"}}>La police par défaut sera celle appliquée à ce texte ("Open sans") !</p> 
         </>
     )
 }

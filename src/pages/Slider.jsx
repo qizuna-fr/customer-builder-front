@@ -1,6 +1,6 @@
 import { IonSlides, IonSlide, IonContent, IonToast } from '@ionic/react';
 import { useRef, useState, useEffect } from 'react';
-import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, setOrderError, setValueError, verifyUnique } from '../utilities/utilities';
+import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, verifyUnique } from '../utilities/utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
@@ -113,13 +113,13 @@ export const Slider = (props) => {
   
   const getValue = (variable) => {
     let filtered = dataListAirtable.filter(item => item.variableName === variable)
-    if (filtered.length != 0) return filtered[0].value
+    if (filtered.length != 0) return filtered[0].Choices
     else return null
   }
   
   const goNextOnValidateClick = async (mySlides,value) => {
     const swiper = await mySlides.current.getSwiper();
-    if (value === null) 
+    if ((value === null) || (value == undefined)) 
     {
       alert("Veuillez remplir le champ !");
     }

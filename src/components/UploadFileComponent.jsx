@@ -6,7 +6,8 @@ export const UploadFileComponent = (props) => {
   const [file, setFile] = useState();
 
   const handleChange = (e) => {
-    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0].name);
     let varName = fetchVariableName(dataListAirtable, props.slide)
     // addValuesToDataVariables(varName, e.target.files[0].name)
     setChoisesValue(varName, e.target.files[0].name)
