@@ -58,3 +58,11 @@ export const verifyUnique = (list) =>{
     return true
   }
 }
+
+export const getClientID = () =>{
+  return sessionStorage.getItem('clientId')
+}
+
+export const setClientID = (clientId) => {
+  sessionStorage.setItem('clientId', clientId);
+}

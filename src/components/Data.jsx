@@ -6,12 +6,18 @@ import { UploadFileComponent } from './UploadFileComponent';
 import { ColorComponent } from './ColorComponent';
 import { FontComponent } from './FontComponent';
 import { StyleComponent } from './StyleComponent';
+import { ClientListPage } from '../pages/ClientListPage';
 
   export const Data = [
     {
       title: 'qizuna',
       url: '/qizuna',
       component : <Slider/>
+    },
+    {
+      title: 'qizuna-client',
+      url: '/qizuna-client',
+      component : <ClientListPage/>
     },
     {
       title: 'accueil',

@@ -1,6 +1,6 @@
 import { IonSlides, IonSlide, IonContent, IonToast } from '@ionic/react';
 import { useRef, useState, useEffect } from 'react';
-import { dataListAirtable, initializeDataListAirtable, setDataListAirtable, verifyUnique } from '../utilities/utilities';
+import { dataListAirtable, getClientID, initializeDataListAirtable, setDataListAirtable, verifyUnique } from '../utilities/utilities';
 import { InputContentComponent } from '../components/InputContentComponent';
 import { UploadFileComponent } from '../components/UploadFileComponent';
 import { ColorComponent } from '../components/ColorComponent';
@@ -25,7 +25,7 @@ export const Slider = (props) => {
   const fetchData = async() => {
     var Airtable = require('airtable');
     var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-  base('Projects').select({sort:[{field: "Order", direction: "asc"}], view: "Grid view"}).eachPage(
+    base('Data').select({sort:[{field: "Order", direction: "asc"}], filterByFormula: `Client = "${getClientID()}"`, view: "Grid view"}).eachPage(
     function page(records, fetchNextPage) {
       records.forEach(function(record) {
         let component
@@ -47,6 +47,7 @@ export const Slider = (props) => {
       })
       fetchNextPage()
       setDataAirtable(airtable)
+      console.log(airtable);
     }, 
     function done(err) {
       if (err) { console.error(err); return; }
@@ -84,19 +85,25 @@ export const Slider = (props) => {
 
     return (
       dataAirtable.map((item, index) => ( 
-      <IonSlide id="ion-slide" key={index}>
-        <div className='containerscrol' >   
-          <h1>
+      <IonSlide id="ion-slide" key={index} >
+        <div className='containerscrol' >
+          <h1> 
             {item.title} 
           </h1>
           <p></p>
             {item.component}
           <div >
-          <input type="button" value="Valider"  onClick={()=>{goNextOnValidateClick(mySlides,getValue(item.variableName))}}/>
+          <input type="button" value="Valider" onClick={()=>{goNextOnValidateClick(mySlides,getValue(item.variableName))}}/>
           </div> 
         </div>  
       </IonSlide>
     )))
+  }
+
+  const handleKeyPress = (e) =>{
+    console.log(e);
+    if (e.key === 'Enter') {
+    }
   }
 
   const onBtnClicked = async (mySlides,direction) => {
@@ -138,7 +145,7 @@ export const Slider = (props) => {
   }
 
   return (
-    <IonContent>
+    <IonContent onKeyPress={(e) => handleKeyPress(e)}>
       <IonSlides pager={true} options={slideOpts} style={{height: '100%'}} ref={mySlides}>
         {content()}
       </IonSlides>
