@@ -8,7 +8,6 @@ export const ClientListPage = () => {
     let clientArray = []
 
     const scrollToNext = () => {
-        
         redirect(`${window.location.protocol}//${window.location.host}/qizuna`)
     }
 
@@ -29,14 +28,13 @@ export const ClientListPage = () => {
             });
             fetchNextPage();
             setClientList(clientArray)
-          
         }, 
         function done(err) {
           if (err) { console.error(err); return; }
         },
         )
       }
-      
+
       useEffect(() => {
         fetchClient();
       }, []);
@@ -60,10 +58,13 @@ export const ClientListPage = () => {
     }
 
     let getClientId = (cityName) =>{
-        console.log(cityName.target.innerHTML);
-        console.log(clientList);
-        let filtered = clientList.filter(item => item.cityName == 'Cernay')
-        console.log(filtered[0].id);
+      console.log(cityName);
+        // console.log(cityName.target.innerHTML);
+        // console.log(clientList);
+        // let name = cityName.split("<a>")
+        // console.log(name[0]);
+        let filtered = clientList.filter(item => item.cityName === cityName)
+        // console.log(filtered[0].id);
         setClientID(filtered[0].id);
 
       }
@@ -71,16 +72,15 @@ export const ClientListPage = () => {
     return(
         <div className="containerscrol">
             <h1>Choisissez le Client !</h1>
-            <input type="text" id="myInput" onKeyUp={(e) => getClientList()} placeholder="Taper un nom ici.."/>
-            <ul id="myUL">
-            {clientList.map((item, index) => (
-            <li  key={index} onClick={(e) => getClientId(e)}>
-                <a> {item.cityName} </a>
-                
-            </li >
-          ))
-          }
-        </ul>
+            <hr></hr>
+        <select onChange={(e)=>{getClientId(e.target.value)}}> 
+                {
+                    clientList.map((item, index) => ( 
+                        <option value={item.cityName} key={index}>{item.cityName}</option>
+                    ))
+                }
+           </select>
+           <hr></hr>
             <button type="submit" onClick={() => scrollToNext()}>Commencer</button>
         </div>
 )

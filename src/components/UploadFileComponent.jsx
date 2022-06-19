@@ -14,7 +14,7 @@ export const UploadFileComponent = (props) => {
   }
   
   return (
-    <div>
+    <div>    
       <input required type="file" onChange={(e) => handleChange(e)} data-testid="file-input"/>
       {/* <input type="button" value="Valider" onClick={()=>{setFileTitle()}}/> */}
     </div>

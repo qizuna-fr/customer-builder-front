@@ -9,7 +9,7 @@ export const redirect = (targetURL) => {
 export const saveChoicesIntoAirtable = (id, values) => {
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyWdc5YHi3Jwi34f'}).base('app9QhNsv5170O8Iw');
-  base('Projects').update([
+  base('Data').update([
     {
       "id": id,
       "fields": {

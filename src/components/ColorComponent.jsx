@@ -5,7 +5,7 @@ export const ColorComponent = (props) => {
 
     let initialize = () => {
         let varName = fetchVariableName(dataListAirtable, props.slide)
-        setChoisesValue(varName, "#000000, 1")
+        setChoisesValue(varName, "#000000 1")
     }
 
     useEffect(() => {

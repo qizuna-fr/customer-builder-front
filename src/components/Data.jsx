@@ -7,6 +7,8 @@ import { ColorComponent } from './ColorComponent';
 import { FontComponent } from './FontComponent';
 import { StyleComponent } from './StyleComponent';
 import { ClientListPage } from '../pages/ClientListPage';
+import { Preview } from '../pages/Preview';
+import { EditImageComponent } from './EditImageComponent';
 
   export const Data = [
     {
@@ -53,5 +55,15 @@ import { ClientListPage } from '../pages/ClientListPage';
       title: 'lastPage',
       url: '/last-page',
       component : <LastPage/>
+    },
+    {
+      title: 'preview',
+      url: '/preview',
+      component : <Preview/>
+    },
+    {
+      title: 'editImage',
+      url: '/edit-image',
+      component : <EditImageComponent/>
     }
 ]

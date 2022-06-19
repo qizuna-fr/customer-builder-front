@@ -1,8 +1,11 @@
-import { getDataListAirtable, redirect, saveChoicesIntoAirtable } from "../utilities/utilities"
+import { EditImageComponent } from "../components/EditImageComponent"
+import { getDataListAirtable, redirect, saveChoicesIntoAirtable, setDataListAirtable } from "../utilities/utilities"
+import { Preview } from "./Preview"
 
 export const LastPage = (props) => {
 
   let dataList = getDataListAirtable()
+  setDataListAirtable(dataList)
 
   let saveToAirtable = () => {
     dataList.map((item, index) => {
@@ -14,9 +17,14 @@ export const LastPage = (props) => {
     redirect(`${window.location.protocol}//${window.location.host}/qizuna`)
   }
 
+  // let preview = () =>{
+  //   redirect(`${window.location.protocol}//${window.location.host}/last-page`)
+  // }
+
   return (
 
     <div >
+      <div>
       <h1>Résumé de vos choix !</h1>
       <hr></hr>
 
@@ -40,10 +48,13 @@ export const LastPage = (props) => {
       <p></p>
       <div id="btn-center" >
       <input type='button' value='Retour' onClick={()=>previous()}/>
+      {/* <input type='button' value='Preview' onClick={() => preview()}/>  */}
       <input type='button' value='Valider' onClick={() => saveToAirtable()}/> 
       </div>
       <hr></hr>
       <hr></hr>
+      </div>
     </div> 
+
   )
 }

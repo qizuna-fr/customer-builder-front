@@ -15,7 +15,7 @@ export const StyleComponent = (props) => {
         let weight = (cssObj.getPropertyValue("font-weight") == 400) ? "normal" : "bold"
         let font = cssObj.getPropertyValue("font-style")
         let text = cssObj.getPropertyValue("text-transform") 
-        let obj = font+', '+weight+', '+text
+        let obj = font+' '+weight+' '+text
         let varName = fetchVariableName(dataListAirtable, props.slide)
         setChoisesValue(varName, obj)
     }
