@@ -73,14 +73,14 @@ export const ClientListPage = () => {
         <div className="containerscrol">
             <h1>Choisissez le Client !</h1>
             <hr></hr>
-        <select onChange={(e)=>{getClientId(e.target.value)}}> 
+            <select onChange={(e)=>{getClientId(e.target.value)}}> 
                 {
                     clientList.map((item, index) => ( 
                         <option value={item.cityName} key={index}>{item.cityName}</option>
                     ))
                 }
-           </select>
-           <hr></hr>
+            </select>
+            <hr></hr>
             <button type="submit" onClick={() => scrollToNext()}>Commencer</button>
         </div>
 )

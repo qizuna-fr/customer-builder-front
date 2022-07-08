@@ -32,7 +32,6 @@ export const ColorComponent = (props) => {
             <hr></hr>
             <p>La couleur par défaut sera le noir !</p> 
             <p></p>
-            {/* <input type="button" value="Valider" onClick={setColorWithOpacity}/> */}
         </div>
     )
 }

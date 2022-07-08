@@ -142,7 +142,7 @@ export const Slider = (props) => {
 
   const redirectToLast = () => {
     history.push('/last-page')
-    // history.push('/preview')
+    history.push('/preview')
   }
 
   return (
